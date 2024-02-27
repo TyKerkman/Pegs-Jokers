@@ -1,27 +1,27 @@
 package com.example.pegsandjokers;
 
-public class CircularLinkedList {
+public class CircularLinkedList<E> {
 
-    private Node<T> head;
+    private Node<E> head;
 
     public CircularLinkedList(){
         this.head = null;
     }
 
-    public void insert(T data){
-        Node<T> newNode = new Node<>(data);
+    public void insert(E data){
+        Node<E> newNode = new Node<E>(data);
 
         if (head == null) {
-            head = newNode;
-            head.next = head;
+            this.head = newNode;
+            this.head.setNext(this.head);
         } else {
-            Node<T> temp = head;
-            while (temp.next != head){
-                temp = temp.next;
+            Node<E> temp = this.head;
+            while (temp.getNext() != this.head){
+                temp = temp.getNext();
             }
 
-            temp.next = newNode;
-            newNode.next = head;
+            temp.setNext(newNode);
+            newNode.setNext(this.head);
         }
     }
 }
