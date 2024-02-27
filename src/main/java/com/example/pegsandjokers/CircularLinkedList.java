@@ -9,7 +9,6 @@ public class CircularLinkedList<E> {
     }
 
     public void insert(Node<E> newNode){
-
         if (head == null) {
             this.head = newNode;
             this.head.setNext(this.head);
