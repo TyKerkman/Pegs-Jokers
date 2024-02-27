@@ -1,16 +1,30 @@
 package com.example.pegsandjokers;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
 
-    private List<Card> hand;
+    private int num;
     private String name;
+    private List<Card> hand;
+    private Player partner;
+    private List<Peg> pegs;
 
-    public Player(String name){
-        this.hand = new ArrayList<>();
+    public Player(int num, String name){
+        this.num = num;
         this.name = name;
+        this.hand = new ArrayList<>();
+        this.pegs = new ArrayList<Peg>();
+    }
+
+    public Player(int num, String name, Player partner){
+        this.num = num;
+        this.name = name;
+        this.hand = new ArrayList<>();
+        this.pegs = new ArrayList<Peg>();
+        this.partner = partner;
     }
 
     public String getName(){
@@ -21,7 +35,12 @@ public class Player {
         return this.hand;
     }
 
+    public Player getPartner(){
+        return this.partner;
+    }
+
     public void addCardToHand(Card c){
         this.hand.add(c);
     }
+
 }

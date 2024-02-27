@@ -10,6 +10,7 @@ public class Deck {
 
     public Deck(){
         this.cards = new ArrayList<>();
+        this.initializeDeck();
     }
 
     public void initializeDeck(){
