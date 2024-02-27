@@ -39,4 +39,8 @@ public class LinkedList<E> {
             newNode.setNext(this.last);
         }
     }
+
+    public Node<E> getFirst(){
+        return this.first;
+    }
 }

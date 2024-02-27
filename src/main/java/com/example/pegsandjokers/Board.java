@@ -1,6 +1,4 @@
 package com.example.pegsandjokers;
-
-import java.util.LinkedList;
 public class Board {
 
     public static final int SIZE_OF_BOARD_SEGMENT = 18;
@@ -26,9 +24,16 @@ public class Board {
 
     public void insertHeaven(Node<Hole> node){
         LinkedList<Node<Hole>> heaven = new LinkedList<>();
-        for (int i = 0; i < SIZE_OF_HEAVEN; i++){
-            heaven.add(new Node<Hole>(new Hole()));
+        for (int i = 0; i < SIZE_OF_HEAVEN; i++) {
+            Node<Hole> newNode = new Node<>(new Hole());
+            heaven.insert(newNode);
+            if (i == 0){
+                node.setFork(newNode);
+            }
         }
-        node.setFork(heaven);
+    }
+
+    public CircularLinkedList<Hole> getLoop(){
+        return this.loop;
     }
 }

@@ -39,4 +39,8 @@ public class CircularLinkedList<E> {
             newNode.setNext(this.head);
         }
     }
+
+    public Node<E> getHead(){
+        return this.head;
+    }
 }

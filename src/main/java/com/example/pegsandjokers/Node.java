@@ -1,12 +1,10 @@
 package com.example.pegsandjokers;
 
-import java.util.LinkedList;
-
 public class Node<E> {
 
     private E data;
     private Node<E> next;
-    private LinkedList<Node<E>> fork;
+    private Node<E> fork;
 
     public Node(E data){
         this.data = data;
@@ -26,11 +24,16 @@ public class Node<E> {
         this.next = next;
     }
 
-    public void setFork(LinkedList<Node<E>> fork){
+    public void setFork(Node<E> fork){
         this.fork = fork;
     }
 
-    public LinkedList<Node<E>> getFork(){
+    public Node<E> getFork(){
         return this.fork;
+    }
+
+    @Override
+    public String toString(){
+        return "Node ";
     }
 }
