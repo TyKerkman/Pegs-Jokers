@@ -13,34 +13,17 @@ public class LinkedList<E> {
     public void insert(Node<E> newNode){
         if (this.first == null) {
             this.first = newNode;
-            this.last = null;
         } else {
-            Node<E> temp = this.first;
-            while (temp.getNext() != this.last){
-                temp = temp.getNext();
-            }
-            temp.setNext(newNode);
-            newNode.setNext(this.last);
+            this.last.setNext(newNode);
         }
-    }
-
-    public void insert(E data){
-        Node<E> newNode = new Node<E>(data);
-
-        if (this.first == null) {
-            this.first = newNode;
-            this.last = null;
-        } else {
-            Node<E> temp = this.first;
-            while (temp.getNext() != this.last){
-                temp = temp.getNext();
-            }
-            temp.setNext(newNode);
-            newNode.setNext(this.last);
-        }
+        this.last = newNode;
     }
 
     public Node<E> getFirst(){
         return this.first;
+    }
+
+    public Node<E> getLast(){
+        return this.last;
     }
 }

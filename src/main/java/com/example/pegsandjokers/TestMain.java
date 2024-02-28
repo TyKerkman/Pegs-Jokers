@@ -11,7 +11,7 @@ public class TestMain {
         do {
             System.out.println(temp + Integer.toString(count));
             if (temp.getFork() != null) {
-                System.out.println("Has Fork!");
+                System.out.println("Has Fork! ");
             }
             temp = temp.getNext();
             count++;
