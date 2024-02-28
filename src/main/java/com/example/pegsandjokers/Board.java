@@ -3,17 +3,17 @@ public class Board {
 
     public static final int SIZE_OF_BOARD_SEGMENT = 18;
     public static final int SIZE_OF_HEAVEN = 5;
-    private int numPlayers;
+    private final int NUM_PLAYERS;
     private CircularLinkedList<Hole> loop;
 
     public Board(int numPlayers){
-        this.numPlayers = numPlayers;
+        this.NUM_PLAYERS = numPlayers;
         this.initializeBoard();
     }
 
     public void initializeBoard(){
         this.loop = new CircularLinkedList<Hole>();
-        for (int i = 0; i < numPlayers * SIZE_OF_BOARD_SEGMENT; i++){
+        for (int i = 0; i < NUM_PLAYERS * SIZE_OF_BOARD_SEGMENT; i++){
             Node<Hole> node = new Node<>(new Hole());
             loop.insert(node);
             if (i % SIZE_OF_BOARD_SEGMENT == 0){

@@ -14,6 +14,9 @@ public class Node<E> {
         this.fork = null;
     }
 
+    public void setData(E data){
+        this.data = data;
+    }
     public E getData(){
         return this.data;
     }
