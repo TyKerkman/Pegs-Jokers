@@ -11,5 +11,9 @@ public class Game {
         this.deck = new Deck();
     }
 
+    public void movePeg(Card card){
+        switch(card.getValue()){
 
+        }
+    }
 }
