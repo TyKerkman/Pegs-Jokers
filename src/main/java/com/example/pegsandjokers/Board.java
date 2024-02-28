@@ -23,14 +23,12 @@ public class Board {
     }
 
     public void insertHeaven(Node<Hole> node){
-        LinkedList<Node<Hole>> heaven = new LinkedList<>();
+        LinkedList<Hole> heaven = new LinkedList<>();
         for (int i = 0; i < SIZE_OF_HEAVEN; i++) {
             Node<Hole> newNode = new Node<>(new Hole());
             heaven.insert(newNode);
-            if (i == 0){
-                node.setFork(newNode);
-            }
         }
+        node.setFork(heaven.getFirst());
     }
 
     public CircularLinkedList<Hole> getLoop(){
