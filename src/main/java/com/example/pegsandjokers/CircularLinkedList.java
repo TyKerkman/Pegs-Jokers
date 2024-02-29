@@ -25,4 +25,20 @@ public class CircularLinkedList<E> {
     public Node<E> getHead(){
         return this.head;
     }
+
+    public Node<E> get(E element) {
+        if (head == null) {
+            return null;
+        }
+
+        Node<E> current = head;
+        do {
+            if (current.getData().equals(element)) {
+                return current;
+            }
+            current = current.getNext();
+        } while (current != head);
+
+        return null;
+    }
 }
