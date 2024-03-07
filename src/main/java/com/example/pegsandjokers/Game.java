@@ -14,18 +14,9 @@ public class Game {
     }
 
     public void movePeg(Peg peg, int spaces, boolean forward){
+        Hole[] loop = this.board.getLoop();
         Hole current = peg.getHole();
-        CircularLinkedList<Hole> loop = this.board.getLoop();
-        Node<Hole> node = loop.get(current);
-        current.removePeg();
-        for (int i = 0; i < spaces; i++){
-            if (forward){
-                node = node.getNext();
-            } else {
-                node = node.getPrevious();
-            }
-        }
-        node.getData().addPeg(peg);
+        //Finish
     }
 
     public boolean move(Peg peg, Card card){
