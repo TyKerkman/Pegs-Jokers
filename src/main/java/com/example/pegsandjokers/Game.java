@@ -16,7 +16,7 @@ public class Game {
     public void movePeg(Peg peg, int spaces, boolean forward){
         Hole[] loop = this.board.getLoop();
         Hole current = peg.getHole();
-        //Finish
+        //TODO
     }
 
     public boolean move(Peg peg, Card card){

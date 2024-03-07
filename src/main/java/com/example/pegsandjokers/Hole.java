@@ -43,4 +43,9 @@ public class Hole {
     public void setHeavensGate(){
         this.isHeavensGate = true;
     }
+
+    @Override
+    public String toString(){
+        return "Index: " + Integer.toString(this.index) + ", Heaven's Gate: " + this.isHeavensGate;
+    }
 }
