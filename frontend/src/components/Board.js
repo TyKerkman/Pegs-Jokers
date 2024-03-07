@@ -9,12 +9,13 @@ function Board({numPlayers=4}) {
     };
 
 
-
+let num = 15;
  const gridContainer =  {
     display: 'grid',
-    gridTemplateColumns: 'auto auto auto auto auto auto',
-    }
-    let num = 6;
+    gridTemplateColumns: `repeat(${num}, auto)`,
+}
+
+    
     let initialBoard = []
     for(let i = 0; i < num; i++){
         let temp = []
@@ -25,52 +26,19 @@ function Board({numPlayers=4}) {
     }
 
     console.log(initialBoard)
-    // initialBoard = [
-    //     [null, initialPiece, null, null, null],
-    //     [null, null, null, null, null],
-    //     [null, null, null, null, null],
-    //     [null, null, null, null, null],
-    //     [null, null, null, null, null],
-    // ];
 
     initialBoard[0][1] = initialPiece
 
     const [board, setBoard] = useState(initialBoard)
     const [grid, setGrid] = useState(
-        <div className="grid-container">
-            {
-                board.map((row, indexI)=>{
-                    return row.map((item, indexJ)=>{
-                        if(indexI == 0 || indexI == initialBoard.length - 1 || indexJ == 0 || indexJ == row.length - 1){
-                            let color = ['brown', 'brown', 'tan', 'tan']
-                            let colorIndex = 3
-                            if(indexI == 0 && indexJ != row.length - 1){
-                                colorIndex = 0
-                            }else if(indexI == initialBoard.length - 1 && indexJ != 0){
-                                colorIndex = 1
-                            }else if(indexJ == 0){
-                                colorIndex = 2
-                            }
-                            if(item != null){
-                                return <div className="grid-item"><Place piece={item} pathColor={color[colorIndex]} position={'path'}/></div>
-                            }else{
-                                return <div className="grid-item"><Place  pathColor={color[colorIndex]} position={'path'}/></div>
-                            }
-                        }else{
-                            return <div className="grid-item"><Place /></div>
-                        }
-                    })
-                })}
-            </div>
+        <></>
     )
 
     const updateBoard = () => {
         let newBoard = [...initialBoard]
         newBoard[0][1] = null
         newBoard[0][2] = initialPiece
-        newBoard[5][4] = {color: 'orange'}
         newBoard[3][0] = {color: 'blue'}
-        newBoard[2][5] = {color: 'teal'}
 
     
         setBoard(newBoard);
@@ -81,24 +49,75 @@ function Board({numPlayers=4}) {
             {
                 board.map((row, indexI)=>{
                     return row.map((item, indexJ)=>{
-                        if(indexI == 0 || indexI == initialBoard.length - 1 || indexJ == 0 || indexJ == row.length - 1){
-                            let color = ['brown', 'brown', 'tan', 'tan']
-                            let colorIndex = 3
-                            if(indexI == 0 && indexJ != row.length - 1){
-                                colorIndex = 0
-                            }else if(indexI == initialBoard.length - 1 && indexJ != 0){
-                                colorIndex = 1
-                            }else if(indexJ == 0){
-                                colorIndex = 2
-                            }
+                        // Top Section Path
+                        if(indexI == 0 && indexJ != row.length - 1){
                             if(item != null){
-                                return <div className="grid-item"><Place piece={item} pathColor={color[colorIndex]} position={'path'}/></div>
+                                return <div className="grid-item"><Place piece={item} pathColor={'brown'} position={'path'}/></div>
                             }else{
-                                return <div className="grid-item"><Place  pathColor={color[colorIndex]} position={'path'}/></div>
+                                return <div className="grid-item"><Place  pathColor={'brown'} position={'path'}/></div>
                             }
-                        }else{
+                        }
+                        // Right Section Path
+                        else if(indexJ == row.length - 1 && indexI != initialBoard.length - 1){
+                            if(item != null){
+                                return <div className="grid-item"><Place piece={item} pathColor={'tan'} position={'path'}/></div>
+                            }else{
+                                return <div className="grid-item"><Place  pathColor={'tan'} position={'path'}/></div>
+                            }
+                        }
+                        // Bottom Section Path
+                        else if(indexI == initialBoard.length - 1 && indexJ != 0){
+                            if(item != null){
+                                return <div className="grid-item"><Place piece={item} pathColor={'brown'} position={'path'}/></div>
+                            }else{
+                                return <div className="grid-item"><Place  pathColor={'brown'} position={'path'}/></div>
+                            }
+                        }
+                        // Left Section Path
+                        else if(indexJ == 0 && indexI != 0){
+                            if(item != null){
+                                return <div className="grid-item"><Place piece={item} pathColor={'tan'} position={'path'}/></div>
+                            }else{
+                                return <div className="grid-item"><Place  pathColor={'tan'} position={'path'}/></div>
+                            }
+                        }
+                        // Top Section End
+                        else if( ((indexI == 1 || indexI == 2 || indexI == 3) && indexJ == 2) || (indexI == 3 && (indexJ == 3 || indexJ == 4)) ){
+                            return <div className="grid-item"><Place  pathColor={'brown'} position={'end'}/></div>
+                        }
+                        // Top Section Start
+                        else if( ((indexI == 1 || indexI == 2 || indexI == 3) && indexJ == Math.floor(row.length/2)) || (indexI == 2 && (indexJ == Math.floor(row.length/2) - 1 || indexJ == Math.floor(row.length/2) + 1))){
+                            return <div className="grid-item"><Place  pathColor={'brown'} position={'start'}/></div>
+                        }
+                        // Right Section End
+                        else if ( (indexI == 2 && (indexJ == row.length - 2 || indexJ == row.length - 3 || indexJ == row.length - 4) || (indexJ == row.length - 4 && (indexI == 3 || indexI == 4) ) )) {
+                            return <div className="grid-item"><Place  pathColor={'tan'} position={'end'}/></div>
+                        }
+                        // Right Section Start
+                        else if ( (indexI == Math.floor(initialBoard.length/2) && (indexJ == row.length - 2 || indexJ == row.length - 3 || indexJ == row.length - 4)) || (indexI == Math.floor(initialBoard.length/2) - 1 && indexJ == row.length - 3) || (indexI == Math.floor(initialBoard.length/2) + 1 && indexJ == row.length - 3) ) {
+                            return <div className="grid-item"><Place  pathColor={'tan'} position={'start'}/></div>
+                        }
+                        // Bottom Section End
+                        else if ( (indexJ == row.length - 3 && (indexI == initialBoard.length - 2 || indexI == initialBoard.length - 3 || indexI == initialBoard.length - 4)) || (indexI == initialBoard.length - 4 && (indexJ == row.length - 4 || indexJ == row.length - 5)) ) {
+                            return <div className="grid-item"><Place  pathColor={'brown'} position={'end'}/></div>
+                        }
+                        // Bottom Section Start
+                        else if ( (indexJ == Math.floor(row.length / 2) && (indexI == initialBoard.length - 2 || indexI == initialBoard.length - 3 || indexI == initialBoard.length - 4)) || (indexI == initialBoard.length - 3 && (indexJ == Math.floor(row.length / 2) - 1 || indexJ == Math.floor(row.length / 2) + 1)) ){
+                            return <div className="grid-item"><Place  pathColor={'brown'} position={'start'}/></div>
+                        }
+                        // Left Section End
+                        else if ( (indexI == initialBoard.length - 3 && (indexJ == 1 || indexJ == 2 || indexJ == 3)) || (indexJ == 3 && (indexI == initialBoard.length - 4 || indexI == initialBoard.length - 5)) ) {
+                            return <div className="grid-item"><Place  pathColor={'tan'} position={'end'}/></div>
+                        }
+                        // Left Section Start
+                        else if ( (indexI == Math.floor(initialBoard.length/2) && (indexJ == 1 || indexJ ==2 || indexJ == 3)) || (indexJ == 2 && (indexI == Math.floor(initialBoard.length/2)-1 || indexI == Math.floor(initialBoard.length/2) + 1)) ) {
+                            return <div className="grid-item"><Place  pathColor={'tan'} position={'end'}/></div>
+                        }
+                        else{
                             return <div className="grid-item"><Place /></div>
                         }
+                    
+                    
                     })
                 })}
             </div>
