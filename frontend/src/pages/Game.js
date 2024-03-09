@@ -1,21 +1,18 @@
 import React, {useState} from 'react'
 import {Outlet, Link} from 'react-router-dom'
-import Piece from '../components/Piece'
 import Board from '../components/Board'
+import '../Styling.css'
 
 function Game() {
 
-
-
     return (
-        <div style={{display: 'flex', flexDirection: 'column',justifyContent: 'center', alignItems: 'center'}}>
-            <h1>Game</h1>
-            <Link to='/'>Home</Link>
-                <div style={{background: 'green', height: '500px'}}>
-                    <Board />
-                </div>
-            
-
+        <div className='game-page'>
+            <div className='game-header'>
+                <Link to='/'>Home</Link>
+            </div>
+            <div className='game-body'>
+                <Board />
+            </div>
         </div>
     )
 }

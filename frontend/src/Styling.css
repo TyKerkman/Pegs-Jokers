@@ -1,0 +1,48 @@
+
+.game-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .game-header {
+
+} */
+
+.game-body {
+  background: green;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+.place-outline {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
