@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home'
 import Profile from './pages/Profile';
@@ -10,8 +9,8 @@ function App() {
     <BrowserRouter>
       <Routes>
           <Route index element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/game" element={<Game />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/game" element={<Game />} />
       </Routes>
     </BrowserRouter>
   );
