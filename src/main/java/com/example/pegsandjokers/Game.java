@@ -45,6 +45,12 @@ public class Game {
         return true;
     }
 
+    public void swap(Peg peg1, Peg peg2){
+        Hole temp = peg1.getHole();
+        peg1.setHole(peg2.getHole());
+        peg2.setHole(temp);
+    }
+
     public boolean getOut(Card card){
         Value value = card.getValue();
         return switch (value) {
