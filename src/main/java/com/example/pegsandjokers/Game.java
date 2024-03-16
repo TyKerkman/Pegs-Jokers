@@ -15,12 +15,14 @@ public class Game {
 
     public void play(){
         while(!isWinner()){
-            playRound();
+            for (Player p: this.players){
+                takeTurn(p);
+            }
         }
     }
 
-    public void playRound(){
-        
+    public void takeTurn(Player player){
+        //TODO
     }
 
     public boolean isWinner(){
