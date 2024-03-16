@@ -24,12 +24,15 @@ public class Game {
         Peg p = getPegFromInput();
         if (c.getValue().equals(Value.TWO)) {
             Peg p2 = getPegFromInput();
+            //TODO
         } else if (c.getValue().equals(Value.JOKER)) {
             //TODO
         } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
             //TODO
-        } else
+        } else {
             move(p, c);
+        }
+
     }
 
     public Card getCardFromInput(){
