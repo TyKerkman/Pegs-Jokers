@@ -16,7 +16,13 @@ public class Game {
     public void movePeg(Peg peg, int spaces, boolean forward){
         Hole[] loop = this.board.getLoop();
         Hole current = peg.getHole();
-        //TODO
+        int index = current.getIndex() + spaces;
+        if (index >= loop.length){
+            index %= loop.length;
+        }
+        current.removePeg();
+        peg.setHole(loop[index]);
+        loop[index].addPeg(peg);
     }
 
     public boolean move(Peg peg, Card card){
