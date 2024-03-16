@@ -43,4 +43,8 @@ public class Player {
         this.hand.add(c);
     }
 
+    public List<Peg> getPegs(){
+        return this.pegs;
+    }
+
 }

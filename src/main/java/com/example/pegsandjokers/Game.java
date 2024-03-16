@@ -13,6 +13,40 @@ public class Game {
         this.deck = new Deck();
     }
 
+    public void play(){
+        while(!isWinner()){
+            playRound();
+        }
+    }
+
+    public void playRound(){
+        
+    }
+
+    public boolean isWinner(){
+        for (Player p : this.players){
+            boolean winner = true;
+            for (Peg peg : p.getPegs()){
+                if (!peg.getInHeaven()) {
+                    winner = false;
+                    break;
+                }
+            }
+            for (Peg peg: p.getPartner().getPegs()){
+                if (!peg.getInHeaven()) {
+                    winner = false;
+                    break;
+                }
+            }
+            if (winner){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
     public void movePeg(Peg peg, int spaces, boolean forward){
         Hole[] loop = this.board.getLoop();
         Hole current = peg.getHole();
