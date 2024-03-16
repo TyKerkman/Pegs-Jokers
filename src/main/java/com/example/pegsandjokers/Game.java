@@ -1,7 +1,5 @@
 package com.example.pegsandjokers;
 
-import com.sun.jdi.NativeMethodException;
-
 public class Game {
     private Board board;
     private Player[] players;
@@ -21,8 +19,29 @@ public class Game {
         }
     }
 
-    public void takeTurn(Player player){
+    public void takeTurn(Player player) {
+        Card c = getCardFromInput();
+        Peg p = getPegFromInput();
+        if (c.getValue().equals(Value.TWO)) {
+            Peg p2 = getPegFromInput();
+        } else if (c.getValue().equals(Value.JOKER)) {
+            //TODO
+        } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
+            //TODO
+        } else
+            move(p, c);
+    }
+
+    public Card getCardFromInput(){
+        Card c = null;
         //TODO
+        return c;
+    }
+
+    public Peg getPegFromInput(){
+        Peg p = new Peg();
+        //TODO
+        return p;
     }
 
     public boolean isWinner(){
