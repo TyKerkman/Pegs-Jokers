@@ -1,0 +1,27 @@
+import React from 'react'
+import {Outlet, Link, useNavigate} from 'react-router-dom'
+import "../Styling.css"
+import { auth } from '../firebase';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+
+function Landing() {
+    var user = auth.currentUser;
+    console.log(user)
+
+
+
+    return (
+        <div className="landing-page">
+            <div className="title-container">
+                <h1 className="title">Pegs and Jokers</h1>
+            </div>
+            {
+                user == null ? <div><Link className="button-1" to='/login'>Login</Link></div> : <Link to='/home'>Login</Link>
+            }
+            <Link className="button-1" to='/signup'>Sign Up</Link>
+        </div>
+    )
+}
+
+export default Landing

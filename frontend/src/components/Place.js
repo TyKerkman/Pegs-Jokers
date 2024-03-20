@@ -16,14 +16,22 @@ function Place({ position = null, piece = null, pathColor=null}) {
                 display: 'inline-block'
             });
         } 
-        else if (position == 'start') { // If there is a piece, set the color to the piece's color
+        else if (position == 'start' && piece != null) { // If there is a piece, set the color to the piece's color
+            setHole({
+                background: piece.color,
+                height: '12px',
+                width: '12px',
+                borderRadius: '50%',
+                display: 'inline-block'
+            });
+        }else if (position == 'start'){
             setHole({
                 background: 'black',
                 height: '7.5px',
                 width: '7.5px',
                 borderRadius: '50%',
                 display: 'inline-block'
-            });
+            }); 
         }
         else if (position == 'end') { // If there is a piece, set the color to the piece's color
             setHole({
