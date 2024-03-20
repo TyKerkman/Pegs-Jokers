@@ -13,11 +13,13 @@ function Landing() {
 
     return (
         <div className="landing-page">
-            <h1>Pegs and Jokers</h1>
+            <div className="title-container">
+                <h1 className="title">Pegs and Jokers</h1>
+            </div>
             {
-                user == null ? <Link to='/login'>Login</Link> : <Link to='/home'>Login</Link>
+                user == null ? <div><Link className="button-1" to='/login'>Login</Link></div> : <Link to='/home'>Login</Link>
             }
-            <Link to='/signup'>Sign Up</Link>
+            <Link className="button-1" to='/signup'>Sign Up</Link>
         </div>
     )
 }

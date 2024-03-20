@@ -35,10 +35,13 @@ function Home() {
     }, [])
 
     return (
-        <div className='home-page'>     
-            <h1>Pegs and Jokers</h1>
-            <Link to='/'>Landing</Link>
-            <button onClick={handleLogout}>
+        <div className='home-page'>
+            <div className="title-container">
+                <h1 className="title">Pegs and Jokers</h1>
+            </div>
+            <Link className="button-1" to='/game'>Game</Link>
+            <Link className="button-1" to='/profile'>Profile</Link>
+            <button className="button-1" onClick={handleLogout}>
                 Logout
             </button>
         </div>
