@@ -12,6 +12,12 @@ public class Player {
     private Player partner;
     private List<Peg> pegs;
 
+    public Player(int num){
+        this.num = num;
+        this.hand = new ArrayList<>();
+        this.pegs = new ArrayList<Peg>();
+    }
+
     public Player(int num, String name){
         this.num = num;
         this.name = name;
