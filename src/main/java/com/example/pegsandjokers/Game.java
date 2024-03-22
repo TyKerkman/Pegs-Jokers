@@ -118,11 +118,15 @@ public class Game {
     }
 
     public void sendToHeavensGate(Peg p){
-        p.getHole().setFilled(false);
+        p.getHole().removePeg();
         Player player = p.getPlayer();
-        CircularLinkedList<Hole> loop = this.board.getLoop();
 
+    }
 
+    public void addPegToHole(Peg p){
+        //TODO
+
+        //Maybe call this every time a peg is added to a hole to remove repeat logic.
     }
 
     public boolean getOut(Peg p){

@@ -21,6 +21,10 @@ public class Hole {
     public void setPeg(Peg peg) {
         this.peg = peg;
     }
+    
+    public void removePeg(){
+        this.peg = null;
+    }
 
     public boolean isHeavensGate(){
         return this.isHeavensGate;
