@@ -2,25 +2,24 @@ package com.example.pegsandjokers;
 
 public class Hole {
 
-    private boolean filled;
     private int numPlayer;
+    private Peg peg;
     private boolean isHeavensGate;
-
     private boolean isHomeStep;
 
     public Hole(int numPlayer){
-        this.filled = false;
         this.numPlayer = numPlayer;
+        this.peg = null;
         this.isHeavensGate = false;
         this.isHomeStep = false;
     }
 
-    public boolean getFilled(){
-        return this.filled;
+    public Peg getPeg() {
+        return peg;
     }
 
-    public void setFilled(boolean filled){
-        this.filled = filled;
+    public void setPeg(Peg peg) {
+        this.peg = peg;
     }
 
     public boolean isHeavensGate(){
@@ -39,8 +38,8 @@ public class Hole {
         return isHomeStep;
     }
 
-    public void setHomeStep(boolean homeStep) {
-        isHomeStep = homeStep;
+    public void setHomeStep() {
+        isHomeStep = true;
     }
 
     @Override

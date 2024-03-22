@@ -36,9 +36,11 @@ public class Board {
             loop.insert(node);
             if (i % SIZE_OF_BOARD_SEGMENT == 0){
                 this.players[numPlayer].setHeavensGate(node.getData());
+                node.getData().setHeavensGate();
                 insertHeaven(node, numPlayer);
             }
             if (i % SIZE_OF_BOARD_SEGMENT == 5){
+                node.getData().setHomeStep();
                 this.players[numPlayer].setHomeStep(node.getData());
             }
         }

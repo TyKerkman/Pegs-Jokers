@@ -125,14 +125,20 @@ public class Game {
 
     }
 
-    public boolean getOut(Card card){
-        Value value = card.getValue();
-        return switch (value) {
-            case ACE, JACK, QUEEN, KING -> {
-                //TODO
-                yield true;
-            }
-            default -> false;
-        };
+    public boolean getOut(Peg p){
+        Player player = p.getPlayer();
+        Hole homeStep = player.getHomeStep();
+        if (homeStep.getPeg() == null){
+            homeStep.setPeg(p);
+            p.setHole(homeStep);
+            p.setInHome(false);
+            return true;
+        } else if (homeStep.getPeg().getPlayer().equals(player)){
+            return false;
+        } else {
+            p.setInHome(false);
+            this.kill(p, homeStep.getPeg());
+            return true;
+        }
     }
 }
