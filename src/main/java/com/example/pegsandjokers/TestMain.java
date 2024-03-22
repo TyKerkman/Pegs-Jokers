@@ -20,6 +20,15 @@ public class TestMain {
                     count_fork++;
                 }
             }
+
+            if (temp.getData().isHeavensGate()){
+                System.out.println("HEAVENS GATE FOR PLAYER " + Integer.toString(temp.getData().getNumPlayer()));
+            }
+
+            if (temp.getData().isHomeStep()){
+                System.out.println("HOME STEP FOR PLAYER " + Integer.toString(temp.getData().getNumPlayer()));
+            }
+
             temp = temp.getNext();
             count++;
         } while (temp != head);

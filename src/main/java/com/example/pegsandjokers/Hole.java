@@ -6,10 +6,13 @@ public class Hole {
     private int numPlayer;
     private boolean isHeavensGate;
 
+    private boolean isHomeStep;
+
     public Hole(int numPlayer){
         this.filled = false;
         this.numPlayer = numPlayer;
         this.isHeavensGate = false;
+        this.isHomeStep = false;
     }
 
     public boolean getFilled(){
@@ -20,7 +23,7 @@ public class Hole {
         this.filled = filled;
     }
 
-    public boolean getIsHeavensGate(){
+    public boolean isHeavensGate(){
         return this.isHeavensGate;
     }
 
@@ -30,6 +33,14 @@ public class Hole {
 
     public int getNumPlayer(){
         return this.numPlayer;
+    }
+
+    public boolean isHomeStep() {
+        return isHomeStep;
+    }
+
+    public void setHomeStep(boolean homeStep) {
+        isHomeStep = homeStep;
     }
 
     @Override

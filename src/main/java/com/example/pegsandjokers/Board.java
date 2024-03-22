@@ -4,11 +4,28 @@ public class Board {
     public static final int SIZE_OF_BOARD_SEGMENT = 18;
     public static final int SIZE_OF_HEAVEN = 5;
     private final int NUM_PLAYERS;
+    private Player[] players;
     private CircularLinkedList<Hole> loop;
 
     public Board(int numPlayers){
         this.NUM_PLAYERS = numPlayers;
+        this.initializePlayers();
         this.initializeBoard();
+    }
+
+    public void initializePlayers(){
+        this.players = new Player[NUM_PLAYERS];
+        for (int i = 0; i < NUM_PLAYERS; i++){
+            this.players[i] = new Player(i);
+        }
+
+        for (int i = 0; i < NUM_PLAYERS; i++){
+            if (i < NUM_PLAYERS / 2){
+                this.players[i].setPartner(this.players[i + NUM_PLAYERS / 2]);
+            } else {
+                this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);
+            }
+        }
     }
 
     public void initializeBoard(){
@@ -18,7 +35,11 @@ public class Board {
             Node<Hole> node = new Node<>(new Hole(numPlayer));
             loop.insert(node);
             if (i % SIZE_OF_BOARD_SEGMENT == 0){
+                this.players[numPlayer].setHeavensGate(node.getData());
                 insertHeaven(node, numPlayer);
+            }
+            if (i % SIZE_OF_BOARD_SEGMENT == 5){
+                this.players[numPlayer].setHomeStep(node.getData());
             }
         }
     }
@@ -30,6 +51,10 @@ public class Board {
             heaven.insert(newNode);
         }
         node.setFork(heaven.getFirst());
+    }
+
+    public Player[] getPlayers(){
+        return this.players;
     }
 
     public CircularLinkedList<Hole> getLoop(){
