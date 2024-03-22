@@ -99,10 +99,26 @@ public class Game {
         return true;
     }
 
+    /**
+     * Handles swapping of two pieces on the board.
+     * Updates the peg attributes of both holes to be the other peg.
+     * Updates the hole attributes of both pegs to be the other hole.
+     *
+     * @param peg1 - one peg to be swapped.
+     * @param peg2 - the other peg to be swapped.
+     */
     public void swap(Peg peg1, Peg peg2){
-        Hole temp = peg1.getHole();
-        peg1.setHole(peg2.getHole());
-        peg2.setHole(temp);
+        //Get the two holes
+        Hole a = peg1.getHole();
+        Hole b = peg2.getHole();
+
+        //Assign the pegs to their new holes.
+        a.setPeg(peg2);
+        b.setPeg(peg1);
+
+        //Assign the holes to their new pegs.
+        peg1.setHole(b);
+        peg2.setHole(a);
     }
 
     /**
