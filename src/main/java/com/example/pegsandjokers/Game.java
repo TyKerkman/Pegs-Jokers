@@ -47,28 +47,6 @@ public class Game {
         return p;
     }
 
-    public boolean isWinner(){
-        for (Player p : this.players){
-            boolean winner = true;
-            for (Peg peg : p.getPegs()){
-                if (!peg.getInHeaven()) {
-                    winner = false;
-                    break;
-                }
-            }
-            for (Peg peg: p.getPartner().getPegs()){
-                if (!peg.getInHeaven()) {
-                    winner = false;
-                    break;
-                }
-            }
-            if (winner){
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void movePeg(Peg peg, int spaces, boolean forward){
         //TODO
     }
@@ -97,6 +75,44 @@ public class Game {
         movePeg(peg1, spacesForward, true);
         movePeg(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
         return true;
+    }
+
+    /**
+     * Determines if there is a winner in the game by checking if any pair of partner players has all their
+     * pieces in their respective heavens.
+     *
+     * @return - Whether there is a winner.
+     */
+    public boolean isWinner(){
+        //Loop through the first half of the players
+        for (int i = 0; i < this.players.length / 2; i++){
+            boolean winner = true;
+            Player p = this.players[i];
+            //Loop through each of the player's pegs.
+            for (Peg peg : p.getPegs()){
+                //If any peg isn't in heaven, set winner to false.
+                if (!peg.getInHeaven()) {
+                    winner = false;
+                    break;
+                }
+            }
+
+            //Loop through each of the player's partner's pegs.
+            for (Peg peg: p.getPartner().getPegs()){
+                //If any peg isn't in heaven, set winner to false.
+                if (!peg.getInHeaven()) {
+                    winner = false;
+                    break;
+                }
+            }
+
+            //If winner is still true, there is a winner.
+            if (winner){
+                return true;
+            }
+        }
+        //There is no winner.
+        return false;
     }
 
     /**
