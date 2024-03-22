@@ -19,8 +19,13 @@ public class Peg {
         return this.inHome;
     }
 
-    public void setInHome(boolean inHome){
-        this.inHome = inHome;
+    public void sendHome(){
+        this.inHome = true;
+        this.hole = null;
+    }
+
+    public void removeFromHome(){
+        this.inHome = false;
     }
 
     public boolean getInHeaven(){

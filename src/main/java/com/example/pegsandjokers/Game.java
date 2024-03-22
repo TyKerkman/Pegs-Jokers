@@ -105,44 +105,95 @@ public class Game {
         peg2.setHole(temp);
     }
 
-    public void kill(Peg a, Peg b){
+    /**
+     * Handles when one piece moves onto the hole that is being occupied by another piece, known as a "kill" in the game.
+     * If the two pegs are partners, the peg that is moved onto will be sent to that player's "heaven's gate".
+     * If the two pegs aren't friendly, the peg that is moved onto will be sent to that player's "home".
+     *
+     * @param a - the peg that is moving onto the occupied hole.
+     * @param b - the peg this is occupying the hole.
+     * @return - Whether the move was successful.
+     */
+    public boolean kill(Peg a, Peg b){
+        //Get the hole peg b is occupying.
+        Hole hole = b.getHole();
+        //If the pegs are two partner pieces.
         if (a.getPlayer().getPartner().equals(b.getPlayer())){
-            Hole temp = b.getHole();
-            sendToHeavensGate(b);
-            a.setHole(temp);
+            //Call sendToHeavensGate on b first, if that is successful, call addPegToHole on peg a and the hole.
+            return sendToHeavensGate(b) && addPegToHole(a, hole);
         } else {
-            Hole temp = b.getHole();
-            b.setInHome(true);
-            a.setHole(temp);
+            //If the pegs aren't partner pieces, remove the peg from the hole.
+            hole.removePeg();
+            //Send the peg to its home.
+            b.sendHome();
+            //call addPegToHole on peg a and the hole.
+            return this.addPegToHole(a, hole);
         }
     }
 
-    public void sendToHeavensGate(Peg p){
-        p.getHole().removePeg();
+    /**
+     * Handles sending a piece to the player's "heaven's gate".
+     *
+     * @param p - the peg that is being moved.
+     * @return - Whether the move was successful.
+     */
+    public boolean sendToHeavensGate(Peg p){
+        //Get the player and their heaven's gate.
         Player player = p.getPlayer();
-
+        Hole heavensGate = player.getHeavensGate();
+        //Call the addPegToHole function on the peg and hole.
+        return addPegToHole(p, heavensGate);
     }
 
-    public void addPegToHole(Peg p){
-        //TODO
-
-        //Maybe call this every time a peg is added to a hole to remove repeat logic.
-    }
-
-    public boolean getOut(Peg p){
+    /**
+     * Handles adding a peg to a specified hole.
+     * If the hole is unoccupied, the peg is removed from its previous hole and added to the hole.
+     * If the hole is occupied by a peg of the same color, the move is unsuccessful.
+     * If the hole is occupied by a peg that isn't of the same color, calls the kill function.
+     *
+     * @param p - The peg that is being added to the hole.
+     * @param h - The hole the peg is being added to.
+     * @return - Whether the move was successful.
+     */
+    public boolean addPegToHole(Peg p, Hole h){
         Player player = p.getPlayer();
-        Hole homeStep = player.getHomeStep();
-        if (homeStep.getPeg() == null){
-            homeStep.setPeg(p);
-            p.setHole(homeStep);
-            p.setInHome(false);
+
+        //If the hole is empty, do the following:
+        if (h.getPeg() == null){
+            //Remove the peg from previous hole
+            p.getHole().removePeg();
+            //Add the peg to the hole
+            h.setPeg(p);
+            //Assign the new hole to the peg.
+            p.setHole(h);
+            //Successful turn
             return true;
-        } else if (homeStep.getPeg().getPlayer().equals(player)){
+        } else if (h.getPeg().getPlayer().equals(player)){
+            //If the hole has a peg of the same color, unsuccessful turn
             return false;
         } else {
-            p.setInHome(false);
-            this.kill(p, homeStep.getPeg());
+            //If the hole is occupied by a different color, call kill function.
+            return kill(p, h.getPeg());
+        }
+    }
+
+    /**
+     * Handles removing a peg from the player's home.
+     *
+     * @param p - the peg to get out of home.
+     * @return - Whether the move was successful.
+     */
+    public boolean getOut(Peg p){
+        //Get the player and their homeStep
+        Player player = p.getPlayer();
+        Hole homeStep = player.getHomeStep();
+        //Call the addPegToHole function on the piece and the hole.
+        if (addPegToHole(p, homeStep)){
+            //If successful, remove peg from home, return true.
+            p.removeFromHome();
             return true;
         }
+        //If unsuccessful, return false.
+        return false;
     }
 }
