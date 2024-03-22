@@ -69,8 +69,6 @@ public class Game {
         return false;
     }
 
-
-
     public void movePeg(Peg peg, int spaces, boolean forward){
         //TODO
     }
@@ -105,6 +103,26 @@ public class Game {
         Hole temp = peg1.getHole();
         peg1.setHole(peg2.getHole());
         peg2.setHole(temp);
+    }
+
+    public void kill(Peg a, Peg b){
+        if (a.getPlayer().getPartner().equals(b.getPlayer())){
+            Hole temp = b.getHole();
+            sendToHeavensGate(b);
+            a.setHole(temp);
+        } else {
+            Hole temp = b.getHole();
+            b.setInHome(true);
+            a.setHole(temp);
+        }
+    }
+
+    public void sendToHeavensGate(Peg p){
+        p.getHole().setFilled(false);
+        Player player = p.getPlayer();
+        CircularLinkedList<Hole> loop = this.board.getLoop();
+
+
     }
 
     public boolean getOut(Card card){

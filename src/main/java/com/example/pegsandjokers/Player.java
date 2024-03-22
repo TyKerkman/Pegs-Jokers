@@ -4,7 +4,7 @@ import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player{
 
     private int num;
     private String name;
@@ -53,4 +53,11 @@ public class Player {
         return this.pegs;
     }
 
+    public int getNum(){
+        return this.num;
+    }
+
+    public boolean equals(Player p){
+        return this.num == p.getNum();
+    }
 }

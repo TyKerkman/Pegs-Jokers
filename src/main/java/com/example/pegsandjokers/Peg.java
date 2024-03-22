@@ -5,6 +5,7 @@ public class Peg {
     private boolean inHome;
     private boolean inHeaven;
 
+    private Player player;
 
     public Hole getHole(){
         return this.hole;
@@ -28,5 +29,13 @@ public class Peg {
 
     public void setInHeaven(boolean inHeaven){
         this.inHeaven = inHeaven;
+    }
+
+    public Player getPlayer(){
+        return this.player;
+    }
+
+    public void setPlayer(Player p){
+        this.player = p;
     }
 }
