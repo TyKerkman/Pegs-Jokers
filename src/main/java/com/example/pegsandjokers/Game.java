@@ -210,6 +210,73 @@ public class Game {
     }
 
     /**
+     * A test version of addPegToHole() for moves that have concurrent moving pieces, all of which need to be checked
+     * before any attributes are updated.
+     * If the hole is unoccupied, the peg is removed from its previous hole and added to the hole.
+     * If the hole is occupied by a peg of the same color, the move is unsuccessful.
+     * If the hole is occupied by a peg that isn't of the same color, calls the kill function.
+     *
+     * @param p - The peg that is being added to the hole.
+     * @param h - The hole the peg is being added to.
+     * @return - Whether the move was successful.
+     */
+    public boolean testAddPegToHole(Peg p, Hole h){
+        Player player = p.getPlayer();
+
+        //If the hole is empty, do the following:
+        if (h.getPeg() == null){
+            //Successful turn
+            return true;
+        } else if (h.getPeg().getPlayer().equals(player)){
+            //If the hole has a peg of the same color, unsuccessful turn
+            return false;
+        } else {
+            //If the hole is occupied by a different color, call kill function.
+            return kill(p, h.getPeg());
+        }
+    }
+
+    /**
+     * A test version of kill() for moves that have concurrent moving pieces, all of which need to be checked
+     * before any attributes are updated.
+     * If the two pegs are partners, the peg that is moved onto will be sent to that player's "heaven's gate".
+     * If the two pegs aren't friendly, the peg that is moved onto will be sent to that player's "home".
+     *
+     * @param a - the peg that is moving onto the occupied hole.
+     * @param b - the peg this is occupying the hole.
+     * @return - Whether the move was successful.
+     */
+    public boolean testKill(Peg a, Peg b){
+        //Get the hole peg b is occupying.
+        Hole hole = b.getHole();
+        //If the pegs are two partner pieces.
+        if (a.getPlayer().getPartner().equals(b.getPlayer())){
+            //Call sendToHeavensGate on b first, if that is successful, call addPegToHole on peg a and the hole.
+            return testSendToHeavensGate(b) && testAddPegToHole(a, hole);
+        } else {
+            //Sending an opponent to their home will always succeed.
+            return true;
+        }
+    }
+
+    /**
+     * A test version of sendToHeavensGate() for moves that have concurrent moving pieces, all of which need to be checked
+     * before any attributes are updated.
+     *
+     * @param p - the peg that is being moved.
+     * @return - Whether the move was successful.
+     */
+    public boolean testSendToHeavensGate(Peg p){
+        //Get the player and their heaven's gate.
+        Player player = p.getPlayer();
+        Hole heavensGate = player.getHeavensGate();
+        //Call the addPegToHole function on the peg and hole.
+        return testAddPegToHole(p, heavensGate);
+    }
+
+
+
+    /**
      * Handles removing a peg from the player's home.
      *
      * @param p - the peg to get out of home.
