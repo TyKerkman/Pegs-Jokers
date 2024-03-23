@@ -128,13 +128,16 @@ public class Game {
     public boolean splitMove(Peg peg1, Peg peg2, Card card, int spacesForward){
         //Get value of the card (either a SEVEN or a NINE).
         Value value = card.getValue();
+
+        //Move the first peg forward the provided spaces.
+        Hole h1 = processMove(peg1, spacesForward, true);
+        //Move the second peg the remaining spaces. Forward if a 7, backward if a 9.
+        Hole h2 = processMove(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
+
         //Check if the both pegs can be moved as desired.
-        boolean test = processMove(peg1, spacesForward, true) != null && processMove(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN)) != null;
-        if (test){
-            //Move the first peg forward the provided spaces.
-            movePeg(peg1, spacesForward, true);
-            //Move the second peg the remaining spaces. Forward if a 7, backward if a 9.
-            movePeg(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
+        if (h1 != null && h2 != null){
+            this.addPegToHole(peg1, h1);
+            this.addPegToHole(peg2, h2);
             return true;
         }
         //Move is not successful.
