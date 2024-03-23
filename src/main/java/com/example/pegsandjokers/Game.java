@@ -288,7 +288,7 @@ public class Game {
             return false;
         } else {
             //If the hole is occupied by a different color, call kill function.
-            return kill(p, h.getPeg());
+            return testKill(p, h.getPeg());
         }
     }
 
