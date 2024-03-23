@@ -51,6 +51,11 @@ public class Game {
         //TODO
     }
 
+    public boolean testMovePeg(Peg peg, int spaces, boolean forward){
+        //TODO
+        return true;
+    }
+
     public boolean move(Peg peg, Card card){
         Value value = card.getValue();
         return switch (value) {
@@ -66,15 +71,33 @@ public class Game {
         };
     }
 
+    /**
+     * Handles a split move where two pegs are moved, with the sum of the spaces moved equal to the sum
+     * of the card's value.
+     *
+     * @param peg1 - The first peg to be moved
+     * @param peg2 - The second peg to be moved
+     * @param card - The card that is being played for a split (Which is a 7 or a 9)
+     * @param spacesForward - How many spaces the first peg should be moved forward.
+     * @return - Whether the move was successful.
+     */
     public boolean splitMove(Peg peg1, Peg peg2, Card card, int spacesForward){
+        //Get value of the card (either a SEVEN or a NINE).
         Value value = card.getValue();
-        if (spacesForward >= value.ordinal() + 1){
-            return false;
+        //Check if the first peg can be moved as desired.
+        boolean test = testMovePeg(peg1, spacesForward, true);
+        //Check if the second peg can also be moved as desired.
+        test = test && testMovePeg(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
+        //If both can be, move them as desired, move successful.
+        if (test){
+            //Move the first peg forward the provided spaces.
+            movePeg(peg1, spacesForward, true);
+            //Move the second peg the remaining spaces. Forward if a 7, backward if a 9.
+            movePeg(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
+            return true;
         }
-
-        movePeg(peg1, spacesForward, true);
-        movePeg(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
-        return true;
+        //Move is not successful.
+        return false;
     }
 
     /**
