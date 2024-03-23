@@ -47,61 +47,72 @@ public class Game {
         return p;
     }
 
-    public boolean movePeg(Peg peg, int spaces, boolean forward){
+    /**
+     * Calls processMove() and either makes a peg move if the move was valid or does nothing.
+     * @param peg - The peg that is to be moved.
+     * @param spaces - The amount of spaces to move the peg.
+     * @param forward - Whether the peg is moving forward or backward.
+     * @return - Whether the move was successful.
+     */
+    public boolean movePeg(Peg peg, int spaces, boolean forward) {
+        Hole h = processMove(peg, spaces, forward);
+        if (h != null){
+            this.addPegToHole(peg, h);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Validates that a move can be made. If the move is valid, returns the hole that the peg is desiring to move to.
+     * If the move is invalid, returns null.
+     *
+     * @param peg - The peg that is to be moved.
+     * @param spaces - The amount of spaces to move the peg.
+     * @param forward - Whether the peg is moving forward or backward.
+     * @return - The hole the peg is wanting to move to if valid, otherwise null.
+     */
+    public Hole processMove(Peg peg, int spaces, boolean forward) {
         CircularLinkedList<Hole> loop = this.board.getLoop();
         Node<Hole> node = loop.get(peg.getHole());
         Player p = peg.getPlayer();
         int count = 0;
+
         while (count < spaces) {
             if (forward) {
                 node = node.getNext();
             } else {
                 node = node.getPrevious();
             }
+            count++;
 
             Peg obstacle = node.getData().getPeg();
-            if (obstacle != null && obstacle.getPlayer().equals(p)){
-                return false;
+            if (obstacle != null && obstacle.getPlayer().equals(p)) {
+                return null;
             }
-            count++;
         }
-        return addPegToHole(peg, node.getData());
+
+        Hole h = node.getData();
+        if (this.testAddPegToHole(peg, h)){
+            return h;
+        }
+        return null;
     }
 
-    public boolean testMovePeg(Peg peg, int spaces, boolean forward){
-        CircularLinkedList<Hole> loop = this.board.getLoop();
-        Node<Hole> node = loop.get(peg.getHole());
-        Player p = peg.getPlayer();
-        int count = 0;
-        while (count < spaces) {
-            if (forward) {
-                node = node.getNext();
-            } else {
-                node = node.getPrevious();
-            }
-
-            Peg obstacle = node.getData().getPeg();
-            if (obstacle != null && obstacle.getPlayer().equals(p)){
-                return false;
-            }
-            count++;
-        }
-        return testAddPegToHole(peg, node.getData());
-    }
 
     public boolean move(Peg peg, Card card){
         Value value = card.getValue();
-        return switch (value) {
+        switch (value) {
             case ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, NINE, TEN, JACK, QUEEN, KING -> {
-                movePeg(peg, value.ordinal() + 1, true);
-                yield true;
+                return movePeg(peg, value.ordinal() + 1, true);
             }
             case EIGHT -> {
-                movePeg(peg, value.ordinal() + 1, false);
-                yield true;
+                return movePeg(peg, value.ordinal() + 1, false);
             }
-            default -> false;
-        };
+            default -> {
+                return false;
+            }
+        }
     }
 
     /**
@@ -117,11 +128,8 @@ public class Game {
     public boolean splitMove(Peg peg1, Peg peg2, Card card, int spacesForward){
         //Get value of the card (either a SEVEN or a NINE).
         Value value = card.getValue();
-        //Check if the first peg can be moved as desired.
-        boolean test = testMovePeg(peg1, spacesForward, true);
-        //Check if the second peg can also be moved as desired.
-        test = test && testMovePeg(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
-        //If both can be, move them as desired, move successful.
+        //Check if the both pegs can be moved as desired.
+        boolean test = processMove(peg1, spacesForward, true) != null && processMove(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN)) != null;
         if (test){
             //Move the first peg forward the provided spaces.
             movePeg(peg1, spacesForward, true);
