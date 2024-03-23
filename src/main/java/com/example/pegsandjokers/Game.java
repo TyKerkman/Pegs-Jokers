@@ -47,13 +47,46 @@ public class Game {
         return p;
     }
 
-    public void movePeg(Peg peg, int spaces, boolean forward){
-        //TODO
+    public boolean movePeg(Peg peg, int spaces, boolean forward){
+        CircularLinkedList<Hole> loop = this.board.getLoop();
+        Node<Hole> node = loop.get(peg.getHole());
+        Player p = peg.getPlayer();
+        int count = 0;
+        while (count < spaces) {
+            if (forward) {
+                node = node.getNext();
+            } else {
+                node = node.getPrevious();
+            }
+
+            Peg obstacle = node.getData().getPeg();
+            if (obstacle != null && obstacle.getPlayer().equals(p)){
+                return false;
+            }
+            count++;
+        }
+        return addPegToHole(peg, node.getData());
     }
 
     public boolean testMovePeg(Peg peg, int spaces, boolean forward){
-        //TODO
-        return true;
+        CircularLinkedList<Hole> loop = this.board.getLoop();
+        Node<Hole> node = loop.get(peg.getHole());
+        Player p = peg.getPlayer();
+        int count = 0;
+        while (count < spaces) {
+            if (forward) {
+                node = node.getNext();
+            } else {
+                node = node.getPrevious();
+            }
+
+            Peg obstacle = node.getData().getPeg();
+            if (obstacle != null && obstacle.getPlayer().equals(p)){
+                return false;
+            }
+            count++;
+        }
+        return testAddPegToHole(peg, node.getData());
     }
 
     public boolean move(Peg peg, Card card){
