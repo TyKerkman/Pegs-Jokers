@@ -1,2 +1,0 @@
-Pegs & Jokers Game
-
