@@ -19,18 +19,30 @@ public class Game {
         }
     }
 
+    /**
+     * WORK IN PROGRESS!!!!
+     * @param player - the player that is taking the turn.
+     */
     public void takeTurn(Player player) {
         Card c = getCardFromInput();
         Peg p = getPegFromInput();
         if (c.getValue().equals(Value.TWO)) {
             Peg p2 = getPegFromInput();
-            //TODO
+            swap(p, p2);
         } else if (c.getValue().equals(Value.JOKER)) {
             //TODO
         } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
-            //TODO
+            Peg p2 = getPegFromInput();
+            int spaces = getSplitSpacesFromInput();
+            boolean success = splitMove(p, p2, c, spaces);
+            if (!success){
+                takeTurn(player);
+            }
         } else {
-            move(p, c);
+            boolean success = move(p, c);
+            if (!success){
+                takeTurn(player);
+            }
         }
 
     }
@@ -45,6 +57,12 @@ public class Game {
         Peg p = new Peg();
         //TODO
         return p;
+    }
+
+    public int getSplitSpacesFromInput(){
+        //TODO
+        int num = 4;
+        return num;
     }
 
     /**
@@ -128,13 +146,16 @@ public class Game {
     public boolean splitMove(Peg peg1, Peg peg2, Card card, int spacesForward){
         //Get value of the card (either a SEVEN or a NINE).
         Value value = card.getValue();
+
+        //Move the first peg forward the provided spaces.
+        Hole h1 = processMove(peg1, spacesForward, true);
+        //Move the second peg the remaining spaces. Forward if a 7, backward if a 9.
+        Hole h2 = processMove(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
+
         //Check if the both pegs can be moved as desired.
-        boolean test = processMove(peg1, spacesForward, true) != null && processMove(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN)) != null;
-        if (test){
-            //Move the first peg forward the provided spaces.
-            movePeg(peg1, spacesForward, true);
-            //Move the second peg the remaining spaces. Forward if a 7, backward if a 9.
-            movePeg(peg2, value.ordinal() + 1 - spacesForward, value.equals(Value.SEVEN));
+        if (h1 != null && h2 != null){
+            this.addPegToHole(peg1, h1);
+            this.addPegToHole(peg2, h2);
             return true;
         }
         //Move is not successful.
