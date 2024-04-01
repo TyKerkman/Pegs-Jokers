@@ -19,18 +19,30 @@ public class Game {
         }
     }
 
+    /**
+     * WORK IN PROGRESS!!!!
+     * @param player - the player that is taking the turn.
+     */
     public void takeTurn(Player player) {
         Card c = getCardFromInput();
         Peg p = getPegFromInput();
         if (c.getValue().equals(Value.TWO)) {
             Peg p2 = getPegFromInput();
-            //TODO
+            swap(p, p2);
         } else if (c.getValue().equals(Value.JOKER)) {
             //TODO
         } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
-            //TODO
+            Peg p2 = getPegFromInput();
+            int spaces = getSplitSpacesFromInput();
+            boolean success = splitMove(p, p2, c, spaces);
+            if (!success){
+                takeTurn(player);
+            }
         } else {
-            move(p, c);
+            boolean success = move(p, c);
+            if (!success){
+                takeTurn(player);
+            }
         }
 
     }
@@ -45,6 +57,12 @@ public class Game {
         Peg p = new Peg();
         //TODO
         return p;
+    }
+
+    public int getSplitSpacesFromInput(){
+        //TODO
+        int num = 4;
+        return num;
     }
 
     /**
