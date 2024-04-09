@@ -1,6 +1,5 @@
-package com.example.pegsandjokers;
+package com.example.pegsandjokers.api.controller.model;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.pegsandjokers;
+package com.example.pegsandjokers.api.controller.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
