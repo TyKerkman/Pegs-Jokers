@@ -36,6 +36,7 @@ function Home() {
 
     return (
         <div className='home-page'>
+            <div>hello</div>
             <div className="title-container">
                 <h1 className="title">Pegs and Jokers</h1>
             </div>
