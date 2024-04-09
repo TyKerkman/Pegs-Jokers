@@ -1,4 +1,4 @@
-package com.example.pegsandjokers;
+package com.example.pegsandjokers.api.controller.model;
 
 public class TestMain {
     public static void main(String[] args){

@@ -1,13 +1,16 @@
-package com.example.pegsandjokers;
+package com.example.pegsandjokers.api.controller.model;
 
 public class Game {
+
+    private int id;
     private Board board;
     private Player[] players;
     private Deck deck;
 
-    public Game(Player[] players){
-        this.board = new Board(players.length);
-        this.players = players;
+    public Game(int id){
+        this.id = id;
+        this.players = new Player[4];
+        this.board = new Board(this.players.length);
         this.deck = new Deck();
     }
 
@@ -379,5 +382,13 @@ public class Game {
         }
         //If unsuccessful, return false.
         return false;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.pegsandjokers;
+package com.example.pegsandjokers.api.controller.model;
 public class Board {
 
     public static final int SIZE_OF_BOARD_SEGMENT = 18;
