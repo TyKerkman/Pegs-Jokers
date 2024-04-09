@@ -55,10 +55,6 @@ public class Board {
         node.setFork(heaven.getFirst());
     }
 
-    public Player[] getPlayers(){
-        return this.players;
-    }
-
     public CircularLinkedList<Hole> getLoop(){
         return this.loop;
     }
