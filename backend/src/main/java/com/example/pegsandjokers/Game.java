@@ -15,6 +15,8 @@ public class Game {
         while(!isWinner()){
             for (Player p: this.players){
                 takeTurn(p);
+                //After this update board.
+                //TODO
             }
         }
     }
