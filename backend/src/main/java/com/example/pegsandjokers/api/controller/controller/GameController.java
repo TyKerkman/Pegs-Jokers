@@ -22,9 +22,6 @@ public class GameController {
     @GetMapping("/game")
     public Game getGame(@RequestParam Integer id){
         Optional<Game> game = gameService.getGame(id);
-        if (game.isPresent()){
-            return (Game) game.get();
-        }
-        return null;
+        return (Game) game.orElse(null);
     }
 }

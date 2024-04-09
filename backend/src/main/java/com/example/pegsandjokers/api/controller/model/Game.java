@@ -10,7 +10,7 @@ public class Game {
     public Game(int id){
         this.id = id;
         this.players = new Player[4];
-        this.board = new Board(this.players.length);
+        this.board = new Board(id);
         this.deck = new Deck();
     }
 
@@ -94,26 +94,28 @@ public class Game {
      * @return - The hole the peg is wanting to move to if valid, otherwise null.
      */
     public Hole processMove(Peg peg, int spaces, boolean forward) {
-        CircularLinkedList<Hole> loop = this.board.getLoop();
-        Node<Hole> node = loop.get(peg.getHole());
+        Hole[] loop = this.board.getLoop();
+        Hole current = peg.getHole();
+        int index = this.board.getHoleIndex(current.getId());
         Player p = peg.getPlayer();
         int count = 0;
 
         while (count < spaces) {
             if (forward) {
-                node = node.getNext();
+                current = loop[index + 1 % loop.length];
             } else {
-                node = node.getPrevious();
+                index = (index == 0) ? (loop.length - 1) : (index - 1);
+                current = loop[index];
             }
             count++;
 
-            Peg obstacle = node.getData().getPeg();
+            Peg obstacle = current.getPeg();
             if (obstacle != null && obstacle.getPlayer().equals(p)) {
                 return null;
             }
         }
 
-        Hole h = node.getData();
+        Hole h = current;
         if (this.testAddPegToHole(peg, h)){
             return h;
         }

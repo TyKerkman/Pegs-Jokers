@@ -1,13 +1,20 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import java.util.UUID;
+
 public class Hole {
 
+    private UUID id;
+    private UUID next;
+    private UUID previous;
+    private UUID fork;
     private int numPlayer;
     private Peg peg;
     private boolean isHeavensGate;
     private boolean isHomeStep;
 
-    public Hole(int numPlayer){
+    public Hole(UUID id, int numPlayer){
+        this.id = id;
         this.numPlayer = numPlayer;
         this.peg = null;
         this.isHeavensGate = false;
@@ -46,9 +53,44 @@ public class Hole {
         isHomeStep = true;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public UUID getNext() {
+        return next;
+    }
+
+    public void setNext(UUID next) {
+        this.next = next;
+    }
+
+    public UUID getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(UUID previous) {
+        this.previous = previous;
+    }
+
+    public UUID getFork() {
+        return fork;
+    }
+
+    public void setFork(UUID fork) {
+        this.fork = fork;
+    }
+
     @Override
     public String toString(){
-        //TODO
-        return "";
+        String s = "id: " + this.id;
+        s = (next == null) ? s : s + " next: " + this.next;
+        s = (previous == null) ? s : s + " previous: " + this.previous;
+        s = (fork == null) ? s : s + " fork: " + this.fork;
+        return s;
     }
 }
