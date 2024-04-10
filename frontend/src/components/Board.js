@@ -28,11 +28,19 @@ function Board({numPlayers=4}) {
     const [moved, setMoved] = useState(false)
 
     const updateBoard = () => {
-        let newBoard = [...initialBoard]
-        newBoard[0][9] = initialPiece
-
-        setMoved(true)
-        setBoard(newBoard);
+        if (!moved){
+            let newBoard = [...initialBoard]
+            newBoard[0][9] = initialPiece
+    
+            setMoved(true)
+            setBoard(newBoard);
+        } else {
+            let newBoard = [...initialBoard]
+            newBoard[1][9] = initialPiece
+    
+            setMoved(false)
+            setBoard(newBoard);
+        }
     }
 
     useEffect(()=>{
