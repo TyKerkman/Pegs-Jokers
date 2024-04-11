@@ -154,6 +154,30 @@ input[type="password"] {
   cursor: pointer;
 }
 
+.navBar{
+  width: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  margin: 0;
+  padding: 0 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navButton{
+  border: none;
+  background: none;
+  padding: 10;
+  cursor: pointer;
+  flex: 0;
+}
+
+.navTitle{
+  flex: 1;
+  text-align: center;
+}
+
 .login-button:hover {
   background-color: #0056b3;
 }
