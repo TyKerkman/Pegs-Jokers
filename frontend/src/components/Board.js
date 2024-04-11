@@ -30,13 +30,13 @@ function Board({numPlayers=4}) {
     const updateBoard = () => {
         if (!moved){
             let newBoard = [...initialBoard]
-            newBoard[0][9] = initialPiece
+            newBoard[0][7] = initialPiece
     
             setMoved(true)
             setBoard(newBoard);
         } else {
             let newBoard = [...initialBoard]
-            newBoard[1][9] = initialPiece
+            newBoard[1][7] = initialPiece
     
             setMoved(false)
             setBoard(newBoard);
@@ -69,8 +69,7 @@ function Board({numPlayers=4}) {
                             return <Place pathColor={'brown'} position={'end'}/>
                         }
                         // Top Section Start
-                        else if( ((indexI == 1 || indexI == 2 || indexI == 3) && indexJ == Math.floor(row.length/2)) || (indexI == 2 && (indexJ == Math.floor(row.length/2) - 1 || indexJ == Math.floor(row.length/2) + 1))){
-                            
+                        else if( ((indexI == 1 || indexI == 2 || indexI == 3) && indexJ == 7 || (indexI == 2 && (indexJ == 6 || indexJ == 8)))){        
                             if(indexI == 1 && moved){
                                 return <Place pathColor={'brown'} position={'start'}/>
                             }
@@ -81,7 +80,7 @@ function Board({numPlayers=4}) {
                             return <Place  pathColor={'tan'} position={'end'}/>
                         }
                         // Right Section Start
-                        else if ( (indexI == Math.floor(initialBoard.length/2) && (indexJ == row.length - 2 || indexJ == row.length - 3 || indexJ == row.length - 4)) || (indexI == Math.floor(initialBoard.length/2) - 1 && indexJ == row.length - 3) || (indexI == Math.floor(initialBoard.length/2) + 1 && indexJ == row.length - 3) ) {
+                        else if ( (indexI == 7 && (indexJ == row.length - 2 || indexJ == row.length - 3 || indexJ == row.length - 4)) || (indexI == 6 && indexJ == row.length - 3) || (indexI == 8 && indexJ == row.length - 3) ) {
                             return <Place piece={{color: 'blue'}} pathColor={'tan'} position={'start'}/>
                         }
                         // Bottom Section End
@@ -89,7 +88,7 @@ function Board({numPlayers=4}) {
                             return <Place  pathColor={'brown'} position={'end'}/>
                         }
                         // Bottom Section Start
-                        else if ( (indexJ == Math.floor(row.length / 2) && (indexI == initialBoard.length - 2 || indexI == initialBoard.length - 3 || indexI == initialBoard.length - 4)) || (indexI == initialBoard.length - 3 && (indexJ == Math.floor(row.length / 2) - 1 || indexJ == Math.floor(row.length / 2) + 1)) ){
+                        else if ( (indexJ == 11 && (indexI == initialBoard.length - 2 || indexI == initialBoard.length - 3 || indexI == initialBoard.length - 4)) || (indexI == initialBoard.length - 3 && (indexJ == 10 || indexJ == 12)) ){
                             return <Place piece={{color: 'red'}}  pathColor={'brown'} position={'start'}/>
                         }
                         // Left Section End
@@ -97,14 +96,12 @@ function Board({numPlayers=4}) {
                             return <Place  pathColor={'tan'} position={'end'}/>
                         }
                         // Left Section Start
-                        else if ( (indexI == Math.floor(initialBoard.length/2) && (indexJ == 1 || indexJ ==2 || indexJ == 3)) || (indexJ == 2 && (indexI == Math.floor(initialBoard.length/2)-1 || indexI == Math.floor(initialBoard.length/2) + 1)) ) {
+                        else if ( (indexI == 11 && (indexJ == 1 || indexJ ==2 || indexJ == 3)) || (indexJ == 2 && (indexI == 10 || indexI == 12)) ) {
                             return <Place piece={{color: 'blue'}} pathColor={'tan'} position={'start'}/>
                         }
                         else{
                             return <Place />
                         }
-                    
-                    
                     })
                 })}
             </div>
