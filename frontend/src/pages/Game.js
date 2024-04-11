@@ -1,15 +1,14 @@
 import React, {useState} from 'react'
 import {Outlet, Link} from 'react-router-dom'
 import Board from '../components/Board'
+import NavBar from '../components/NavBar'
 import '../Styling.css'
 
 function Game() {
 
     return (
         <div className='game-page'>
-            <div className='game-header'>
-                <Link className='button-1' to='/'>Home</Link>
-            </div>
+            <NavBar title = "Pegs & Jokers"/>
             <div className='game-body'>
                 <Board />
             </div>

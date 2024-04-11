@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react';
 function Place({ position = null, piece = null, pathColor=null}) {
 
     const [hole, setHole] = useState(); // Initialize color state with an empty string
-    const [background, setBackground] = useState(pathColor == null ? 'green' : pathColor)
+    const [background, setBackground] = useState(pathColor == null ? '#444444' : pathColor)
 
     useEffect(() => {
         // Check if the position is 'path' and the piece is null to set the color to black
         if (position === 'path' && piece === null) {
             setHole({
                 background: 'black',
-                height: '7.5px',
-                width: '7.5px',
+                height: '10px',
+                width: '10px',
                 borderRadius: '50%',
                 display: 'inline-block'
             });
@@ -19,16 +19,16 @@ function Place({ position = null, piece = null, pathColor=null}) {
         else if (position == 'start' && piece != null) { // If there is a piece, set the color to the piece's color
             setHole({
                 background: piece.color,
-                height: '12px',
-                width: '12px',
+                height: '15px',
+                width: '15px',
                 borderRadius: '50%',
                 display: 'inline-block'
             });
         }else if (position == 'start'){
             setHole({
                 background: 'black',
-                height: '7.5px',
-                width: '7.5px',
+                height: '10px',
+                width: '10px',
                 borderRadius: '50%',
                 display: 'inline-block'
             }); 
@@ -36,8 +36,8 @@ function Place({ position = null, piece = null, pathColor=null}) {
         else if (position == 'end') { // If there is a piece, set the color to the piece's color
             setHole({
                 background: 'black',
-                height: '7.5px',
-                width: '7.5px',
+                height: '10px',
+                width: '10px',
                 borderRadius: '50%',
                 display: 'inline-block'
             });
@@ -45,16 +45,16 @@ function Place({ position = null, piece = null, pathColor=null}) {
         else if (piece !== null) { // If there is a piece, set the color to the piece's color
             setHole({
                 background: piece.color,
-                height: '12px',
-                width: '12px',
+                height: '15px',
+                width: '15px',
                 borderRadius: '50%',
                 display: 'inline-block'
             });
         } else { // Reset color if neither condition is met
             setHole({
-                background: 'green',
-                height: '7.5px',
-                width: '7.5px',
+                background: '#444444',
+                height: '10px',
+                width: '10px',
                 borderRadius: '50%',
                 display: 'inline-block'
             });
