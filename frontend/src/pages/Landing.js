@@ -3,6 +3,7 @@ import {Outlet, Link, useNavigate} from 'react-router-dom'
 import "../Styling.css"
 import { auth } from '../firebase';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import title1 from "../assets/title_1T.png"
 
 
 function Landing() {
@@ -14,12 +15,15 @@ function Landing() {
     return (
         <div className="landing-page">
             <div className="title-container">
-                <h1 className="title">Pegs and Jokers</h1>
+                <img src={title1} alt="Pegs And Jokers" />
+                {/* <h1 className="title">Pegs and Jokers</h1> */}
             </div>
-            {
-                user == null ? <div><Link className="button-1" to='/login'>Login</Link></div> : <Link to='/home'>Login</Link>
-            }
-            <Link className="button-1" to='/signup'>Sign Up</Link>
+            <div className="landing-options">
+                {
+                    user == null ? <div><Link className="button-1" to='/login'>Login</Link></div> : <Link to='/home'>Login</Link>
+                }
+                <Link className="button-1" to='/signup'>Sign Up</Link>
+            </div>
         </div>
     )
 }

@@ -3,6 +3,8 @@ import {Outlet, Link, useNavigate} from 'react-router-dom'
 import '../Styling.css';
 import { onAuthStateChanged, signOut} from "firebase/auth";
 import { auth } from '../firebase';
+import title1 from "../assets/title_1T.png"
+
 
 function Home() {
     const navigate = useNavigate();
@@ -36,9 +38,10 @@ function Home() {
 
     return (
         <div className='home-page'>
-            <div>hello</div>
-            <div className="title-container">
-                <h1 className="title">Pegs and Jokers</h1>
+            {/* <div>hello</div> */}
+            <div className="home-title">
+                <img src={title1} alt="Pegs And Jokers" />
+                {/* <h1 className="title">Pegs and Jokers</h1> */}
             </div>
             <Link className="button-1" to='/game'>Game</Link>
             <Link className="button-1" to='/profile'>Profile</Link>
