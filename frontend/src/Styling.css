@@ -4,6 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  background-color: #312e2b;
 }
 
 /* .game-header {
@@ -48,6 +50,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-height: 100vh;
+  background-color: #312e2b;
 }
 
 .landing-page {
@@ -163,11 +167,12 @@ input[type="password"] {
   border-radius: 5px;
 }
 
-.login-button {
+.button-2 {
   width: 322px;
   padding-top: 8px;
   padding-bottom: 8px;
   font-size: 16px;
+  text-align: center;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -176,7 +181,7 @@ input[type="password"] {
   text-decoration: none;
 }
 
-.login-button:hover {
+.button-2:hover {
   background-color: #0056b3;
 }
 

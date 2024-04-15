@@ -8,7 +8,7 @@ function Game() {
     return (
         <div className='game-page'>
             <div className='game-header'>
-                <Link className='login-button' to='/'>Home</Link>
+                <Link className='button-2' to='/'>Home</Link>
             </div>
             <div className='game-body'>
                 <Board />
