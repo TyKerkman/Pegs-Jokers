@@ -20,7 +20,7 @@ function Landing() {
             </div>
             <div className="landing-options">
                 {
-                    user == null ? <div><Link className="button-1" to='/login'>Login</Link></div> : <Link to='/home'>Login</Link>
+                    user == null ? <div><Link className="button-1" to='/login'>Login</Link></div> : <Link className="button-1" to='/home'>Login</Link>
                 }
                 <Link className="button-1" to='/signup'>Sign Up</Link>
             </div>

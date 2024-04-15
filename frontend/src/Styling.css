@@ -79,7 +79,7 @@
 .title {
   font-size: 35px;
   margin-bottom: 20px;
-  color: #333; /* Change color as desired */
+  color: #FFFF; /* Change color as desired */
   text-align: center;
 }
 
@@ -133,10 +133,11 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: 100vh;
+  background-color: #312e2b;
   align-items: center;
-  margin-top: 50px;
 }
+
 
 .login-form {
   width: 300px;
@@ -144,7 +145,8 @@
 }
 
 .form-group {
-  margin-bottom: 20px;
+  color: white;
+  padding-top: 25px;
 }
 
 label {
@@ -162,22 +164,37 @@ input[type="password"] {
 }
 
 .login-button {
-  width: 100%;
-  padding: 10px;
+  width: 322px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   font-size: 16px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .login-button:hover {
   background-color: #0056b3;
 }
 
+.no-account {
+  display: flex;
+  width: 302px;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  padding-top: 22px;
+}
+
 .text-sm {
   font-size: 14px;
+}
+
+.no-account-text{
+  padding-left: 24px;
 }
 
 .text-center {
