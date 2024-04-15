@@ -5,8 +5,8 @@ import '../Styling.css'
 function Profile() {
     return (
         <div className="profile-page">
-            <h1>Profile</h1>
-            <Link to='/'>Home</Link>
+            <h1 className='text-white'>Profile</h1>
+            <Link className="button-2" to='/'>Home</Link>
         </div>
     )
 }

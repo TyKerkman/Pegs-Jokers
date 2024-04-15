@@ -4,6 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  background-color: #312e2b;
 }
 
 /* .game-header {
@@ -38,32 +40,50 @@
 
 .home-page {
   display: flex;
-  justify-content: center;
+  min-height: 100vh;
   align-items: center;
   flex-direction: column;
+  background-color: #312e2b;
 }
 
 .profile-page {
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-height: 100vh;
+  background-color: #312e2b;
 }
 
 .landing-page {
   display: flex;
+  min-height: 100vh;
   align-items: center;
   flex-direction: column;
+  background-color: #312e2b;
 }
 
 .title-container {
-  padding: 5px 100px;
-  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 120px 100px;
+}
+
+.home-title {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 100px;
+}
+
+
+.landing-options {
+  display: flex;
+  flex-direction: row;
 }
 
 .title {
   font-size: 35px;
   margin-bottom: 20px;
-  color: #333; /* Change color as desired */
+  color: #FFFF; /* Change color as desired */
   text-align: center;
 }
 
@@ -77,23 +97,25 @@
 
 /* CSS */
 .button-1 {
-  background-color: #405cf5;
+  background-color: #ed545c;
   border-radius: 8px;
-  border-style: none;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 100px;
   font-weight: 500;
-  height: 40px;
-  line-height: 20px;
+  height: 140px;
+  width: 500px;
+  line-height: 115px;
   list-style: none;
   margin: 10px;
-  outline: none;
-  padding: 10px 16px;
-  position: relative;
+  padding: 6px 10px;
+  /* position: relative; */
   text-align: center;
   text-decoration: none;
   transition: color 100ms;
@@ -105,7 +127,7 @@
 
 .button-1:hover,
 .button-1:focus {
-  background-color: #F082AC;
+  background-color: #e31c24;
 }
 
 .move-button {
@@ -115,10 +137,11 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: 100vh;
+  background-color: #312e2b;
   align-items: center;
-  margin-top: 50px;
 }
+
 
 .login-form {
   width: 300px;
@@ -126,7 +149,8 @@
 }
 
 .form-group {
-  margin-bottom: 20px;
+  color: white;
+  padding-top: 25px;
 }
 
 label {
@@ -143,23 +167,39 @@ input[type="password"] {
   border-radius: 5px;
 }
 
-.login-button {
-  width: 100%;
-  padding: 10px;
+.button-2 {
+  width: 322px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   font-size: 16px;
+  text-align: center;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.login-button:hover {
+.button-2:hover {
   background-color: #0056b3;
+}
+
+.no-account {
+  display: flex;
+  width: 302px;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  padding-top: 22px;
 }
 
 .text-sm {
   font-size: 14px;
+}
+
+.no-account-text{
+  padding-left: 24px;
 }
 
 .text-center {

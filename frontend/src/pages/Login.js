@@ -5,7 +5,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -60,15 +60,17 @@ const Login = () => {
               </div>
 
               <div className="form-group">
-                <button className="login-button" onClick={onLogin}>
+                <button className="button-2" onClick={onLogin}>
                   Login
                 </button>
               </div>
             </form>
 
-            <p className="text-sm text-white text-center">
-              No account yet? <NavLink to="/signup">Sign up</NavLink>
-            </p>
+            
+            <div className="no-account">
+              <p className="no-account-text">No account yet?</p>
+              <Link className="button-2" to="/signup">Sign up</Link>
+            </div>
           </div>
         </section>
       </main>

@@ -105,7 +105,7 @@ function Board({numPlayers=4}) {
 
     return (
         <div className='board-container'>
-            <button className="button-1 move-button" onClick={updateBoard} >Move</button>
+            <button className="button-2" onClick={updateBoard} >Move</button>
             <div className="grid-container">
                 {grid}
             </div>
