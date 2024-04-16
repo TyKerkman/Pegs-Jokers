@@ -51,6 +51,7 @@ function Board({numPlayers=4}) {
             {
                 board.map((row, indexI)=>{
                     return row.map((item, indexJ)=>{
+                        // Outside Edges
                         if (indexI == 0 || indexI == initialBoard.length - 1 || indexJ == 0 || indexJ == row.length - 1) {
                             // Determine path color based on the section: top/bottom (brown) or left/right (tan)
                             const isHorizontalEdge = (indexI == 0 && indexJ != row.length - 1) || (indexI == initialBoard.length - 1 && indexJ != 0);
