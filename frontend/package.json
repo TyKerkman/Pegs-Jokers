@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^10.8.1",
     "react": "^18.2.0",
@@ -14,7 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -36,6 +35,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^15.0.2",
+    "babel-core": "^7.0.0-bridge.0",
     "react-router-dom": "^6.22.2",
     "web-vitals": "^3.5.2"
   }
