@@ -44,7 +44,7 @@ public class Board {
             int numPlayer = i / SIZE_OF_BOARD_SEGMENT;
             Hole h = new Hole(UUID.randomUUID(), numPlayer);
             this.loop[i] = h;
-            if (i % SIZE_OF_BOARD_SEGMENT == 0){
+            if (i % SIZE_OF_BOARD_SEGMENT == 2){
                 this.players[numPlayer].setHeavensGate(h);
                 h.setHeavensGate();
                 insertHeaven(h, numPlayer);
