@@ -51,21 +51,12 @@ function Board({numPlayers=4}) {
             {
                 board.map((row, indexI)=>{
                     return row.map((item, indexJ)=>{
-                        // Top Section Path
-                        if(indexI == 0 && indexJ != row.length - 1){
-                                return <Place piece={item} pathColor={brown} position={'path'}/>
-                        }
-                        // Right Section Path
-                        else if(indexJ == row.length - 1 && indexI != initialBoard.length - 1){
-                            return <Place piece={item} pathColor={tan} position={'path'}/>
-                        }
-                        // Bottom Section Path
-                        else if(indexI == initialBoard.length - 1 && indexJ != 0){
-                            return <Place piece={item} pathColor={brown} position={'path'}/>
-                        }
-                        // Left Section Path
-                        else if(indexJ == 0 && indexI != 0){
-                            return <Place piece={item} pathColor={tan} position={'path'}/>
+                        if (indexI == 0 || indexI == initialBoard.length - 1 || indexJ == 0 || indexJ == row.length - 1) {
+                            // Determine path color based on the section: top/bottom (brown) or left/right (tan)
+                            const isHorizontalEdge = (indexI == 0 && indexJ != row.length - 1) || (indexI == initialBoard.length - 1 && indexJ != 0);
+                            const pathColor = isHorizontalEdge ? brown : tan;
+                        
+                            return <Place piece={item} pathColor={pathColor} position={'path'} />;
                         }
                         // Top Section End
                         else if( ((indexI == 1 || indexI == 2 || indexI == 3) && indexJ == 2) || (indexI == 3 && (indexJ == 3 || indexJ == 4)) ){

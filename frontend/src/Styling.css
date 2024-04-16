@@ -166,9 +166,10 @@ input[type="password"] {
 }
 
 .button-2 {
-  width: 322px;
+  width: 50px;
   padding-top: 8px;
   padding-bottom: 8px;
+  margin-top: 30px;
   font-size: 16px;
   text-align: center;
   background-color: #007bff;
@@ -181,7 +182,8 @@ input[type="password"] {
 
 .navBar{
   width: 100%;
-  background-color: #333;
+  height: 60px;
+  background-color: #717171;
   color: white;
   display: flex;
   margin: 0;
