@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react'
 import Place from './Place'
 import '../Styling.css'
+import KnownCard from './KnownCard';
 
 function Board({numPlayers=4}) {
 
@@ -12,6 +13,7 @@ function Board({numPlayers=4}) {
     const gridContainer =  {
         display: 'grid',
         gridTemplateColumns: `repeat(${num}, auto)`,
+
     }
     
     let initialBoard = []
@@ -104,7 +106,16 @@ function Board({numPlayers=4}) {
 
     return (
         <div className='board-container'>
-            <button className="button-2" onClick={updateBoard} >Move</button>
+            <div className='user-hand'>
+                <div className='card-container'>
+                    <KnownCard card={'3'} />
+                    <KnownCard />  
+                    <KnownCard />                    
+                    <KnownCard />                    
+                    <KnownCard />                    
+                  
+                </div>
+            </div>
             <div className="grid-container">
                 {grid}
             </div>

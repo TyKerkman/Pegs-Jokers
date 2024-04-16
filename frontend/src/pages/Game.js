@@ -9,8 +9,14 @@ function Game() {
     return (
         <div className='game-page'>
             <NavBar title = "Pegs & Jokers"/>
-            <div className='game-body'>
-                <Board />
+            <div className='game-container'>
+
+                <div className='game-body'>
+                    <Board />
+                </div>
+                <div className='game-sidebar'>
+
+                </div>
             </div>
         </div>
     )
