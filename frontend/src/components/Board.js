@@ -75,7 +75,7 @@ function Board({numPlayers=4}) {
                         }
                         // Right Section Start
                         else if ( (indexI == 7 && (indexJ == row.length - 2 || indexJ == row.length - 3 || indexJ == row.length - 4)) || (indexI == 6 && indexJ == row.length - 3) || (indexI == 8 && indexJ == row.length - 3) ) {
-                            return <Place piece={{color: 'blue'}} pathColor={tan} position={'start'}/>
+                            return <Place piece={{color: 'fuchsia'}} pathColor={tan} position={'start'}/>
                         }
                         // Bottom Section End
                         else if ( (indexJ == row.length - 3 && (indexI == initialBoard.length - 2 || indexI == initialBoard.length - 3 || indexI == initialBoard.length - 4)) || (indexI == initialBoard.length - 4 && (indexJ == row.length - 4 || indexJ == row.length - 5)) ) {
@@ -83,7 +83,7 @@ function Board({numPlayers=4}) {
                         }
                         // Bottom Section Start
                         else if ( (indexJ == 11 && (indexI == initialBoard.length - 2 || indexI == initialBoard.length - 3 || indexI == initialBoard.length - 4)) || (indexI == initialBoard.length - 3 && (indexJ == 10 || indexJ == 12)) ){
-                            return <Place piece={{color: 'red'}}  pathColor={brown} position={'start'}/>
+                            return <Place piece={{color: 'green'}}  pathColor={brown} position={'start'}/>
                         }
                         // Left Section End
                         else if ( (indexI == initialBoard.length - 3 && (indexJ == 1 || indexJ == 2 || indexJ == 3)) || (indexJ == 3 && (indexI == initialBoard.length - 4 || indexI == initialBoard.length - 5)) ) {
