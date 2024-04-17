@@ -70,13 +70,13 @@ function Board({numPlayers=4}) {
 
                         else if (indexI == initialBoard.length - 1 && indexJ < row.length - 1){
                             const pathColor = brown;
-                            const peg = data.loop[36 + (row.length - 1 - indexJ - 1)].peg
+                            const peg = data.loop[36 + (row.length - 2 - indexJ)].peg
                             return <Place piece={peg} pathColor={pathColor} position={'path'} />;
                         }
 
                         else if (indexI < initialBoard.length - 1 && indexJ == 0){
                             const pathColor = tan;
-                            const peg = data.loop[52 + (initialBoard.length - 1 - (indexI - 1))].peg
+                            const peg = data.loop[54 + (initialBoard.length - 2 - indexI)].peg
                             return <Place piece={peg} pathColor={pathColor} position={'path'} />;
                         }
 
