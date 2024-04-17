@@ -32,6 +32,7 @@ public class Game {
             ArrayList<Peg> pegs = new ArrayList<>();
             for (int j = 0; j < 5; j++){
                 Peg p = new Peg();
+                p.setColor("blue");
                 p.setPlayer(this.players[i]);
                 pegs.add(p);
             }
