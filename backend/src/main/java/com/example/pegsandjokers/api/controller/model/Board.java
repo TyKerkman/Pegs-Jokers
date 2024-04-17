@@ -34,7 +34,7 @@ public class Board {
                 h.setHeavensGate();
                 insertHeaven(h, numPlayer);
             }
-            if (i % SIZE_OF_BOARD_SEGMENT == 5){
+            if (i % SIZE_OF_BOARD_SEGMENT == 7){
                 h.setHomeStep();
                 this.players[numPlayer].setHomeStep(h);
             }
