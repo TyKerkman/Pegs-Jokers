@@ -1,10 +1,8 @@
 import React from 'react';
+import Hole from './Hole';
 import BoardSegment from './BoardSegment';
 
-function Board2(){
-    const brown = '#61483e';
-    const tan = '#dfb289';
-
+const Board2 = ({ holes }) => {
     
 }
 
