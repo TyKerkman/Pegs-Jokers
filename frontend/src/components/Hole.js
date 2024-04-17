@@ -1,9 +1,9 @@
 import React from 'react';
 import '../Styling.css'
 
-const Hole = ({ piece }) => {
+const Hole = ({ piece, color }) => {
     const style = piece ? {
-        background: piece.color,
+        background: color,
         height: '15px',
         width: '15px',
         borderRadius: '50%',
