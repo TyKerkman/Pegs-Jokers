@@ -186,10 +186,9 @@ input[type="password"] {
   background-color: #717171;
   color: white;
   display: flex;
-  margin: 0;
-  padding: 0 1rem;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 1px 1px 1px 1px black;
 }
 
 .navButton{
@@ -202,7 +201,7 @@ input[type="password"] {
 
 .navTitle{
   flex: 1;
-  padding: 0;
+  height: 60%;
   align-items: center;
   justify-content: center;
   text-align: center;
