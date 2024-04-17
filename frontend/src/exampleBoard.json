@@ -783,7 +783,7 @@
         "previous": null,
         "fork": null,
         "numPlayer": 1,
-        "peg": null,
+        "peg": {"color" : "fuchsia"},
         "homeStep": false,
         "heavensGate": false
       },
