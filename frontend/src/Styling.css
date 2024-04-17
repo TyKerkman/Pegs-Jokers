@@ -4,35 +4,51 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #312e2b;
+  background-color: #444444;
 }
 
-/* .game-header {
+.game-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 
-} */
+.game-header {
+  width: 100%;
+}
 
-/* .game-body {
-  background: green;
-} */
+.game-body {
+  width: 80%;
+}
+
+.game-sidebar{
+  width: 20%;
+  background-color: white;
+}
+
 
 .board-container {
+  background-color: green;
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
+
 
 .grid-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 50px;
-  background-color: green;
 }
 
+
 .place-outline {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,9 +184,10 @@ input[type="password"] {
 }
 
 .button-2 {
-  width: 322px;
+  width: 50px;
   padding-top: 8px;
   padding-bottom: 8px;
+  margin-top: 30px;
   font-size: 16px;
   text-align: center;
   background-color: #007bff;
@@ -179,6 +196,34 @@ input[type="password"] {
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
+}
+
+.navBar{
+  width: 100%;
+  height: 60px;
+  background-color: #717171;
+  color: white;
+  display: flex;
+  margin: 0;
+  padding: 0 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navButton{
+  border: none;
+  background: none;
+  padding: 10;
+  cursor: pointer;
+  flex: 0;
+}
+
+.navTitle{
+  flex: 1;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .button-2:hover {
@@ -208,4 +253,30 @@ input[type="password"] {
 
 .text-white {
   color: #fff;
+}
+
+
+.user-hand {
+  background-color: white;
+  height: 75%;
+  width: 15%;
+  position: relative;
+  display: flex; /* Use flexbox */
+  background-color: green;
+}
+
+.card-container {
+  flex: 1; /* Let the container grow to fill the available space */
+  border: 1px solid blue;
+  overflow-y: auto; /* Add scrollbar if content overflows vertically */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack cards vertically */
+  align-items: center;
+}
+
+.known-card {
+  height: 20%;
+  width: 5em;
+  border: 1px solid black;
+  background-color: white;
 }
