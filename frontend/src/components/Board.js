@@ -1,6 +1,9 @@
 import React, {useState, useEffect, useRef} from 'react'
 import Place from './Place'
+import Hole from './Hole'
 import '../Styling.css'
+import data from '../exampleBoard.json'
+import { initializeAnalytics } from 'firebase/analytics'
 
 function Board({numPlayers=4}) {
 
@@ -50,15 +53,42 @@ function Board({numPlayers=4}) {
         let newGrid =<div style={gridContainer}>
             {
                 board.map((row, indexI)=>{
+                    //Top Row Holes
                     return row.map((item, indexJ)=>{
-                        // Outside Edges
-                        if (indexI == 0 || indexI == initialBoard.length - 1 || indexJ == 0 || indexJ == row.length - 1) {
-                            // Determine path color based on the section: top/bottom (brown) or left/right (tan)
-                            const isHorizontalEdge = (indexI == 0 && indexJ != 0) || (indexI == initialBoard.length - 1 && indexJ != row.length - 1);
-                            const pathColor = isHorizontalEdge ? brown : tan;
-                        
-                            return <Place piece={item} pathColor={pathColor} position={'path'} />;
+                        //Num Player 0's
+                        if (indexI == 0 && indexJ > 0){
+                            const pathColor = brown;
+                            const peg = data.loop[indexJ - 1].peg
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} />;
                         }
+
+                        else if (indexI > 0 && indexJ == row.length - 1){
+                            const pathColor = tan;
+                            const peg = data.loop[18 + indexI - 1].peg
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                        }
+
+                        else if (indexI == initialBoard.length - 1 && indexJ < row.length - 1){
+                            const pathColor = brown;
+                            const peg = data.loop[36 + (row.length - 1 - indexJ - 1)].peg
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                        }
+
+                        else if (indexI < initialBoard.length - 1 && indexJ == 0){
+                            const pathColor = tan;
+                            const peg = data.loop[52 + (initialBoard.length - 1 - (indexI - 1))].peg
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                        }
+
+                        
+                        // Outside Edges
+                        // else if (indexI == 0 || indexI == initialBoard.length - 1 || indexJ == 0 || indexJ == row.length - 1) {
+                        //     // Determine path color based on the section: top/bottom (brown) or left/right (tan)
+                        //     const isHorizontalEdge = (indexI == 0 && indexJ != 0) || (indexI == initialBoard.length - 1 && indexJ != row.length - 1);
+                        //     const pathColor = isHorizontalEdge ? brown : tan;
+                        
+                        //     return <Place piece={item} pathColor={pathColor} position={'path'} />;
+                        // }
                         // Top Section End
                         else if( ((indexI == 1 || indexI == 2 || indexI == 3) && indexJ == 3) || (indexI == 3 && (indexJ == 4 || indexJ == 5)) ){
                             return <Place pathColor={brown} position={'end'}/>
