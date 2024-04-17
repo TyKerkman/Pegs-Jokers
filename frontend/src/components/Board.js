@@ -33,6 +33,44 @@ function Board({numPlayers=4}) {
     const [grid, setGrid] = useState()
     const [moved, setMoved] = useState(false)
 
+    const start_locations = [
+        // TOP
+        [
+            [3, 8], [2, 7], [2, 8], [2, 9], [1, 8]
+        ], 
+        // RIGHT
+        [
+            [8, 15], [7, 16], [8, 16], [9, 16], [8, 17]
+        ], 
+        // BOTTOM
+        [
+            [15, 10], [16, 9], [16, 10], [16, 11], [17, 10]
+        ], 
+        // LEFT
+        [
+            [10, 3], [9, 2], [10, 2], [11, 2], [10, 1]
+        ]
+    ]
+
+    const heaven_locations = [
+        // TOP
+        [
+            [1, 3], [2, 3], [3, 3], [3, 4], [3, 5]
+        ], 
+        // RIGHT
+        [
+            [3, 17], [3, 16], [3, 15], [4, 15], [5, 15]
+        ], 
+        // BOTTOM
+        [
+            [17, 15], [16, 15], [15, 15], [15, 14], [15, 13]
+        ], 
+        // LEFT
+        [
+            [15, 1], [15, 2], [15, 3], [14, 3], [13, 3]
+        ]
+    ]
+
     const updateBoard = () => {
         if (!moved){
             let newBoard = [...initialBoard]
@@ -47,6 +85,38 @@ function Board({numPlayers=4}) {
             setMoved(false)
             setBoard(newBoard);
         }
+    }
+
+    function checkSection(indexI, indexJ) {
+        const colors = ['red', 'blue', 'green', 'blue'];
+        const pathColors = [brown, tan];
+        const location = [heaven_locations, start_locations]
+        let starts = [[], [], [], []]
+        let heavens = [[], [], [], []]
+
+        // NEED SOMETHING FOR STARTS, CANT USE HEAVENS FOR BOTH
+        data.heavens.forEach(heaven => {
+            heaven.forEach(peg => {
+                heavens[peg.numPlayer].push(peg.peg)
+                starts[peg.numPlayer].push(peg.peg)
+            })
+        });
+
+        const section = [heavens, starts]
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 2; j++){
+                if ( location[j][i].some(coords => coords.every((val, index) => val === [indexI, indexJ][index])) ){
+
+                    if(section[j][i][location[j][i].findIndex(coords => coords.every((val, index) => val === [indexI, indexJ][index]))] !== null ){
+                        return <Place piece={{color: colors[i]}} pathColor={pathColors[i % 2]} position={'end'}/>
+                    }else {
+                        return <Place pathColor={pathColors[i % 2]} position={'end'}/>
+                    }
+                }
+            }
+        }
+    
+        return <Place />;
     }
 
     useEffect(()=>{
@@ -78,54 +148,8 @@ function Board({numPlayers=4}) {
                             const pathColor = tan;
                             const peg = data.loop[54 + (initialBoard.length - 2 - indexI)].peg
                             return <Place piece={peg} pathColor={pathColor} position={'path'} />;
-                        }
-
-                        
-                        // Outside Edges
-                        // else if (indexI == 0 || indexI == initialBoard.length - 1 || indexJ == 0 || indexJ == row.length - 1) {
-                        //     // Determine path color based on the section: top/bottom (brown) or left/right (tan)
-                        //     const isHorizontalEdge = (indexI == 0 && indexJ != 0) || (indexI == initialBoard.length - 1 && indexJ != row.length - 1);
-                        //     const pathColor = isHorizontalEdge ? brown : tan;
-                        
-                        //     return <Place piece={item} pathColor={pathColor} position={'path'} />;
-                        // }
-                        // Top Section End
-                        else if( ((indexI == 1 || indexI == 2 || indexI == 3) && indexJ == 3) || (indexI == 3 && (indexJ == 4 || indexJ == 5)) ){
-                            return <Place pathColor={brown} position={'end'}/>
-                        }
-                        // Top Section Start
-                        else if( ((indexI == 1 || indexI == 2 || indexI == 3) && indexJ == 8 || (indexI == 2 && (indexJ == 7 || indexJ == 9)))){        
-                            if(indexI == 1 && moved){
-                                return <Place pathColor={brown} position={'start'}/>
-                            }
-                            return <Place piece={{color: 'red'}} pathColor={brown} position={'start'}/>
-                        }
-                        // Right Section End
-                        else if ( (indexI == 3 && (indexJ == row.length - 2 || indexJ == row.length - 3 || indexJ == row.length - 4) || (indexJ == row.length - 4 && (indexI == 4 || indexI == 5) ) )) {
-                            return <Place  pathColor={tan} position={'end'}/>
-                        }
-                        // Right Section Start
-                        else if ( (indexI == 8 && (indexJ == row.length - 2 || indexJ == row.length - 3 || indexJ == row.length - 4)) || (indexI == 7 && indexJ == row.length - 3) || (indexI == 9 && indexJ == row.length - 3) ) {
-                            return <Place piece={{color: 'fuchsia'}} pathColor={tan} position={'start'}/>
-                        }
-                        // Bottom Section End
-                        else if ( (indexJ == row.length - 4 && (indexI == initialBoard.length - 2 || indexI == initialBoard.length - 3 || indexI == initialBoard.length - 4)) || (indexI == initialBoard.length - 4 && (indexJ == row.length - 5 || indexJ == row.length - 6)) ) {
-                            return <Place  pathColor={brown} position={'end'}/>
-                        }
-                        // Bottom Section Start
-                        else if ( (indexJ == 10 && (indexI == initialBoard.length - 2 || indexI == initialBoard.length - 3 || indexI == initialBoard.length - 4)) || (indexI == initialBoard.length - 3 && (indexJ == 9 || indexJ == 11)) ){
-                            return <Place piece={{color: 'green'}}  pathColor={brown} position={'start'}/>
-                        }
-                        // Left Section End
-                        else if ( (indexI == initialBoard.length - 4 && (indexJ == 1 || indexJ == 2 || indexJ == 3)) || (indexJ == 3 && (indexI == initialBoard.length - 5 || indexI == initialBoard.length - 6)) ) {
-                            return <Place  pathColor={tan} position={'end'}/>
-                        }
-                        // Left Section Start
-                        else if ( (indexI == 10 && (indexJ == 1 || indexJ ==2 || indexJ == 3)) || (indexJ == 2 && (indexI == 9 || indexI == 11)) ) {
-                            return <Place piece={{color: 'blue'}} pathColor={tan} position={'start'}/>
-                        }
-                        else{
-                            return <Place />
+                        }else{
+                            return checkSection(indexI, indexJ)
                         }
                     })
                 })}
