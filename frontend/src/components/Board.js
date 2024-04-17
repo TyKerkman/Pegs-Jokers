@@ -33,8 +33,7 @@ function Board({numPlayers=4}) {
     const [grid, setGrid] = useState()
     const [moved, setMoved] = useState(false)
 
-    const example_start = [0, 1, 0, 1, 1]
-    const start = [
+    const start_locations = [
         // TOP
         [
             [3, 8], [2, 7], [2, 8], [2, 9], [1, 8]
@@ -53,8 +52,7 @@ function Board({numPlayers=4}) {
         ]
     ]
 
-    const example_heaven = [0, 1, 0, 1, 1]
-    const heaven = [
+    const heaven_locations = [
         // TOP
         [
             [1, 3], [2, 3], [3, 3], [3, 4], [3, 5]
@@ -92,13 +90,24 @@ function Board({numPlayers=4}) {
     function checkSection(indexI, indexJ) {
         const colors = ['red', 'blue', 'green', 'blue'];
         const pathColors = [brown, tan];
-        const section = [heaven, start]
-        const example_section = [example_heaven, example_start]
-        
+        const location = [heaven_locations, start_locations]
+        let starts = [[], [], [], []]
+        let heavens = [[], [], [], []]
+
+        // NEED SOMETHING FOR STARTS, CANT USE HEAVENS FOR BOTH
+        data.heavens.forEach(heaven => {
+            heaven.forEach(peg => {
+                heavens[peg.numPlayer].push(peg.peg)
+                starts[peg.numPlayer].push(peg.peg)
+            })
+        });
+
+        const section = [heavens, starts]
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 2; j++){
-                if ( section[j][i].some(coords => coords.every((val, index) => val === [indexI, indexJ][index])) ){
-                    if(example_section[j][section[j][i].findIndex(coords => coords.every((val, index) => val === [indexI, indexJ][index]))] == 1 ){
+                if ( location[j][i].some(coords => coords.every((val, index) => val === [indexI, indexJ][index])) ){
+
+                    if(section[j][i][location[j][i].findIndex(coords => coords.every((val, index) => val === [indexI, indexJ][index]))] !== null ){
                         return <Place piece={{color: colors[i]}} pathColor={pathColors[i % 2]} position={'end'}/>
                     }else {
                         return <Place pathColor={pathColors[i % 2]} position={'end'}/>
