@@ -55,6 +55,9 @@ public class Player{
         this.hand.add(c);
     }
 
+    public void setPegs(List<Peg> pegs){
+        this.pegs = pegs;
+    }
     public List<Peg> getPegs(){
         return this.pegs;
     }
@@ -81,5 +84,13 @@ public class Player{
 
     public void setHomeStep(Hole h){
         this.homeStep = h;
+    }
+
+    @Override
+    public String toString(){
+        String s = "Player " + Integer.toString(this.num) + "\n";
+        s += "Heaven's Gate: " + this.heavensGate + "\n";
+        s += "Home Step: " + this.homeStep + "\n";
+        return s;
     }
 }

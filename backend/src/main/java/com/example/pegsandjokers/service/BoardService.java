@@ -16,12 +16,12 @@ public class BoardService {
     public BoardService(){
         this.boardList = new ArrayList<>();
 
-        Board board1 = new Board(1);
-        Board board2 = new Board(2);
-        Board board3 = new Board(3);
-        Board board4 = new Board(4);
-
-        this.boardList.addAll(Arrays.asList(board1, board2, board3, board4));
+//        Board board1 = new Board(1);
+//        Board board2 = new Board(2);
+//        Board board3 = new Board(3);
+//        Board board4 = new Board(4);
+//
+//        this.boardList.addAll(Arrays.asList(board1, board2, board3, board4));
     }
     public Optional<Board> getBoard(Integer id) {
         Optional<Board> optional = Optional.empty();

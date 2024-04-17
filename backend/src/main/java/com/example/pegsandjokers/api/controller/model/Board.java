@@ -14,26 +14,11 @@ public class Board {
     private Hole[] loop;
     private Hole[][] heavens;
 
-    public Board(Integer id){
+    public Board(Integer id, Player[] players){
         this.NUM_PLAYERS = 4;
         this.id = id;
-        this.initializePlayers();
+        this.players = players;
         this.initializeBoard();
-    }
-
-    public void initializePlayers(){
-        this.players = new Player[NUM_PLAYERS];
-        for (int i = 0; i < NUM_PLAYERS; i++){
-            this.players[i] = new Player(i);
-        }
-
-        for (int i = 0; i < NUM_PLAYERS; i++){
-            if (i < NUM_PLAYERS / 2){
-                this.players[i].setPartner(this.players[i + NUM_PLAYERS / 2]);
-            } else {
-                this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);
-            }
-        }
     }
 
     public void initializeBoard(){

@@ -1,7 +1,10 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import java.util.ArrayList;
+
 public class Game {
 
+    private static final int NUM_PLAYERS = 4;
     private int id;
     private Board board;
     private Player[] players;
@@ -9,8 +12,8 @@ public class Game {
 
     public Game(int id){
         this.id = id;
-        this.players = new Player[4];
-        this.board = new Board(id);
+        initializePlayers();
+        this.board = new Board(id, this.players);
         this.deck = new Deck();
     }
 
@@ -18,6 +21,28 @@ public class Game {
         while(!isWinner()){
             for (Player p: this.players){
                 takeTurn(p);
+            }
+        }
+    }
+
+    public void initializePlayers(){
+        this.players = new Player[NUM_PLAYERS];
+        for (int i = 0; i < NUM_PLAYERS; i++){
+            this.players[i] = new Player(i);
+            ArrayList<Peg> pegs = new ArrayList<>();
+            for (int j = 0; j < 5; j++){
+                Peg p = new Peg();
+                p.setPlayer(this.players[i]);
+                pegs.add(p);
+            }
+            this.players[i].setPegs(pegs);
+        }
+
+        for (int i = 0; i < NUM_PLAYERS; i++){
+            if (i < NUM_PLAYERS / 2){
+                this.players[i].setPartner(this.players[i + NUM_PLAYERS / 2]);
+            } else {
+                this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);
             }
         }
     }
@@ -283,7 +308,9 @@ public class Game {
         //If the hole is empty, do the following:
         if (h.getPeg() == null){
             //Remove the peg from previous hole
-            p.getHole().removePeg();
+            if (p.getHole() != null){
+                p.getHole().removePeg();
+            }
             //Add the peg to the hole
             h.setPeg(p);
             //Assign the new hole to the peg.
@@ -392,5 +419,13 @@ public class Game {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Board getBoard(){
+        return this.board;
+    }
+
+    public Player[] getPlayers() {
+        return this.players;
     }
 }

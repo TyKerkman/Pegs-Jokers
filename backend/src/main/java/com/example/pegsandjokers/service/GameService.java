@@ -1,6 +1,9 @@
 package com.example.pegsandjokers.service;
 
+import com.example.pegsandjokers.api.controller.model.Board;
 import com.example.pegsandjokers.api.controller.model.Game;
+import com.example.pegsandjokers.api.controller.model.Peg;
+import com.example.pegsandjokers.api.controller.model.Player;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,18 +19,21 @@ public class GameService {
     public GameService(){
         this.gameList = new ArrayList<>();
 
-        Game game1 = new Game(1);
-        Game game2 = new Game(2);
-        Game game3 = new Game(3);
-        Game game4 = new Game(4);
+        Game game = new Game(1);
+        Player[] players = game.getPlayers();
+        for (Player p : players){
+            Peg peg = p.getPegs().getFirst();
+//            System.out.println(p);
+            game.getOut(peg);
+        }
 
-        this.gameList.addAll(Arrays.asList(game1, game2, game3, game4));
+        this.gameList.add(game);
     }
-    public Optional<Game> getGame(Integer id) {
+    public Optional<Board> getBoard(Integer id) {
         Optional optional = Optional.empty();
         for (Game game : this.gameList){
             if (id == game.getId()){
-                optional = Optional.of(game);
+                optional = Optional.of(game.getBoard());
                 return optional;
             }
         }

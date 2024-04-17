@@ -1,5 +1,6 @@
 package com.example.pegsandjokers.api.controller.controller;
 
+import com.example.pegsandjokers.api.controller.model.Board;
 import com.example.pegsandjokers.api.controller.model.Game;
 import com.example.pegsandjokers.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class GameController {
     }
 
     @GetMapping("/game")
-    public Game getGame(@RequestParam Integer id){
-        Optional<Game> game = gameService.getGame(id);
-        return (Game) game.orElse(null);
+    public Board getBoard(@RequestParam Integer id){
+        Optional<Board> board = gameService.getBoard(id);
+        return (Board) board.orElse(null);
     }
 }
