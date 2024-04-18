@@ -1,16 +1,10 @@
 package com.example.pegsandjokers.api.controller.model;
 
 public class Card {
-    private Suit suit;
     private Value value;
 
-    public Card(Suit suit, Value value){
-        this.suit = suit;
+    public Card(Value value){
         this.value = value;
-    }
-
-    public Suit getSuit(){
-        return this.suit;
     }
 
     public Value getValue(){

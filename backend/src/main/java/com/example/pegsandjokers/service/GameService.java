@@ -5,7 +5,6 @@ import com.example.pegsandjokers.api.controller.model.Card;
 import com.example.pegsandjokers.api.controller.model.Game;
 import com.example.pegsandjokers.api.controller.model.Peg;
 import com.example.pegsandjokers.api.controller.model.Player;
-import com.example.pegsandjokers.api.controller.model.Suit;
 import com.example.pegsandjokers.api.controller.model.Turn;
 import com.example.pegsandjokers.api.controller.model.Value;
 import org.springframework.stereotype.Service;
@@ -76,7 +75,7 @@ public class GameService {
 
     public Turn getTurn(){
         Integer playerID = 0;
-        Card c = new Card(Suit.DIAMONDS, Value.NINE);
+        Card c = new Card(Value.NINE);
         Peg p = new Peg();
         Integer gameId = 1;
         return new Turn(playerID, c, p, gameId);
