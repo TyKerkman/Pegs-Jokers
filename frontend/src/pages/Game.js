@@ -16,10 +16,10 @@ function Game() {
                 <div className='leftBar'>
                     <div className='card-container'>
                         <KnownCard card={'2C'} />
-                        <KnownCard card={'2C'}/>  
-                        <KnownCard card={'2C'}/>                    
-                        <KnownCard card={'2C'}/>                    
-                        <KnownCard card={'2C'}/>                    
+                        <KnownCard card={'7H'}/>  
+                        <KnownCard card={'JD'}/>                    
+                        <KnownCard card={'AS'}/>                    
+                        <KnownCard card={'BJ'}/>                    
                     </div>
                     <div className='playerContainer'>
                         <button className="button-2">Move</button>

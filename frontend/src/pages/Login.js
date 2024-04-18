@@ -60,7 +60,7 @@ const Login = () => {
               </div>
 
               <div className="form-group">
-                <button className="button-2" onClick={onLogin}>
+                <button className="button-3" onClick={onLogin}>
                   Login
                 </button>
               </div>
@@ -69,7 +69,7 @@ const Login = () => {
             
             <div className="no-account">
               <p className="no-account-text">No account yet?</p>
-              <Link className="button-2" to="/signup">Sign up</Link>
+              <Link className="button-3" to="/signup">Sign up</Link>
             </div>
           </div>
         </section>
