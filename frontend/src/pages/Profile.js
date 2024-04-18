@@ -6,7 +6,7 @@ function Profile() {
     return (
         <div className="profile-page">
             <h1 className='text-white'>Profile</h1>
-            <Link className="button-2" to='/'>Home</Link>
+            <Link className="button-2" to='/home'>Home</Link>
         </div>
     )
 }

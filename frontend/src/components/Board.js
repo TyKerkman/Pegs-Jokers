@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import Place from './Place'
 import Hole from './Hole'
 import '../Styling.css'
+import KnownCard from './KnownCard';
 import data from '../exampleBoard.json'
 import { initializeAnalytics } from 'firebase/analytics'
 
@@ -15,6 +16,7 @@ function Board({numPlayers=4}) {
     const gridContainer =  {
         display: 'grid',
         gridTemplateColumns: `repeat(${num}, auto)`,
+
     }
     
     let initialBoard = []
@@ -88,7 +90,6 @@ function Board({numPlayers=4}) {
     }
 
     function checkSection(indexI, indexJ) {
-        const colors = ['red', 'blue', 'green', 'blue'];
         const pathColors = [brown, tan];
         const location = [heaven_locations, start_locations]
         let starts = [[], [], [], []]
@@ -106,9 +107,8 @@ function Board({numPlayers=4}) {
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 2; j++){
                 if ( location[j][i].some(coords => coords.every((val, index) => val === [indexI, indexJ][index])) ){
-
-                    if(section[j][i][location[j][i].findIndex(coords => coords.every((val, index) => val === [indexI, indexJ][index]))] !== null ){
-                        return <Place piece={{color: colors[i]}} pathColor={pathColors[i % 2]} position={'end'}/>
+                    if(section[j][i][location[j][i].findIndex(coords => coords.every((val, index) => val === [indexI, indexJ][index]))]){
+                        return <Place piece={section[j][i][location[j][i].findIndex(coords => coords.every((val, index) => val === [indexI, indexJ][index]))]} pathColor={pathColors[i % 2]} position={'end'}/>
                     }else {
                         return <Place pathColor={pathColors[i % 2]} position={'end'}/>
                     }
@@ -158,11 +158,8 @@ function Board({numPlayers=4}) {
     }, [board])
 
     return (
-        <div className='board-container'>
-            <button className="button-2" onClick={updateBoard} >Move</button>
-            <div className="grid-container">
-                {grid}
-            </div>
+        <div className="grid-container">
+            {grid}
         </div>
     )
 }
