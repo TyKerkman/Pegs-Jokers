@@ -16,7 +16,7 @@ function Place({ position = null, piece = null, pathColor=null}) {
                 display: 'inline-block'
             });
         } 
-        else if (position == 'start' && piece != null) { // If there is a piece, set the color to the piece's color
+        else if ((position == 'start' || position == 'end') && piece != null) { // If there is a piece, set the color to the piece's color
             setHole({
                 background: piece.color,
                 height: '15px',
