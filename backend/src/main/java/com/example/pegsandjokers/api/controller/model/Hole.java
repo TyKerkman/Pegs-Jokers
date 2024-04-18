@@ -1,5 +1,7 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.util.UUID;
 
 public class Hole {
@@ -21,6 +23,7 @@ public class Hole {
         this.isHomeStep = false;
     }
 
+    @JsonSerialize(using = PegSerializer.class)
     public Peg getPeg() {
         return peg;
     }
