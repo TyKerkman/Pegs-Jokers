@@ -1,9 +1,12 @@
 import React from 'react'
+import deckData from './deck'
 
 function KnownCard( { card }) {
+    const image = deckData[card];
     return (
         <div className='known-card'>
-            {card}
+            <img src={image}/>
+            {/* {card} */}
         </div>
     )
 }

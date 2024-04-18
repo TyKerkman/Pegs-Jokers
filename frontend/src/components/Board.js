@@ -159,18 +159,27 @@ function Board({numPlayers=4}) {
 
     return (
         <div className='board-container'>
-            <div className='user-hand'>
+            <div className='leftBar'>
                 <div className='card-container'>
-                    <KnownCard card={'3'} />
-                    <KnownCard />  
-                    <KnownCard />                    
-                    <KnownCard />                    
-                    <KnownCard />                    
+                    <KnownCard card={'2C'} />
+                    <KnownCard card={'2C'}/>  
+                    <KnownCard card={'2C'}/>                    
+                    <KnownCard card={'2C'}/>                    
+                    <KnownCard card={'2C'}/>                    
                   
+                </div>
+                <div className='playerContainer'>
+                    <button className="button-2" onClick={updateBoard} >Move</button>
+                    Hypothetical Players Turn or Other Info
                 </div>
             </div>
             <div className="grid-container">
                 {grid}
+            </div>
+            <div className='rightBar'>
+                <div className='rightPlaceholder'>
+                    Please keep these placeholders here
+                </div>
             </div>
         </div>
     )
