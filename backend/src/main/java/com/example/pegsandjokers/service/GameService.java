@@ -97,6 +97,11 @@ public class GameService {
                 return peg;
             }
         }
+        for (Peg peg : player.getPartner().getPegs()){
+            if (p.equals(peg)){
+                return peg;
+            }
+        }
         return null;
     }
 }
