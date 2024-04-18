@@ -2,16 +2,21 @@ package com.example.pegsandjokers.api.controller.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import java.awt.*;
-
 @JsonSerialize(using = PegSerializer.class)
 public class Peg {
     private Hole hole;
     private boolean inHome;
     private boolean inHeaven;
-
     private Player player;
     private String color;
+    private int num;
+
+    public Peg(){};
+
+    public Peg(String color, int num){
+        this.color = color;
+        this.num = num;
+    }
 
     public Hole getHole(){
         return this.hole;
@@ -56,5 +61,13 @@ public class Peg {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 }

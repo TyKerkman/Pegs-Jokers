@@ -7,6 +7,13 @@ public class Turn {
     private Integer gameID;
     private int spaces;
 
+    private String pegColor;
+
+    public Turn(Card card, String pegColor, Integer gameID){
+        this.card = card;
+        this.pegColor = pegColor;
+        this.gameID = gameID;
+    }
 
     public Turn(Card card, Peg p, Integer gameID){
         this.card = card;

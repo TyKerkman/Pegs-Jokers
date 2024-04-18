@@ -1,6 +1,7 @@
 package com.example.pegsandjokers.api.controller.controller;
 
-import com.example.pegsandjokers.api.controller.model.*;
+import com.example.pegsandjokers.api.controller.model.Board;
+import com.example.pegsandjokers.api.controller.model.Turn;
 import com.example.pegsandjokers.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

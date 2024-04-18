@@ -14,6 +14,7 @@ public class PegSerializer extends JsonSerializer<Peg> {
         } else {
             gen.writeStartObject();
             gen.writeStringField("color", value.getColor());
+            gen.writeNumberField("num", value.getNum());
             gen.writeEndObject();
         }
     }
