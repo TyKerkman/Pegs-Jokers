@@ -1,7 +1,10 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.awt.*;
 
+@JsonSerialize(using = PegSerializer.class)
 public class Peg {
     private Hole hole;
     private boolean inHome;

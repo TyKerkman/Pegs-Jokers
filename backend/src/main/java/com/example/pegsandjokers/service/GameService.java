@@ -65,6 +65,13 @@ public class GameService {
         return id;
     }
 
+    public Turn getTurn(){
+        Card c = new Card(Suit.DIAMONDS, Value.NINE);
+        Peg p = new Peg();
+        Integer gameId = 5;
+        return new Turn(c, p, gameId);
+    }
+
     public Game getGame(Integer id){
         for (Game g : this.gameList){
             if (g.getId().equals(id)){

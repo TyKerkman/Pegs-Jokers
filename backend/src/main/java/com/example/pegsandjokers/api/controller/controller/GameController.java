@@ -25,6 +25,11 @@ public class GameController {
         return (Board) board.orElse(null);
     }
 
+    @GetMapping("/turn")
+    public Turn getTurn(){
+        return gameService.getTurn();
+    }
+
     @GetMapping("/game")
     public ResponseEntity<?> makeNewGame(){
         Integer id = gameService.createGame();
