@@ -44,7 +44,7 @@ public class GameService {
 
     public boolean takeTurn(Turn turn) {
         Game g = getGame(turn.getGameID());
-        Player player = g.getPlayers()[1]; //FOR TESTING NEED TO FIX: TODO
+        Player player = g.getPlayers()[turn.getPlayerID()];
         Peg p = getPeg(turn.getP(), player);
         Peg p2 = turn.getP2(); //TODO
         Card c = turn.getCard();
@@ -75,10 +75,11 @@ public class GameService {
     }
 
     public Turn getTurn(){
+        Integer playerID = 0;
         Card c = new Card(Suit.DIAMONDS, Value.NINE);
         Peg p = new Peg();
         Integer gameId = 1;
-        return new Turn(c, p, gameId);
+        return new Turn(playerID, c, p, gameId);
     }
 
     public Game getGame(Integer id){
