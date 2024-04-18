@@ -25,6 +25,12 @@ public class GameController {
         return (Board) board.orElse(null);
     }
 
+    @GetMapping("/game")
+    public ResponseEntity<?> makeNewGame(){
+        Integer id = gameService.createGame();
+        return ResponseEntity.ok().body("New game created! ID = " + Integer.toString(id));
+    }
+
     @PostMapping("/play/turn")
     public ResponseEntity<?> playTurn(@RequestBody Turn turn) {
         boolean success = gameService.takeTurn(turn);

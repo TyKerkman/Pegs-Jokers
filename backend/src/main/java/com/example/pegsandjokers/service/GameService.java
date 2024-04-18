@@ -37,18 +37,6 @@ public class GameService {
         return optional;
     }
 
-//    public void play(Game game){
-//        Player[] players = game.getPlayers();
-//        while(!game.isWinner()){
-//            for (Player p: players){
-////                takeTurn(game, p);
-//            }
-//        }
-//    }
-
-    /**
-     * WORK IN PROGRESS!!!!
-     */
     public boolean takeTurn(Turn turn) {
         Game g = getGame(turn.getGameID());
         Peg p = turn.getP();
@@ -70,20 +58,19 @@ public class GameService {
         return false;
     }
 
+    public Integer createGame(){
+        Integer id = gameList.size();
+        Game g = new Game(id);
+        gameList.add(g);
+        return id;
+    }
+
     public Game getGame(Integer id){
         for (Game g : this.gameList){
             if (g.getId().equals(id)){
                 return g;
             }
         }
-        return null;
-    }
-
-    public Card saveCard(Card c){
-        return null;
-    }
-
-    public Peg savePeg(Peg p){
         return null;
     }
 }
