@@ -1,5 +1,8 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Turn {
     private Card card;
     private Peg p;
@@ -7,15 +10,8 @@ public class Turn {
     private Integer gameID;
     private int spaces;
 
-    private String pegColor;
-
-    public Turn(Card card, String pegColor, Integer gameID){
-        this.card = card;
-        this.pegColor = pegColor;
-        this.gameID = gameID;
-    }
-
-    public Turn(Card card, Peg p, Integer gameID){
+    @JsonCreator
+    public Turn(@JsonProperty("card")Card card, @JsonProperty("p")Peg p, @JsonProperty("gameID")Integer gameID){
         this.card = card;
         this.p = p;
         this.gameID = gameID;

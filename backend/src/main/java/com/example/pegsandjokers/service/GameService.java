@@ -23,12 +23,11 @@ public class GameService {
         this.gameList = new ArrayList<>();
 
         Game game = new Game(1);
-        Player[] players = game.getPlayers();
-        for (Player p : players){
-            Peg peg = p.getPegs().getFirst();
-//            System.out.println(p);
-            game.getOut(peg);
-        }
+//        Player[] players = game.getPlayers();
+//        for (Player p : players){
+//            Peg peg = p.getPegs().getFirst();
+//            game.getOut(peg);
+//        }
 
         this.gameList.add(game);
     }
@@ -45,6 +44,7 @@ public class GameService {
 
     public boolean takeTurn(Turn turn) {
         Game g = getGame(turn.getGameID());
+        Player player = g.getPlayers()[0]; //FOR TESTING NEED TO FIX: TODO
         Peg p = turn.getP();
         Peg p2 = turn.getP2();
         Card c = turn.getCard();
@@ -58,7 +58,10 @@ public class GameService {
             } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
                 return g.splitMove(p, p2, c, spaces);
             }
-        } else {
+        } else if (p.getHole() == null) {
+            return g.getOut(p);
+        }
+        else {
             return g.move(p, c);
         }
         return false;
@@ -73,9 +76,9 @@ public class GameService {
 
     public Turn getTurn(){
         Card c = new Card(Suit.DIAMONDS, Value.NINE);
-        String color = "red";
-        Integer gameId = 5;
-        return new Turn(c, color, gameId);
+        Peg p = new Peg();
+        Integer gameId = 1;
+        return new Turn(c, p, gameId);
     }
 
     public Game getGame(Integer id){

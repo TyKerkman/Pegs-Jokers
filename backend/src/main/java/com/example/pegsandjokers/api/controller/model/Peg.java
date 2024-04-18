@@ -70,4 +70,10 @@ public class Peg {
     public void setNum(int num) {
         this.num = num;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Peg p)) return false;
+        return this.num == p.getNum() && this.color.equals(p.getColor());
+    }
 }
