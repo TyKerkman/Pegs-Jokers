@@ -1,71 +1,54 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Game {
 
-    private int id;
+    private static final int NUM_PLAYERS = 4;
+    private Integer id;
     private Board board;
     private Player[] players;
     private Deck deck;
 
-    public Game(int id){
+    public Game(Integer id){
         this.id = id;
-        this.players = new Player[4];
-        this.board = new Board(id);
+        initializePlayers();
+        this.board = new Board(id, this.players);
         this.deck = new Deck();
     }
 
-    public void play(){
-        while(!isWinner()){
-            for (Player p: this.players){
-                takeTurn(p);
+    public void initializePlayers(){
+        this.players = new Player[NUM_PLAYERS];
+        for (int i = 0; i < NUM_PLAYERS; i++){
+            this.players[i] = new Player(i);
+            ArrayList<Peg> pegs = new ArrayList<>();
+            for (int j = 0; j < 5; j++){
+                String color = getPlayerColor(i);
+                Peg p = new Peg(color, j);
+                p.setPlayer(this.players[i]);
+                pegs.add(p);
+            }
+            this.players[i].setPegs(pegs);
+        }
+
+        for (int i = 0; i < NUM_PLAYERS; i++){
+            if (i < NUM_PLAYERS / 2){
+                this.players[i].setPartner(this.players[i + NUM_PLAYERS / 2]);
+            } else {
+                this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);
             }
         }
     }
 
-    /**
-     * WORK IN PROGRESS!!!!
-     * @param player - the player that is taking the turn.
-     */
-    public void takeTurn(Player player) {
-        Card c = getCardFromInput();
-        Peg p = getPegFromInput();
-        if (c.getValue().equals(Value.TWO)) {
-            Peg p2 = getPegFromInput();
-            swap(p, p2);
-        } else if (c.getValue().equals(Value.JOKER)) {
-            //TODO
-        } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
-            Peg p2 = getPegFromInput();
-            int spaces = getSplitSpacesFromInput();
-            boolean success = splitMove(p, p2, c, spaces);
-            if (!success){
-                takeTurn(player);
-            }
-        } else {
-            boolean success = move(p, c);
-            if (!success){
-                takeTurn(player);
-            }
-        }
-
-    }
-
-    public Card getCardFromInput(){
-        Card c = null;
-        //TODO
-        return c;
-    }
-
-    public Peg getPegFromInput(){
-        Peg p = new Peg();
-        //TODO
-        return p;
-    }
-
-    public int getSplitSpacesFromInput(){
-        //TODO
-        int num = 4;
-        return num;
+    public String getPlayerColor(int num){
+        return switch (num) {
+            case 0 -> "red";
+            case 1 -> "fuchsia";
+            case 2 -> "green";
+            case 3 -> "blue";
+            default -> null;
+        };
     }
 
     /**
@@ -102,7 +85,8 @@ public class Game {
 
         while (count < spaces) {
             if (forward) {
-                current = loop[index + 1 % loop.length];
+                index = (index + 1) % loop.length;
+                current = loop[index];
             } else {
                 index = (index == 0) ? (loop.length - 1) : (index - 1);
                 current = loop[index];
@@ -213,7 +197,10 @@ public class Game {
      * @param peg1 - one peg to be swapped.
      * @param peg2 - the other peg to be swapped.
      */
-    public void swap(Peg peg1, Peg peg2){
+    public boolean swap(Peg peg1, Peg peg2){
+        if (peg1.getColor().equals(peg2.getColor())){
+            return false;
+        }
         //Get the two holes
         Hole a = peg1.getHole();
         Hole b = peg2.getHole();
@@ -225,6 +212,7 @@ public class Game {
         //Assign the holes to their new pegs.
         peg1.setHole(b);
         peg2.setHole(a);
+        return true;
     }
 
     /**
@@ -283,7 +271,9 @@ public class Game {
         //If the hole is empty, do the following:
         if (h.getPeg() == null){
             //Remove the peg from previous hole
-            p.getHole().removePeg();
+            if (p.getHole() != null){
+                p.getHole().removePeg();
+            }
             //Add the peg to the hole
             h.setPeg(p);
             //Assign the new hole to the peg.
@@ -386,11 +376,25 @@ public class Game {
         return false;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Board getBoard(){
+        return this.board;
+    }
+
+    public Player[] getPlayers() {
+        return this.players;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Game g)) return false;
+        return this.id.equals(g.getId());
     }
 }
