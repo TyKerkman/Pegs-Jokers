@@ -1,16 +1,15 @@
 package com.example.pegsandjokers.api.controller.controller;
 
-import com.example.pegsandjokers.api.controller.model.Board;
-import com.example.pegsandjokers.api.controller.model.Game;
+import com.example.pegsandjokers.api.controller.model.*;
 import com.example.pegsandjokers.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
+@RequestMapping
 public class GameController {
 
     private GameService gameService;
@@ -20,9 +19,19 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @GetMapping("/game")
+    @GetMapping("/board")
     public Board getBoard(@RequestParam Integer id){
         Optional<Board> board = gameService.getBoard(id);
         return (Board) board.orElse(null);
+    }
+
+    @PostMapping("/play/turn")
+    public ResponseEntity<?> playTurn(@RequestBody Turn turn) {
+        boolean success = gameService.takeTurn(turn);
+        if (success) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.badRequest().body("Invalid move!");
+        }
     }
 }

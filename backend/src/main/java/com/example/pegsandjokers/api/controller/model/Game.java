@@ -1,28 +1,21 @@
 package com.example.pegsandjokers.api.controller.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Game {
 
     private static final int NUM_PLAYERS = 4;
-    private int id;
+    private Integer id;
     private Board board;
     private Player[] players;
     private Deck deck;
 
-    public Game(int id){
+    public Game(Integer id){
         this.id = id;
         initializePlayers();
         this.board = new Board(id, this.players);
         this.deck = new Deck();
-    }
-
-    public void play(){
-        while(!isWinner()){
-            for (Player p: this.players){
-                takeTurn(p);
-            }
-        }
     }
 
     public void initializePlayers(){
@@ -46,52 +39,6 @@ public class Game {
                 this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);
             }
         }
-    }
-
-    /**
-     * WORK IN PROGRESS!!!!
-     * @param player - the player that is taking the turn.
-     */
-    public void takeTurn(Player player) {
-        Card c = getCardFromInput();
-        Peg p = getPegFromInput();
-        if (c.getValue().equals(Value.TWO)) {
-            Peg p2 = getPegFromInput();
-            swap(p, p2);
-        } else if (c.getValue().equals(Value.JOKER)) {
-            //TODO
-        } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
-            Peg p2 = getPegFromInput();
-            int spaces = getSplitSpacesFromInput();
-            boolean success = splitMove(p, p2, c, spaces);
-            if (!success){
-                takeTurn(player);
-            }
-        } else {
-            boolean success = move(p, c);
-            if (!success){
-                takeTurn(player);
-            }
-        }
-
-    }
-
-    public Card getCardFromInput(){
-        Card c = null;
-        //TODO
-        return c;
-    }
-
-    public Peg getPegFromInput(){
-        Peg p = new Peg();
-        //TODO
-        return p;
-    }
-
-    public int getSplitSpacesFromInput(){
-        //TODO
-        int num = 4;
-        return num;
     }
 
     /**
@@ -239,7 +186,10 @@ public class Game {
      * @param peg1 - one peg to be swapped.
      * @param peg2 - the other peg to be swapped.
      */
-    public void swap(Peg peg1, Peg peg2){
+    public boolean swap(Peg peg1, Peg peg2){
+        if (peg1.getColor().equals(peg2.getColor())){
+            return false;
+        }
         //Get the two holes
         Hole a = peg1.getHole();
         Hole b = peg2.getHole();
@@ -251,6 +201,7 @@ public class Game {
         //Assign the holes to their new pegs.
         peg1.setHole(b);
         peg2.setHole(a);
+        return true;
     }
 
     /**
@@ -414,7 +365,7 @@ public class Game {
         return false;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -428,5 +379,11 @@ public class Game {
 
     public Player[] getPlayers() {
         return this.players;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Game g)) return false;
+        return this.id.equals(g.getId());
     }
 }

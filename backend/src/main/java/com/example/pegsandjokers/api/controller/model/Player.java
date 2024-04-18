@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Player{
 
-    private int num;
+    private Integer id;
     private String name;
     private List<Card> hand;
     private Player partner;
@@ -14,21 +14,21 @@ public class Player{
     private Hole heavensGate;
     private Hole homeStep;
 
-    public Player(int num){
-        this.num = num;
+    public Player(Integer id){
+        this.id = id;
         this.hand = new ArrayList<>();
         this.pegs = new ArrayList<Peg>();
     }
 
-    public Player(int num, String name){
-        this.num = num;
+    public Player(Integer id, String name){
+        this.id = id;
         this.name = name;
         this.hand = new ArrayList<>();
         this.pegs = new ArrayList<Peg>();
     }
 
-    public Player(int num, String name, Player partner){
-        this.num = num;
+    public Player(Integer id, String name, Player partner){
+        this.id = id;
         this.name = name;
         this.hand = new ArrayList<>();
         this.pegs = new ArrayList<Peg>();
@@ -62,12 +62,8 @@ public class Player{
         return this.pegs;
     }
 
-    public int getNum(){
-        return this.num;
-    }
-
-    public boolean equals(Player p){
-        return this.num == p.getNum();
+    public Integer getId(){
+        return this.id;
     }
 
     public Hole getHeavensGate(){
@@ -87,8 +83,14 @@ public class Player{
     }
 
     @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Player p)) return false;
+        return this.id.equals(p.getId());
+    }
+
+    @Override
     public String toString(){
-        String s = "Player " + Integer.toString(this.num) + "\n";
+        String s = "Player " + Integer.toString(this.id) + "\n";
         s += "Heaven's Gate: " + this.heavensGate + "\n";
         s += "Home Step: " + this.homeStep + "\n";
         return s;
