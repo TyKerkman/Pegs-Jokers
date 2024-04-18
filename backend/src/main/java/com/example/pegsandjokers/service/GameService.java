@@ -44,9 +44,9 @@ public class GameService {
 
     public boolean takeTurn(Turn turn) {
         Game g = getGame(turn.getGameID());
-        Player player = g.getPlayers()[0]; //FOR TESTING NEED TO FIX: TODO
-        Peg p = turn.getP();
-        Peg p2 = turn.getP2();
+        Player player = g.getPlayers()[1]; //FOR TESTING NEED TO FIX: TODO
+        Peg p = getPeg(turn.getP(), player);
+        Peg p2 = turn.getP2(); //TODO
         Card c = turn.getCard();
         int spaces = turn.getSpaces();
 
@@ -85,6 +85,15 @@ public class GameService {
         for (Game g : this.gameList){
             if (g.getId().equals(id)){
                 return g;
+            }
+        }
+        return null;
+    }
+
+    public Peg getPeg(Peg p, Player player){
+        for (Peg peg : player.getPegs()){
+            if (p.equals(peg)){
+                return peg;
             }
         }
         return null;

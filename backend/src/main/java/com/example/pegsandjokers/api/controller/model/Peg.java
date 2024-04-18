@@ -76,4 +76,9 @@ public class Peg {
         if (!(o instanceof Peg p)) return false;
         return this.num == p.getNum() && this.color.equals(p.getColor());
     }
+
+    @Override
+    public String toString(){
+        return "Peg " + this.color + Integer.toString(this.num);
+    }
 }

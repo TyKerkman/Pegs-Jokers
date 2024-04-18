@@ -24,8 +24,8 @@ public class Game {
             this.players[i] = new Player(i);
             ArrayList<Peg> pegs = new ArrayList<>();
             for (int j = 0; j < 5; j++){
-                Peg p = new Peg();
-                p.setColor("blue");
+                String color = getPlayerColor(i);
+                Peg p = new Peg(color, j);
                 p.setPlayer(this.players[i]);
                 pegs.add(p);
             }
@@ -39,6 +39,16 @@ public class Game {
                 this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);
             }
         }
+    }
+
+    public String getPlayerColor(int num){
+        return switch (num) {
+            case 0 -> "red";
+            case 1 -> "fuchsia";
+            case 2 -> "green";
+            case 3 -> "blue";
+            default -> null;
+        };
     }
 
     /**
@@ -75,7 +85,8 @@ public class Game {
 
         while (count < spaces) {
             if (forward) {
-                current = loop[index + 1 % loop.length];
+                index = (index + 1) % loop.length;
+                current = loop[index];
             } else {
                 index = (index == 0) ? (loop.length - 1) : (index - 1);
                 current = loop[index];
