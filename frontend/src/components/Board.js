@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import Place from './Place'
 import Hole from './Hole'
 import '../Styling.css'
+import KnownCard from './KnownCard';
 import data from '../exampleBoard.json'
 import { initializeAnalytics } from 'firebase/analytics'
 
@@ -15,6 +16,7 @@ function Board({numPlayers=4}) {
     const gridContainer =  {
         display: 'grid',
         gridTemplateColumns: `repeat(${num}, auto)`,
+
     }
     
     let initialBoard = []
@@ -156,11 +158,8 @@ function Board({numPlayers=4}) {
     }, [board])
 
     return (
-        <div className='board-container'>
-            <button className="button-2" onClick={updateBoard} >Move</button>
-            <div className="grid-container">
-                {grid}
-            </div>
+        <div className="grid-container">
+            {grid}
         </div>
     )
 }

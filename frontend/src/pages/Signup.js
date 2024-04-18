@@ -60,7 +60,7 @@ const Signup = () => {
             </div>
 
             <div className="form-group">
-              <button className="button-2" onClick={onSubmit}>
+              <button className="button-3" onClick={onSubmit}>
                 Sign Up
               </button>
             </div>
