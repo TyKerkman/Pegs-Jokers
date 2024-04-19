@@ -378,6 +378,15 @@ public class Game {
         return false;
     }
 
+    public Card getRandomCard(){
+        if (this.deck.getCards().isEmpty()){
+            this.deck.initializeDeck();
+            this.deck.shuffle();
+        }
+
+        return this.deck.getCards().removeFirst();
+    }
+
     public Integer getId() {
         return id;
     }

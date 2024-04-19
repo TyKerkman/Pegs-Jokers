@@ -1,6 +1,7 @@
 package com.example.pegsandjokers.api.controller.controller;
 
 import com.example.pegsandjokers.api.controller.model.Board;
+import com.example.pegsandjokers.api.controller.model.Card;
 import com.example.pegsandjokers.api.controller.model.Game;
 import com.example.pegsandjokers.api.controller.model.Turn;
 import com.example.pegsandjokers.service.GameService;
@@ -42,7 +43,11 @@ public class GameController {
     public ResponseEntity<?> playTurn(@RequestBody Turn turn) {
         boolean success = gameService.takeTurn(turn);
         if (success) {
-            return ResponseEntity.ok().build();
+            if (gameService.isWinner(turn.getGameID())){
+                return ResponseEntity.ok().body("Game Over!");
+            }
+            Card c = gameService.newCard(turn.getGameID());
+            return ResponseEntity.ok().body(c);
         } else {
             return ResponseEntity.badRequest().body("Invalid move!");
         }

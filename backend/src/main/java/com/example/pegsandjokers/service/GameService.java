@@ -112,4 +112,14 @@ public class GameService {
             default -> -1;
         };
     }
+
+    public boolean isWinner(Integer gameID){
+        Game g = getGameByID(gameID);
+        return g != null && g.isWinner();
+    }
+
+    public Card newCard(Integer gameID){
+        Game g = getGameByID(gameID);
+        return g.getRandomCard();
+    }
 }
