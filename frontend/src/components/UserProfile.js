@@ -68,7 +68,7 @@ const UserProfile = () => {
           <h2>User Profile</h2>
           <div className="image-field">
             <input type="file" onChange={handleImage} />
-            <button disabled={loading} onClick={handleUpload}>
+            <button disabled={loading || !photo} onClick={handleUpload}>
               Upload
             </button>
             <img src={photoURL} alt="Profile Picture" className="profile-pic" />
