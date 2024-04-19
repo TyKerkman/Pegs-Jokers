@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAuth , browserLocalPersistence, setPersistence} from "firebase/auth";
-import { getDatabase } from "firebase/database";
+import { getAuth , browserLocalPersistence, setPersistence, updateProfile} from "firebase/auth";
+import { getDatabase, update } from "firebase/database";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAmD5NQcO8WkvkVPJw0QGpBLCqPoz-Z8gY",
@@ -21,4 +22,20 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 export const database = getDatabase(app);
 export const auth = getAuth(app);
+export const storage = getStorage();
+
+export async function upload(file, currentUser, setLoading) {
+  const fileRef = ref(storage, 'profiles/' + currentUser.uid + '.png');
+
+  setLoading(true);
+
+  const snapshot = await uploadBytes(fileRef, file);
+
+  const photoURL = await getDownloadURL(fileRef)
+
+  updateProfile(currentUser, {photoURL: photoURL});
+
+  setLoading(false);
+  // alert("Uploaded File!");
+}
 export default app;
