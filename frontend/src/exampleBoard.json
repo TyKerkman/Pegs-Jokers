@@ -2,936 +2,945 @@
     "id": 1,
     "loop": [
         {
-            "id": "492e9fb8-eaec-418b-a439-f5e4839296c0",
-            "next": "5ac282f3-dea4-4961-b80b-effadef57412",
-            "previous": "60da7c50-e285-4dbf-957d-2bc2ba8e4fc8",
+            "id": "a637b8cb-a3db-4cee-8c86-a66f82b01135",
+            "next": "f6a640b7-8188-4207-a24b-d2140db0b595",
+            "previous": "4f00b239-a716-493d-bf5f-eadd515a939d",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "5ac282f3-dea4-4961-b80b-effadef57412",
-            "next": "13930a92-4b5a-4657-8c7c-27ece7278d7a",
-            "previous": "492e9fb8-eaec-418b-a439-f5e4839296c0",
+            "id": "f6a640b7-8188-4207-a24b-d2140db0b595",
+            "next": "3bec983b-7ae7-4e21-8ca7-efead4a78714",
+            "previous": "a637b8cb-a3db-4cee-8c86-a66f82b01135",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "13930a92-4b5a-4657-8c7c-27ece7278d7a",
-            "next": "342928c4-96fd-4c00-9c6c-00a1fc0c6db2",
-            "previous": "5ac282f3-dea4-4961-b80b-effadef57412",
-            "fork": "3cad7a4e-c928-4f41-9d2f-7aac8bb2e7e9",
+            "id": "3bec983b-7ae7-4e21-8ca7-efead4a78714",
+            "next": "0e54b179-ebc2-4ca5-b118-04117eae2c65",
+            "previous": "f6a640b7-8188-4207-a24b-d2140db0b595",
+            "fork": "ac1c2312-5d17-42d8-a81b-4eb3661902ad",
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": true
+            "heavensGate": true,
+            "homeStep": false
         },
         {
-            "id": "342928c4-96fd-4c00-9c6c-00a1fc0c6db2",
-            "next": "e7de7603-5b71-48f2-99e8-564e85540443",
-            "previous": "13930a92-4b5a-4657-8c7c-27ece7278d7a",
+            "id": "0e54b179-ebc2-4ca5-b118-04117eae2c65",
+            "next": "d14d9115-5b2c-4207-ae86-bdee62a19be9",
+            "previous": "3bec983b-7ae7-4e21-8ca7-efead4a78714",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "e7de7603-5b71-48f2-99e8-564e85540443",
-            "next": "b1e51fad-7106-475d-ad35-dc4cb67aabba",
-            "previous": "342928c4-96fd-4c00-9c6c-00a1fc0c6db2",
+            "id": "d14d9115-5b2c-4207-ae86-bdee62a19be9",
+            "next": "3856367a-06f3-419d-a2a2-8c2e358648e3",
+            "previous": "0e54b179-ebc2-4ca5-b118-04117eae2c65",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "b1e51fad-7106-475d-ad35-dc4cb67aabba",
-            "next": "b53b291e-7159-42a6-8a0f-61f1dc393f95",
-            "previous": "e7de7603-5b71-48f2-99e8-564e85540443",
+            "id": "3856367a-06f3-419d-a2a2-8c2e358648e3",
+            "next": "4a61a191-5e5b-4ffa-8a9e-fc79b6c9f671",
+            "previous": "d14d9115-5b2c-4207-ae86-bdee62a19be9",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "b53b291e-7159-42a6-8a0f-61f1dc393f95",
-            "next": "854d5912-7b7f-4c71-9071-c1d4d9105ce4",
-            "previous": "b1e51fad-7106-475d-ad35-dc4cb67aabba",
+            "id": "4a61a191-5e5b-4ffa-8a9e-fc79b6c9f671",
+            "next": "423dda44-4575-413b-8f3b-b866d4b6f3c9",
+            "previous": "3856367a-06f3-419d-a2a2-8c2e358648e3",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "854d5912-7b7f-4c71-9071-c1d4d9105ce4",
-            "next": "a707bb6a-a60b-4c3d-87e0-2b9b0ac5fdb3",
-            "previous": "b53b291e-7159-42a6-8a0f-61f1dc393f95",
-            "fork": null,
-            "numPlayer": 0,
-            "peg": null,
-            "homeStep": true,
-            "heavensGate": false
-        },
-        {
-            "id": "a707bb6a-a60b-4c3d-87e0-2b9b0ac5fdb3",
-            "next": "8118fb6c-6a0f-41aa-8ff0-25e118addfa8",
-            "previous": "854d5912-7b7f-4c71-9071-c1d4d9105ce4",
+            "id": "423dda44-4575-413b-8f3b-b866d4b6f3c9",
+            "next": "d2337115-1dce-4b8a-aabf-c96d888d4b6b",
+            "previous": "4a61a191-5e5b-4ffa-8a9e-fc79b6c9f671",
             "fork": null,
             "numPlayer": 0,
             "peg": {
                 "color": "red",
                 "num": 0
             },
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": true
         },
         {
-            "id": "8118fb6c-6a0f-41aa-8ff0-25e118addfa8",
-            "next": "1d9cb001-78f7-455d-a665-36cfa6c8a231",
-            "previous": "a707bb6a-a60b-4c3d-87e0-2b9b0ac5fdb3",
+            "id": "d2337115-1dce-4b8a-aabf-c96d888d4b6b",
+            "next": "e3a4926c-e3ad-497b-82a5-ff86fbc749c4",
+            "previous": "423dda44-4575-413b-8f3b-b866d4b6f3c9",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "1d9cb001-78f7-455d-a665-36cfa6c8a231",
-            "next": "9cbc25c8-17b0-4d05-9a94-b853cc6f27ee",
-            "previous": "8118fb6c-6a0f-41aa-8ff0-25e118addfa8",
+            "id": "e3a4926c-e3ad-497b-82a5-ff86fbc749c4",
+            "next": "5014f664-3f48-4c31-8eaa-3815ff6665d5",
+            "previous": "d2337115-1dce-4b8a-aabf-c96d888d4b6b",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "9cbc25c8-17b0-4d05-9a94-b853cc6f27ee",
-            "next": "12642fc8-c4fd-4bd4-a0c1-f188583c4b75",
-            "previous": "1d9cb001-78f7-455d-a665-36cfa6c8a231",
+            "id": "5014f664-3f48-4c31-8eaa-3815ff6665d5",
+            "next": "ddf8b0bb-7238-462f-91dc-5980b172c525",
+            "previous": "e3a4926c-e3ad-497b-82a5-ff86fbc749c4",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "12642fc8-c4fd-4bd4-a0c1-f188583c4b75",
-            "next": "cf43c945-2740-43df-a32d-8327ce72315e",
-            "previous": "9cbc25c8-17b0-4d05-9a94-b853cc6f27ee",
+            "id": "ddf8b0bb-7238-462f-91dc-5980b172c525",
+            "next": "f41f4005-0a44-420b-85ee-eda7a860439f",
+            "previous": "5014f664-3f48-4c31-8eaa-3815ff6665d5",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "cf43c945-2740-43df-a32d-8327ce72315e",
-            "next": "561fe6c4-d25f-41cc-b875-81ea14e6e767",
-            "previous": "12642fc8-c4fd-4bd4-a0c1-f188583c4b75",
+            "id": "f41f4005-0a44-420b-85ee-eda7a860439f",
+            "next": "c4d87088-90d1-49b0-868f-d1933acabffe",
+            "previous": "ddf8b0bb-7238-462f-91dc-5980b172c525",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "561fe6c4-d25f-41cc-b875-81ea14e6e767",
-            "next": "65eff96b-780d-47ba-b9c2-7a9f66d201ab",
-            "previous": "cf43c945-2740-43df-a32d-8327ce72315e",
+            "id": "c4d87088-90d1-49b0-868f-d1933acabffe",
+            "next": "7ef265e5-a86a-44a3-9f55-d1a507731522",
+            "previous": "f41f4005-0a44-420b-85ee-eda7a860439f",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "65eff96b-780d-47ba-b9c2-7a9f66d201ab",
-            "next": "4cd86684-2857-44fc-a388-e1a8d898831e",
-            "previous": "561fe6c4-d25f-41cc-b875-81ea14e6e767",
+            "id": "7ef265e5-a86a-44a3-9f55-d1a507731522",
+            "next": "482bb9e5-3293-4b3a-9be6-568241ccb27a",
+            "previous": "c4d87088-90d1-49b0-868f-d1933acabffe",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "4cd86684-2857-44fc-a388-e1a8d898831e",
-            "next": "e78b0ccc-5c89-43ee-8150-8c3c318aad65",
-            "previous": "65eff96b-780d-47ba-b9c2-7a9f66d201ab",
+            "id": "482bb9e5-3293-4b3a-9be6-568241ccb27a",
+            "next": "d4ea3749-cbd2-4cf3-a7f4-e2e8fc7426d2",
+            "previous": "7ef265e5-a86a-44a3-9f55-d1a507731522",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "e78b0ccc-5c89-43ee-8150-8c3c318aad65",
-            "next": "3c122d76-1d14-465e-a724-0bb61576e9bc",
-            "previous": "4cd86684-2857-44fc-a388-e1a8d898831e",
+            "id": "d4ea3749-cbd2-4cf3-a7f4-e2e8fc7426d2",
+            "next": "636c22b9-823c-47dc-9bd8-072667404363",
+            "previous": "482bb9e5-3293-4b3a-9be6-568241ccb27a",
             "fork": null,
             "numPlayer": 0,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "3c122d76-1d14-465e-a724-0bb61576e9bc",
-            "next": "03302c94-4b2b-445b-83fb-92a475e6740d",
-            "previous": "e78b0ccc-5c89-43ee-8150-8c3c318aad65",
+            "id": "636c22b9-823c-47dc-9bd8-072667404363",
+            "next": "99eee696-4c16-4c55-b543-56fe8e282ebb",
+            "previous": "d4ea3749-cbd2-4cf3-a7f4-e2e8fc7426d2",
+            "fork": null,
+            "numPlayer": 0,
+            "peg": null,
+            "heavensGate": false,
+            "homeStep": false
+        },
+        {
+            "id": "99eee696-4c16-4c55-b543-56fe8e282ebb",
+            "next": "a2d8a4d7-c82a-4f3c-a42f-658ed65e0d4c",
+            "previous": "636c22b9-823c-47dc-9bd8-072667404363",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "03302c94-4b2b-445b-83fb-92a475e6740d",
-            "next": "40d47a06-aed0-4f56-ab04-b8dfb94f3119",
-            "previous": "3c122d76-1d14-465e-a724-0bb61576e9bc",
+            "id": "a2d8a4d7-c82a-4f3c-a42f-658ed65e0d4c",
+            "next": "72d63c1c-cea8-4a1c-a7a4-ec50ad9b66ec",
+            "previous": "99eee696-4c16-4c55-b543-56fe8e282ebb",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "40d47a06-aed0-4f56-ab04-b8dfb94f3119",
-            "next": "6d404de8-ddfb-4f33-99e6-6c02a8f6455f",
-            "previous": "03302c94-4b2b-445b-83fb-92a475e6740d",
-            "fork": "70ceaa23-54f2-446c-b57b-ceab00f78efe",
+            "id": "72d63c1c-cea8-4a1c-a7a4-ec50ad9b66ec",
+            "next": "7a095a5b-0e87-4320-8a43-f79507c16fca",
+            "previous": "a2d8a4d7-c82a-4f3c-a42f-658ed65e0d4c",
+            "fork": "120afa3f-82e6-45ad-b78b-1f26b905e3f2",
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": true
+            "heavensGate": true,
+            "homeStep": false
         },
         {
-            "id": "6d404de8-ddfb-4f33-99e6-6c02a8f6455f",
-            "next": "f026aeaa-eae4-4900-85e3-ce522ab1be11",
-            "previous": "40d47a06-aed0-4f56-ab04-b8dfb94f3119",
-            "fork": null,
-            "numPlayer": 1,
-            "peg": null,
-            "homeStep": false,
-            "heavensGate": false
-        },
-        {
-            "id": "f026aeaa-eae4-4900-85e3-ce522ab1be11",
-            "next": "089ff0b8-f585-4125-9f8d-11a644f531dd",
-            "previous": "6d404de8-ddfb-4f33-99e6-6c02a8f6455f",
+            "id": "7a095a5b-0e87-4320-8a43-f79507c16fca",
+            "next": "8dcba557-c8d8-464d-b45c-667bded3cf04",
+            "previous": "72d63c1c-cea8-4a1c-a7a4-ec50ad9b66ec",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "089ff0b8-f585-4125-9f8d-11a644f531dd",
-            "next": "a86f52a0-9388-4bb2-93c3-c19d5f0c0a52",
-            "previous": "f026aeaa-eae4-4900-85e3-ce522ab1be11",
+            "id": "8dcba557-c8d8-464d-b45c-667bded3cf04",
+            "next": "b60f78dc-a546-493e-89a9-cc50a88339c8",
+            "previous": "7a095a5b-0e87-4320-8a43-f79507c16fca",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "a86f52a0-9388-4bb2-93c3-c19d5f0c0a52",
-            "next": "972e30a0-ecb6-4fb8-ac3e-bda2e1cb55c0",
-            "previous": "089ff0b8-f585-4125-9f8d-11a644f531dd",
+            "id": "b60f78dc-a546-493e-89a9-cc50a88339c8",
+            "next": "e1b11ee7-74a6-4cd4-94d5-72dd4d56b4f2",
+            "previous": "8dcba557-c8d8-464d-b45c-667bded3cf04",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "972e30a0-ecb6-4fb8-ac3e-bda2e1cb55c0",
-            "next": "d7defb05-9ded-4759-801f-bff2ae11e9d4",
-            "previous": "a86f52a0-9388-4bb2-93c3-c19d5f0c0a52",
+            "id": "e1b11ee7-74a6-4cd4-94d5-72dd4d56b4f2",
+            "next": "0e9ac7ee-cda1-47cc-8fee-fd6f0704256c",
+            "previous": "b60f78dc-a546-493e-89a9-cc50a88339c8",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": true,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "d7defb05-9ded-4759-801f-bff2ae11e9d4",
-            "next": "a91bbf6b-3126-467f-8991-1750c4713187",
-            "previous": "972e30a0-ecb6-4fb8-ac3e-bda2e1cb55c0",
+            "id": "0e9ac7ee-cda1-47cc-8fee-fd6f0704256c",
+            "next": "b7f0ba02-95e2-4c86-ba0c-a3271e145c1a",
+            "previous": "e1b11ee7-74a6-4cd4-94d5-72dd4d56b4f2",
+            "fork": null,
+            "numPlayer": 1,
+            "peg": {
+                "color": "fuchsia",
+                "num": 0
+            },
+            "heavensGate": false,
+            "homeStep": true
+        },
+        {
+            "id": "b7f0ba02-95e2-4c86-ba0c-a3271e145c1a",
+            "next": "23a88f4d-1c41-44bf-9e96-a351063dd1e2",
+            "previous": "0e9ac7ee-cda1-47cc-8fee-fd6f0704256c",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "a91bbf6b-3126-467f-8991-1750c4713187",
-            "next": "428effc5-0963-45a2-a770-9f41113acc1b",
-            "previous": "d7defb05-9ded-4759-801f-bff2ae11e9d4",
+            "id": "23a88f4d-1c41-44bf-9e96-a351063dd1e2",
+            "next": "e29c7433-ebf7-45d0-af58-2c333e50dab4",
+            "previous": "b7f0ba02-95e2-4c86-ba0c-a3271e145c1a",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "428effc5-0963-45a2-a770-9f41113acc1b",
-            "next": "1ddcdba2-78d5-476c-bb67-825487521c72",
-            "previous": "a91bbf6b-3126-467f-8991-1750c4713187",
+            "id": "e29c7433-ebf7-45d0-af58-2c333e50dab4",
+            "next": "3e96a47c-0db0-4581-90a7-256f45ec25f2",
+            "previous": "23a88f4d-1c41-44bf-9e96-a351063dd1e2",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "1ddcdba2-78d5-476c-bb67-825487521c72",
-            "next": "7fea3a5d-c056-4575-81ae-9bf063693eab",
-            "previous": "428effc5-0963-45a2-a770-9f41113acc1b",
+            "id": "3e96a47c-0db0-4581-90a7-256f45ec25f2",
+            "next": "fa6ca8b4-b892-43a0-8177-eb75f8152bc5",
+            "previous": "e29c7433-ebf7-45d0-af58-2c333e50dab4",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "7fea3a5d-c056-4575-81ae-9bf063693eab",
-            "next": "11445257-e651-49da-a0fd-a97275f4bf7e",
-            "previous": "1ddcdba2-78d5-476c-bb67-825487521c72",
+            "id": "fa6ca8b4-b892-43a0-8177-eb75f8152bc5",
+            "next": "65f5bf06-05c4-4d5f-8db1-791ad258b8aa",
+            "previous": "3e96a47c-0db0-4581-90a7-256f45ec25f2",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "11445257-e651-49da-a0fd-a97275f4bf7e",
-            "next": "5cca7c61-665f-45c7-ae2f-5a625c1293b1",
-            "previous": "7fea3a5d-c056-4575-81ae-9bf063693eab",
+            "id": "65f5bf06-05c4-4d5f-8db1-791ad258b8aa",
+            "next": "8d445a42-7bc0-4ee6-9b83-8ec69019c276",
+            "previous": "fa6ca8b4-b892-43a0-8177-eb75f8152bc5",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "5cca7c61-665f-45c7-ae2f-5a625c1293b1",
-            "next": "6462c96e-99d5-4ce3-a930-8d36976d4bd7",
-            "previous": "11445257-e651-49da-a0fd-a97275f4bf7e",
+            "id": "8d445a42-7bc0-4ee6-9b83-8ec69019c276",
+            "next": "16f39d8a-371f-4fbc-ad20-d5ab24e8d9b4",
+            "previous": "65f5bf06-05c4-4d5f-8db1-791ad258b8aa",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "6462c96e-99d5-4ce3-a930-8d36976d4bd7",
-            "next": "84d08bf9-cc6a-403c-a94e-37107aa1de49",
-            "previous": "5cca7c61-665f-45c7-ae2f-5a625c1293b1",
+            "id": "16f39d8a-371f-4fbc-ad20-d5ab24e8d9b4",
+            "next": "5872a280-9da9-4068-b2b9-9680819c7382",
+            "previous": "8d445a42-7bc0-4ee6-9b83-8ec69019c276",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "84d08bf9-cc6a-403c-a94e-37107aa1de49",
-            "next": "4f52cc46-6315-4632-a01f-07e435ce1394",
-            "previous": "6462c96e-99d5-4ce3-a930-8d36976d4bd7",
+            "id": "5872a280-9da9-4068-b2b9-9680819c7382",
+            "next": "220bfabf-a430-409b-b02a-3ba5b07d069d",
+            "previous": "16f39d8a-371f-4fbc-ad20-d5ab24e8d9b4",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "4f52cc46-6315-4632-a01f-07e435ce1394",
-            "next": "2516b799-cdba-421a-8f80-606d796a90aa",
-            "previous": "84d08bf9-cc6a-403c-a94e-37107aa1de49",
+            "id": "220bfabf-a430-409b-b02a-3ba5b07d069d",
+            "next": "d2ac8b86-5144-47d9-955c-7d695913fbed",
+            "previous": "5872a280-9da9-4068-b2b9-9680819c7382",
             "fork": null,
             "numPlayer": 1,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "2516b799-cdba-421a-8f80-606d796a90aa",
-            "next": "309bc980-5701-48aa-8ec1-2bcc13173d80",
-            "previous": "4f52cc46-6315-4632-a01f-07e435ce1394",
+            "id": "d2ac8b86-5144-47d9-955c-7d695913fbed",
+            "next": "ef11e562-e20a-4968-8dd4-5a24381bb7a3",
+            "previous": "220bfabf-a430-409b-b02a-3ba5b07d069d",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "309bc980-5701-48aa-8ec1-2bcc13173d80",
-            "next": "b103a51b-32a1-4d04-b9b4-eee474ac7bea",
-            "previous": "2516b799-cdba-421a-8f80-606d796a90aa",
+            "id": "ef11e562-e20a-4968-8dd4-5a24381bb7a3",
+            "next": "178a510f-0bc4-4d85-995e-dd9e2d53ded8",
+            "previous": "d2ac8b86-5144-47d9-955c-7d695913fbed",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "b103a51b-32a1-4d04-b9b4-eee474ac7bea",
-            "next": "a77565ed-c0e1-4ce9-89d0-f9bd47092b24",
-            "previous": "309bc980-5701-48aa-8ec1-2bcc13173d80",
-            "fork": "b93bb513-0138-411b-aa96-811b00c3121a",
+            "id": "178a510f-0bc4-4d85-995e-dd9e2d53ded8",
+            "next": "e750c74b-0d71-46a6-bfdd-66ed446ddf84",
+            "previous": "ef11e562-e20a-4968-8dd4-5a24381bb7a3",
+            "fork": "33bc84db-7b3c-4e33-8578-1952fe7b2e40",
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": true
+            "heavensGate": true,
+            "homeStep": false
         },
         {
-            "id": "a77565ed-c0e1-4ce9-89d0-f9bd47092b24",
-            "next": "f2ea5efe-7fc7-4463-ab3c-d089c934bf3a",
-            "previous": "b103a51b-32a1-4d04-b9b4-eee474ac7bea",
-            "fork": null,
-            "numPlayer": 2,
-            "peg": null,
-            "homeStep": false,
-            "heavensGate": false
-        },
-        {
-            "id": "f2ea5efe-7fc7-4463-ab3c-d089c934bf3a",
-            "next": "bca6ad0d-6c39-4e1d-b71f-336a5907e522",
-            "previous": "a77565ed-c0e1-4ce9-89d0-f9bd47092b24",
+            "id": "e750c74b-0d71-46a6-bfdd-66ed446ddf84",
+            "next": "d19c53b3-ebbd-48e3-956a-3f992ba86b99",
+            "previous": "178a510f-0bc4-4d85-995e-dd9e2d53ded8",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "bca6ad0d-6c39-4e1d-b71f-336a5907e522",
-            "next": "f9f757bf-3dbe-4e25-be3a-545b77a6541b",
-            "previous": "f2ea5efe-7fc7-4463-ab3c-d089c934bf3a",
+            "id": "d19c53b3-ebbd-48e3-956a-3f992ba86b99",
+            "next": "bd56d97e-bf7a-44dc-9b5f-c1e26dab65ac",
+            "previous": "e750c74b-0d71-46a6-bfdd-66ed446ddf84",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "f9f757bf-3dbe-4e25-be3a-545b77a6541b",
-            "next": "a2d83765-65e2-4403-84a6-7df9e1538fe3",
-            "previous": "bca6ad0d-6c39-4e1d-b71f-336a5907e522",
+            "id": "bd56d97e-bf7a-44dc-9b5f-c1e26dab65ac",
+            "next": "ddd6a81e-e0cc-4374-80e1-8741e8a91b35",
+            "previous": "d19c53b3-ebbd-48e3-956a-3f992ba86b99",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "a2d83765-65e2-4403-84a6-7df9e1538fe3",
-            "next": "022a34d3-c189-4fac-8d77-fcfb89ff3a9e",
-            "previous": "f9f757bf-3dbe-4e25-be3a-545b77a6541b",
+            "id": "ddd6a81e-e0cc-4374-80e1-8741e8a91b35",
+            "next": "ddea9da0-a840-4415-85ed-ad0cb0f07b50",
+            "previous": "bd56d97e-bf7a-44dc-9b5f-c1e26dab65ac",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": true,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "022a34d3-c189-4fac-8d77-fcfb89ff3a9e",
-            "next": "64df0b8a-d184-4665-9c75-96243d0b1c3c",
-            "previous": "a2d83765-65e2-4403-84a6-7df9e1538fe3",
+            "id": "ddea9da0-a840-4415-85ed-ad0cb0f07b50",
+            "next": "6619ee50-a7f9-4c08-a466-156c36d66cc9",
+            "previous": "ddd6a81e-e0cc-4374-80e1-8741e8a91b35",
+            "fork": null,
+            "numPlayer": 2,
+            "peg": {
+                "color": "green",
+                "num": 0
+            },
+            "heavensGate": false,
+            "homeStep": true
+        },
+        {
+            "id": "6619ee50-a7f9-4c08-a466-156c36d66cc9",
+            "next": "90d1ebde-f3ca-4cb7-820a-31733c57283f",
+            "previous": "ddea9da0-a840-4415-85ed-ad0cb0f07b50",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "64df0b8a-d184-4665-9c75-96243d0b1c3c",
-            "next": "15a77430-bd6e-4717-ab8f-1093e5730dfd",
-            "previous": "022a34d3-c189-4fac-8d77-fcfb89ff3a9e",
+            "id": "90d1ebde-f3ca-4cb7-820a-31733c57283f",
+            "next": "6a5e6f54-fe81-44ab-b8cd-43797fd66c34",
+            "previous": "6619ee50-a7f9-4c08-a466-156c36d66cc9",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "15a77430-bd6e-4717-ab8f-1093e5730dfd",
-            "next": "86bc06bd-099a-42f2-873b-f1487fb0f2b8",
-            "previous": "64df0b8a-d184-4665-9c75-96243d0b1c3c",
+            "id": "6a5e6f54-fe81-44ab-b8cd-43797fd66c34",
+            "next": "ffab51c1-2f36-44f7-b052-13cf85d49c62",
+            "previous": "90d1ebde-f3ca-4cb7-820a-31733c57283f",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "86bc06bd-099a-42f2-873b-f1487fb0f2b8",
-            "next": "81002791-7e85-4d3f-b745-20a9495eee76",
-            "previous": "15a77430-bd6e-4717-ab8f-1093e5730dfd",
+            "id": "ffab51c1-2f36-44f7-b052-13cf85d49c62",
+            "next": "595bc665-f973-49f2-8bfa-92d25259cf35",
+            "previous": "6a5e6f54-fe81-44ab-b8cd-43797fd66c34",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "81002791-7e85-4d3f-b745-20a9495eee76",
-            "next": "7031d31f-2062-4147-806a-016121d51ea5",
-            "previous": "86bc06bd-099a-42f2-873b-f1487fb0f2b8",
+            "id": "595bc665-f973-49f2-8bfa-92d25259cf35",
+            "next": "4a2f5c47-f69c-487c-abe6-7ab19bbd505c",
+            "previous": "ffab51c1-2f36-44f7-b052-13cf85d49c62",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "7031d31f-2062-4147-806a-016121d51ea5",
-            "next": "f2844e13-7816-47fa-b577-57890c29f70b",
-            "previous": "81002791-7e85-4d3f-b745-20a9495eee76",
+            "id": "4a2f5c47-f69c-487c-abe6-7ab19bbd505c",
+            "next": "87947d41-7ef5-42a9-aebf-652d0c34732b",
+            "previous": "595bc665-f973-49f2-8bfa-92d25259cf35",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "f2844e13-7816-47fa-b577-57890c29f70b",
-            "next": "409ae09c-9ce2-4aed-850a-21b3e91e458c",
-            "previous": "7031d31f-2062-4147-806a-016121d51ea5",
+            "id": "87947d41-7ef5-42a9-aebf-652d0c34732b",
+            "next": "f33a2b7b-4856-4708-9ec5-40533675f347",
+            "previous": "4a2f5c47-f69c-487c-abe6-7ab19bbd505c",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "409ae09c-9ce2-4aed-850a-21b3e91e458c",
-            "next": "d79f0622-cd15-40c6-a819-037820f97c09",
-            "previous": "f2844e13-7816-47fa-b577-57890c29f70b",
+            "id": "f33a2b7b-4856-4708-9ec5-40533675f347",
+            "next": "43a94cc8-c51a-4ce8-89f0-b61d133e2de8",
+            "previous": "87947d41-7ef5-42a9-aebf-652d0c34732b",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "d79f0622-cd15-40c6-a819-037820f97c09",
-            "next": "d82b37b3-2d6c-4a14-a1cc-821be8815b7d",
-            "previous": "409ae09c-9ce2-4aed-850a-21b3e91e458c",
+            "id": "43a94cc8-c51a-4ce8-89f0-b61d133e2de8",
+            "next": "12329a9e-7ec6-42ce-b3ea-0e54c67f45e6",
+            "previous": "f33a2b7b-4856-4708-9ec5-40533675f347",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "d82b37b3-2d6c-4a14-a1cc-821be8815b7d",
-            "next": "545fb0b7-2d47-4263-a6d0-416bdbf8fb36",
-            "previous": "d79f0622-cd15-40c6-a819-037820f97c09",
+            "id": "12329a9e-7ec6-42ce-b3ea-0e54c67f45e6",
+            "next": "bb05e079-224f-49d3-bf0e-4aa303b68323",
+            "previous": "43a94cc8-c51a-4ce8-89f0-b61d133e2de8",
             "fork": null,
             "numPlayer": 2,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "545fb0b7-2d47-4263-a6d0-416bdbf8fb36",
-            "next": "dde445c8-ef4e-4abe-8be7-83718dd7e497",
-            "previous": "d82b37b3-2d6c-4a14-a1cc-821be8815b7d",
+            "id": "bb05e079-224f-49d3-bf0e-4aa303b68323",
+            "next": "d3ed82f7-1919-49e9-be96-23fa128403ac",
+            "previous": "12329a9e-7ec6-42ce-b3ea-0e54c67f45e6",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "dde445c8-ef4e-4abe-8be7-83718dd7e497",
-            "next": "7409e023-681c-47f1-829a-ec3aed3b8393",
-            "previous": "545fb0b7-2d47-4263-a6d0-416bdbf8fb36",
+            "id": "d3ed82f7-1919-49e9-be96-23fa128403ac",
+            "next": "c1528c34-9195-4794-acef-03edd6ed7e74",
+            "previous": "bb05e079-224f-49d3-bf0e-4aa303b68323",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "7409e023-681c-47f1-829a-ec3aed3b8393",
-            "next": "8bd2a90f-8c04-4966-9bf7-59c46e2134cc",
-            "previous": "dde445c8-ef4e-4abe-8be7-83718dd7e497",
-            "fork": "9abdf47b-ff69-4e96-9b83-3a047c8292ea",
+            "id": "c1528c34-9195-4794-acef-03edd6ed7e74",
+            "next": "c0aeeea9-1939-4d33-a4a7-e38d6d0676b1",
+            "previous": "d3ed82f7-1919-49e9-be96-23fa128403ac",
+            "fork": "5939d9e3-dd33-4386-848b-15b982315d85",
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": true
+            "heavensGate": true,
+            "homeStep": false
         },
         {
-            "id": "8bd2a90f-8c04-4966-9bf7-59c46e2134cc",
-            "next": "f4ae0a49-5e07-45c7-a7f4-9ffe58f2e717",
-            "previous": "7409e023-681c-47f1-829a-ec3aed3b8393",
+            "id": "c0aeeea9-1939-4d33-a4a7-e38d6d0676b1",
+            "next": "d467b5ce-edff-4d60-962c-797617a1a47a",
+            "previous": "c1528c34-9195-4794-acef-03edd6ed7e74",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "f4ae0a49-5e07-45c7-a7f4-9ffe58f2e717",
-            "next": "bfca46dc-b0f5-413e-97aa-bda55fecaa6b",
-            "previous": "8bd2a90f-8c04-4966-9bf7-59c46e2134cc",
+            "id": "d467b5ce-edff-4d60-962c-797617a1a47a",
+            "next": "4c50174a-5ac1-4f36-b2b6-7afa974f70a8",
+            "previous": "c0aeeea9-1939-4d33-a4a7-e38d6d0676b1",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "bfca46dc-b0f5-413e-97aa-bda55fecaa6b",
-            "next": "409d2f70-5604-41ef-8bed-4ccdaccc5c96",
-            "previous": "f4ae0a49-5e07-45c7-a7f4-9ffe58f2e717",
+            "id": "4c50174a-5ac1-4f36-b2b6-7afa974f70a8",
+            "next": "40eb1bd3-f8ba-458b-922d-99c4cda77741",
+            "previous": "d467b5ce-edff-4d60-962c-797617a1a47a",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "409d2f70-5604-41ef-8bed-4ccdaccc5c96",
-            "next": "cc8483ca-835f-45a1-bee0-0cd7fc5cac24",
-            "previous": "bfca46dc-b0f5-413e-97aa-bda55fecaa6b",
+            "id": "40eb1bd3-f8ba-458b-922d-99c4cda77741",
+            "next": "62938952-d861-418e-9b40-91bd9f6645bc",
+            "previous": "4c50174a-5ac1-4f36-b2b6-7afa974f70a8",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "cc8483ca-835f-45a1-bee0-0cd7fc5cac24",
-            "next": "9f9769b4-461c-426b-a6b4-95ad3ac44909",
-            "previous": "409d2f70-5604-41ef-8bed-4ccdaccc5c96",
+            "id": "62938952-d861-418e-9b40-91bd9f6645bc",
+            "next": "468086be-3a07-42b3-a455-951513819174",
+            "previous": "40eb1bd3-f8ba-458b-922d-99c4cda77741",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": true,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": true
         },
         {
-            "id": "9f9769b4-461c-426b-a6b4-95ad3ac44909",
-            "next": "52eedfb6-8e97-405f-be4b-b838138b95d7",
-            "previous": "cc8483ca-835f-45a1-bee0-0cd7fc5cac24",
+            "id": "468086be-3a07-42b3-a455-951513819174",
+            "next": "7fac6dfd-9bf5-43f1-86bf-13119e228995",
+            "previous": "62938952-d861-418e-9b40-91bd9f6645bc",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "52eedfb6-8e97-405f-be4b-b838138b95d7",
-            "next": "e3af8d65-980b-4644-b558-684466acabc3",
-            "previous": "9f9769b4-461c-426b-a6b4-95ad3ac44909",
+            "id": "7fac6dfd-9bf5-43f1-86bf-13119e228995",
+            "next": "d868551e-8fc4-45ac-980c-9b8786919c3c",
+            "previous": "468086be-3a07-42b3-a455-951513819174",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "e3af8d65-980b-4644-b558-684466acabc3",
-            "next": "6dcdce9c-c049-44c8-ae1a-c261d4a9a645",
-            "previous": "52eedfb6-8e97-405f-be4b-b838138b95d7",
+            "id": "d868551e-8fc4-45ac-980c-9b8786919c3c",
+            "next": "ea724718-9aa9-4862-8122-5c0eea33878a",
+            "previous": "7fac6dfd-9bf5-43f1-86bf-13119e228995",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "6dcdce9c-c049-44c8-ae1a-c261d4a9a645",
-            "next": "38d63a39-bf5d-4f51-9763-ae6041ccb014",
-            "previous": "e3af8d65-980b-4644-b558-684466acabc3",
+            "id": "ea724718-9aa9-4862-8122-5c0eea33878a",
+            "next": "74e164f8-9582-4ca8-9f9b-109e6c74dfcc",
+            "previous": "d868551e-8fc4-45ac-980c-9b8786919c3c",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "38d63a39-bf5d-4f51-9763-ae6041ccb014",
-            "next": "8ba4f708-0a46-4bdb-8c72-c1a26e4fd747",
-            "previous": "6dcdce9c-c049-44c8-ae1a-c261d4a9a645",
+            "id": "74e164f8-9582-4ca8-9f9b-109e6c74dfcc",
+            "next": "f6794125-f427-42f1-8249-d460e0464ea2",
+            "previous": "ea724718-9aa9-4862-8122-5c0eea33878a",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "8ba4f708-0a46-4bdb-8c72-c1a26e4fd747",
-            "next": "b3ffe381-4f8e-4a79-8a9d-9dd483677e69",
-            "previous": "38d63a39-bf5d-4f51-9763-ae6041ccb014",
+            "id": "f6794125-f427-42f1-8249-d460e0464ea2",
+            "next": "abcc7123-d18d-49a6-9c3b-898fb00d9edd",
+            "previous": "74e164f8-9582-4ca8-9f9b-109e6c74dfcc",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "b3ffe381-4f8e-4a79-8a9d-9dd483677e69",
-            "next": "4296710f-a25a-4356-86ec-4cf5e3d304f9",
-            "previous": "8ba4f708-0a46-4bdb-8c72-c1a26e4fd747",
+            "id": "abcc7123-d18d-49a6-9c3b-898fb00d9edd",
+            "next": "c28458ba-8896-495e-9061-ea8672b8e1f8",
+            "previous": "f6794125-f427-42f1-8249-d460e0464ea2",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "4296710f-a25a-4356-86ec-4cf5e3d304f9",
-            "next": "a6069648-e4b0-4737-aae2-be3144079c24",
-            "previous": "b3ffe381-4f8e-4a79-8a9d-9dd483677e69",
+            "id": "c28458ba-8896-495e-9061-ea8672b8e1f8",
+            "next": "cf71048a-c2d7-4f2e-8cd3-d11240201d22",
+            "previous": "abcc7123-d18d-49a6-9c3b-898fb00d9edd",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "a6069648-e4b0-4737-aae2-be3144079c24",
-            "next": "60da7c50-e285-4dbf-957d-2bc2ba8e4fc8",
-            "previous": "4296710f-a25a-4356-86ec-4cf5e3d304f9",
+            "id": "cf71048a-c2d7-4f2e-8cd3-d11240201d22",
+            "next": "4f00b239-a716-493d-bf5f-eadd515a939d",
+            "previous": "c28458ba-8896-495e-9061-ea8672b8e1f8",
             "fork": null,
             "numPlayer": 3,
             "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "heavensGate": false,
+            "homeStep": false
         },
         {
-            "id": "60da7c50-e285-4dbf-957d-2bc2ba8e4fc8",
-            "next": "492e9fb8-eaec-418b-a439-f5e4839296c0",
-            "previous": "a6069648-e4b0-4737-aae2-be3144079c24",
+            "id": "4f00b239-a716-493d-bf5f-eadd515a939d",
+            "next": "a637b8cb-a3db-4cee-8c86-a66f82b01135",
+            "previous": "cf71048a-c2d7-4f2e-8cd3-d11240201d22",
             "fork": null,
             "numPlayer": 3,
-            "peg": null,
-            "homeStep": false,
-            "heavensGate": false
+            "peg": {
+                "color": "blue",
+                "num": 0
+            },
+            "heavensGate": false,
+            "homeStep": false
         }
     ],
     "heavens": [
         [
             {
-                "id": "3cad7a4e-c928-4f41-9d2f-7aac8bb2e7e9",
-                "next": "4e07ea6f-8f3d-4501-8791-334ae954e779",
+                "id": "ac1c2312-5d17-42d8-a81b-4eb3661902ad",
+                "next": "48b2adfd-8e2b-42eb-a060-56979a0e681f",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 0,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "4e07ea6f-8f3d-4501-8791-334ae954e779",
-                "next": "9609ee1f-fa29-4d9e-b8db-5ec49e1c7600",
+                "id": "48b2adfd-8e2b-42eb-a060-56979a0e681f",
+                "next": "59e7a460-346d-4e3d-ba72-ac01d4acec38",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 0,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "9609ee1f-fa29-4d9e-b8db-5ec49e1c7600",
-                "next": "04ecf50c-b5e3-4fc4-ac5b-a76be68d7c20",
+                "id": "59e7a460-346d-4e3d-ba72-ac01d4acec38",
+                "next": "dbf548d5-e9f6-4877-bc42-9acd56f445e5",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 0,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "04ecf50c-b5e3-4fc4-ac5b-a76be68d7c20",
-                "next": "17b89e69-eac8-4ec4-af20-70248a2c2bdf",
+                "id": "dbf548d5-e9f6-4877-bc42-9acd56f445e5",
+                "next": "934050e2-cb74-4efc-919c-71cae48f3bc6",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 0,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "17b89e69-eac8-4ec4-af20-70248a2c2bdf",
+                "id": "934050e2-cb74-4efc-919c-71cae48f3bc6",
                 "next": null,
                 "previous": null,
                 "fork": null,
                 "numPlayer": 0,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             }
         ],
         [
             {
-                "id": "70ceaa23-54f2-446c-b57b-ceab00f78efe",
-                "next": "d16a87f6-e741-40a7-a58c-1bdd019eeef8",
+                "id": "120afa3f-82e6-45ad-b78b-1f26b905e3f2",
+                "next": "24404d66-c781-4205-aad8-a3bea29876ec",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 1,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "d16a87f6-e741-40a7-a58c-1bdd019eeef8",
-                "next": "efc6b0f1-21c7-4065-8947-1d42aedb41db",
+                "id": "24404d66-c781-4205-aad8-a3bea29876ec",
+                "next": "0f05fccd-7d36-4fe4-8791-be706c03b52c",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 1,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "efc6b0f1-21c7-4065-8947-1d42aedb41db",
-                "next": "44bf1211-265f-48ea-9a6c-3837ccaa62fe",
+                "id": "0f05fccd-7d36-4fe4-8791-be706c03b52c",
+                "next": "72a086bb-4d11-4009-8ad1-a35b0977e33b",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 1,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "44bf1211-265f-48ea-9a6c-3837ccaa62fe",
-                "next": "43320f25-fd10-49c1-855f-872d9df04deb",
+                "id": "72a086bb-4d11-4009-8ad1-a35b0977e33b",
+                "next": "66d7fe29-a413-4d9f-9926-4e5631f9a367",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 1,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "43320f25-fd10-49c1-855f-872d9df04deb",
+                "id": "66d7fe29-a413-4d9f-9926-4e5631f9a367",
                 "next": null,
                 "previous": null,
                 "fork": null,
                 "numPlayer": 1,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             }
         ],
         [
             {
-                "id": "b93bb513-0138-411b-aa96-811b00c3121a",
-                "next": "b7ee1d8c-0ee8-45a4-9b9a-fbd257374a96",
+                "id": "33bc84db-7b3c-4e33-8578-1952fe7b2e40",
+                "next": "1ecf3697-6467-4db6-a5cc-8db0ac0a693b",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 2,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "b7ee1d8c-0ee8-45a4-9b9a-fbd257374a96",
-                "next": "498a31b1-bca3-4878-84d9-1b9f7c3dca1a",
+                "id": "1ecf3697-6467-4db6-a5cc-8db0ac0a693b",
+                "next": "eec040c4-0dad-4e8a-bda5-7a574c8b0ded",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 2,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "498a31b1-bca3-4878-84d9-1b9f7c3dca1a",
-                "next": "1ccfa1cb-258c-44df-bcf1-7e119896283f",
+                "id": "eec040c4-0dad-4e8a-bda5-7a574c8b0ded",
+                "next": "53025261-3012-4039-a3c0-41fcbfe658d6",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 2,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "1ccfa1cb-258c-44df-bcf1-7e119896283f",
-                "next": "d8468063-29e1-496d-a085-98b3480e489d",
+                "id": "53025261-3012-4039-a3c0-41fcbfe658d6",
+                "next": "c00a5032-e5fa-4e40-9728-6d92a533066a",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 2,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "d8468063-29e1-496d-a085-98b3480e489d",
+                "id": "c00a5032-e5fa-4e40-9728-6d92a533066a",
                 "next": null,
                 "previous": null,
                 "fork": null,
                 "numPlayer": 2,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             }
         ],
         [
             {
-                "id": "9abdf47b-ff69-4e96-9b83-3a047c8292ea",
-                "next": "09432bc6-d3bb-4144-af3d-9afaab7a2903",
+                "id": "5939d9e3-dd33-4386-848b-15b982315d85",
+                "next": "0cbb3860-5fb8-4f75-9713-f8da53a76415",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 3,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "09432bc6-d3bb-4144-af3d-9afaab7a2903",
-                "next": "8476ea49-945a-4df3-bd4c-4c7fad8d27f5",
+                "id": "0cbb3860-5fb8-4f75-9713-f8da53a76415",
+                "next": "23672e4e-0d3d-48d0-b736-b7c0d129418a",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 3,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "8476ea49-945a-4df3-bd4c-4c7fad8d27f5",
-                "next": "62179e6c-75ee-46a1-8d45-f46bd575af7e",
+                "id": "23672e4e-0d3d-48d0-b736-b7c0d129418a",
+                "next": "df8bb10e-8317-4dc9-9c58-799dc08b41fd",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 3,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "62179e6c-75ee-46a1-8d45-f46bd575af7e",
-                "next": "19c2aa1c-b242-4be5-8790-e96550c7e95f",
+                "id": "df8bb10e-8317-4dc9-9c58-799dc08b41fd",
+                "next": "675c4185-8b13-459d-8e48-f9fd1d5a3e6c",
                 "previous": null,
                 "fork": null,
                 "numPlayer": 3,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             },
             {
-                "id": "19c2aa1c-b242-4be5-8790-e96550c7e95f",
+                "id": "675c4185-8b13-459d-8e48-f9fd1d5a3e6c",
                 "next": null,
                 "previous": null,
                 "fork": null,
                 "numPlayer": 3,
                 "peg": null,
-                "homeStep": false,
-                "heavensGate": false
+                "heavensGate": false,
+                "homeStep": false
             }
         ]
     ]
