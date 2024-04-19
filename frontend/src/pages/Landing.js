@@ -5,7 +5,6 @@ import { auth } from '../firebase';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import title1 from "../assets/title_1T.png"
 
-
 function Landing() {
     var user = auth.currentUser;
     console.log(user)
@@ -15,6 +14,7 @@ function Landing() {
     return (
         <div className="landing-page">
             <div className="title-container">
+                {/* <ServerConnector /> */}
                 <img src={title1} alt="Pegs And Jokers" />
                 {/* <h1 className="title">Pegs and Jokers</h1> */}
             </div>
