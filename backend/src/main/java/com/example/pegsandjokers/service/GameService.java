@@ -45,11 +45,12 @@ public class GameService {
         Game g = getGame(turn.getGameID());
         Player player = g.getPlayers()[turn.getPlayerID()];
         Peg p = getPeg(turn.getP(), player);
-        Peg p2 = turn.getP2(); //TODO
+        Peg p2 = turn.getP2();
         Card c = turn.getCard();
         int spaces = turn.getSpaces();
 
         if (p2 != null){
+            p2 = getPeg(turn.getP2(), player);
             if (c.getValue().equals(Value.TWO)) {
                 return g.swap(p, p2);
             } else if (c.getValue().equals(Value.JOKER)) {
@@ -77,8 +78,10 @@ public class GameService {
         Integer playerID = 0;
         Card c = new Card(Value.NINE);
         Peg p = new Peg();
+        Peg p2 = null;
         Integer gameId = 1;
-        return new Turn(playerID, c, p, gameId);
+        int spaces = 0;
+        return new Turn(playerID, c, p, p2, gameId, spaces);
     }
 
     public Game getGame(Integer id){

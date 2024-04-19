@@ -13,21 +13,8 @@ public class Turn {
     private int spaces;
 
     @JsonCreator
-    public Turn(@JsonProperty("playerID") Integer playerID, @JsonProperty("card")Card card, @JsonProperty("p")Peg p, @JsonProperty("gameID")Integer gameID){
+    public Turn(@JsonProperty("playerID") Integer playerID, @JsonProperty("card")Card card, @JsonProperty("p")Peg p, @JsonProperty("p2")Peg p2, @JsonProperty("gameID")Integer gameID, @JsonProperty("spaces")int spaces){
         this.playerID = playerID;
-        this.card = card;
-        this.p = p;
-        this.gameID = gameID;
-    }
-
-    public Turn(Card card, Peg p, Peg p2, Integer gameID){
-        this.card = card;
-        this.p = p;
-        this.p2 = p2;
-        this.gameID = gameID;
-    }
-
-    public Turn(Card card, Peg p, Peg p2, Integer gameID, int spaces){
         this.card = card;
         this.p = p;
         this.p2 = p2;
