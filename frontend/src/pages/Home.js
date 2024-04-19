@@ -31,6 +31,7 @@ function Home() {
               // User is signed out
               // ...
               console.log("user is logged out")
+              navigate("/")
             }
           });
          
