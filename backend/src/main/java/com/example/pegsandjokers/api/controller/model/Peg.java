@@ -17,6 +17,8 @@ public class Peg {
         this.color = color;
         this.num = num;
         this.player = player;
+        this.inHome = true;
+        this.inHeaven = false;
     }
 
     public Hole getHole(){

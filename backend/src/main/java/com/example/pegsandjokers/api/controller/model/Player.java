@@ -1,8 +1,11 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonSerialize(using = PlayerSerializer.class)
 public class Player{
 
     private Integer id;
@@ -66,6 +69,16 @@ public class Player{
 
     public void setHomeStep(Hole h){
         this.homeStep = h;
+    }
+
+    public int getPegsInHome(){
+        int count = 0;
+        for (Peg p : this.pegs){
+            if (p.getInHome()){
+                count++;
+            }
+        }
+        return count;
     }
 
     @Override
