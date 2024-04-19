@@ -36,6 +36,6 @@ export async function upload(file, currentUser, setLoading) {
   updateProfile(currentUser, {photoURL: photoURL});
 
   setLoading(false);
-  alert("Uploaded File!");
+  // alert("Uploaded File!");
 }
 export default app;
