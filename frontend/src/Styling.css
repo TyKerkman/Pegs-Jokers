@@ -160,7 +160,8 @@ label {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -304,4 +305,8 @@ input[type="password"] {
   border: black;
   border-width: 2px;
   border-style: solid;
+}
+
+.user-profile {
+  color: white;
 }
