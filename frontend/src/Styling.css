@@ -310,3 +310,13 @@ input[type="text"] {
 .user-profile {
   color: white;
 }
+
+.profile-pic{
+  vertical-align: middle;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border-width: 5px;
+  border-color: black;
+  border-style: outset;
+}
