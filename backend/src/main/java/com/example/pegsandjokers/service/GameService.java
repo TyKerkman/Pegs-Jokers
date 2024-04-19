@@ -22,19 +22,14 @@ public class GameService {
         this.gameList = new ArrayList<>();
 
         Game game = new Game(1);
-//        Player[] players = game.getPlayers();
-//        for (Player p : players){
-//            Peg peg = p.getPegs().getFirst();
-//            game.getOut(peg);
-//        }
 
         this.gameList.add(game);
     }
-    public Optional<Board> getBoard(Integer id) {
-        Optional<Board> optional = Optional.empty();
+    public Optional<Game> getGame(Integer id) {
+        Optional<Game> optional = Optional.empty();
         for (Game game : this.gameList){
             if (id.equals(game.getId())){
-                optional = Optional.of(game.getBoard());
+                optional = Optional.of(game);
                 return optional;
             }
         }
@@ -42,7 +37,7 @@ public class GameService {
     }
 
     public boolean takeTurn(Turn turn) {
-        Game g = getGame(turn.getGameID());
+        Game g = getGameByID(turn.getGameID());
         Player player = g.getPlayers()[turn.getPlayerID()];
         Peg p = getPeg(turn.getP(), player);
         Peg p2 = turn.getP2();
@@ -50,7 +45,8 @@ public class GameService {
         int spaces = turn.getSpaces();
 
         if (p2 != null){
-            p2 = getPeg(turn.getP2(), player);
+            Player player2 = g.getPlayers()[getNumPlayerFromColor(p2.getColor())];
+            p2 = getPeg(turn.getP2(), player2);
             if (c.getValue().equals(Value.TWO)) {
                 return g.swap(p, p2);
             } else if (c.getValue().equals(Value.JOKER)) {
@@ -84,7 +80,7 @@ public class GameService {
         return new Turn(playerID, c, p, p2, gameId, spaces);
     }
 
-    public Game getGame(Integer id){
+    public Game getGameByID(Integer id){
         for (Game g : this.gameList){
             if (g.getId().equals(id)){
                 return g;
@@ -105,5 +101,15 @@ public class GameService {
             }
         }
         return null;
+    }
+
+    public int getNumPlayerFromColor(String color){
+        return switch (color) {
+            case "red" -> 0;
+            case "fuchsia" -> 1;
+            case "green" -> 2;
+            case "blue" -> 3;
+            default -> -1;
+        };
     }
 }

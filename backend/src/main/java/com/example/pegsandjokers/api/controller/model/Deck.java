@@ -11,11 +11,12 @@ public class Deck {
     private static final int CARDS = 4;
 
     public Deck(){
-        this.cards = new ArrayList<>();
         this.initializeDeck();
+        this.shuffle();
     }
 
     public void initializeDeck(){
+        this.cards = new ArrayList<>();
         for (Value v : Value.values()){
             if (v.equals(Value.JOKER)){
                 for (int i = 0; i < JOKERS; i++){

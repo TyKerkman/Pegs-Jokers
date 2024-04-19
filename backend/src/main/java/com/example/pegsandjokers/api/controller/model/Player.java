@@ -20,20 +20,6 @@ public class Player{
         this.pegs = new ArrayList<Peg>();
     }
 
-    public Player(Integer id, String name){
-        this.id = id;
-        this.name = name;
-        this.hand = new ArrayList<>();
-        this.pegs = new ArrayList<Peg>();
-    }
-
-    public Player(Integer id, String name, Player partner){
-        this.id = id;
-        this.name = name;
-        this.hand = new ArrayList<>();
-        this.pegs = new ArrayList<Peg>();
-        this.partner = partner;
-    }
 
     public String getName(){
         return this.name;

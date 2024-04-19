@@ -1,8 +1,11 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
+@JsonSerialize(using = GameSerializer.class)
 public class Game {
 
     private static final int NUM_PLAYERS = 4;
@@ -14,7 +17,7 @@ public class Game {
     public Game(Integer id){
         this.id = id;
         initializePlayers();
-        this.board = new Board(id, this.players);
+        this.board = new Board(this.players);
         this.deck = new Deck();
     }
 
@@ -25,8 +28,7 @@ public class Game {
             ArrayList<Peg> pegs = new ArrayList<>();
             for (int j = 0; j < 5; j++){
                 String color = getPlayerColor(i);
-                Peg p = new Peg(color, j);
-                p.setPlayer(this.players[i]);
+                Peg p = new Peg(color, j, this.players[i]);
                 pegs.add(p);
             }
             this.players[i].setPegs(pegs);

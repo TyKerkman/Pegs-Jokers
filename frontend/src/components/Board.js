@@ -98,8 +98,8 @@ function Board({numPlayers=4}) {
         // NEED SOMETHING FOR STARTS, CANT USE HEAVENS FOR BOTH
         data.heavens.forEach(heaven => {
             heaven.forEach(peg => {
-                heavens[peg.numPlayer].push(peg.peg)
-                starts[peg.numPlayer].push(peg.peg)
+                // heavens[peg.numPlayer].push(peg.peg)
+                // starts[peg.numPlayer].push(peg.peg)
             })
         });
 

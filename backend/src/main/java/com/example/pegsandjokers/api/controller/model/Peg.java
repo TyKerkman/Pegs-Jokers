@@ -13,9 +13,10 @@ public class Peg {
 
     public Peg(){};
 
-    public Peg(String color, int num){
+    public Peg(String color, int num, Player player){
         this.color = color;
         this.num = num;
+        this.player = player;
     }
 
     public Hole getHole(){
