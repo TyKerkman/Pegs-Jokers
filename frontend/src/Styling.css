@@ -319,3 +319,20 @@ input[type="text"] {
   border-color: black;
   border-style: outset;
 }
+
+.reset-password {
+  display: flex;
+  width: 302px;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+}
+
+.reset-password-text {
+  padding-left: 24px;
+  text-decoration: underline;
+}
+
+.reset-password-text:hover {
+  cursor: pointer;
+}
