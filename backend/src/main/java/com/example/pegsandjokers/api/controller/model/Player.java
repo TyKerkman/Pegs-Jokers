@@ -10,6 +10,7 @@ public class Player{
 
     private Integer id;
     private String name;
+    private String color;
     private List<Card> hand;
     private Player partner;
     private List<Peg> pegs;
@@ -17,8 +18,9 @@ public class Player{
     private Hole heavensGate;
     private Hole homeStep;
 
-    public Player(Integer id){
+    public Player(Integer id, String color){
         this.id = id;
+        this.color = color;
         this.hand = new ArrayList<>();
         this.pegs = new ArrayList<Peg>();
     }
@@ -93,5 +95,13 @@ public class Player{
         s += "Heaven's Gate: " + this.heavensGate + "\n";
         s += "Home Step: " + this.homeStep + "\n";
         return s;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

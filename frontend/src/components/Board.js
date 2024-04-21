@@ -90,33 +90,53 @@ function Board({numPlayers=4}) {
     }
 
     function checkSection(indexI, indexJ) {
-        const pathColors = [brown, tan];
-        const location = [heaven_locations, start_locations]
-        let starts = [[], [], [], []]
-        let heavens = [[], [], [], []]
+        const startPosition = findStartIndex(indexI, indexJ);
+        if (startPosition != null){
+            let player = data.players[startPosition[0]]
+            let pathColor = startPosition[0] % 2 == 0 ? brown : tan;
+            if (startPosition[1] < player.homePegs){
+                let peg = {"color": player.color};
+                return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+            } else {
+                return <Place pathColor={pathColor} position={'path'} />;
+            }
+        }
 
-        // NEED SOMETHING FOR STARTS, CANT USE HEAVENS FOR BOTH
-        data.heavens.forEach(heaven => {
-            heaven.forEach(peg => {
-                // heavens[peg.numPlayer].push(peg.peg)
-                // starts[peg.numPlayer].push(peg.peg)
-            })
-        });
-
-        const section = [heavens, starts]
-        for (let i = 0; i < 4; i++) {
-            for (let j = 0; j < 2; j++){
-                if ( location[j][i].some(coords => coords.every((val, index) => val === [indexI, indexJ][index])) ){
-                    if(section[j][i][location[j][i].findIndex(coords => coords.every((val, index) => val === [indexI, indexJ][index]))]){
-                        return <Place piece={section[j][i][location[j][i].findIndex(coords => coords.every((val, index) => val === [indexI, indexJ][index]))]} pathColor={pathColors[i % 2]} position={'end'}/>
-                    }else {
-                        return <Place pathColor={pathColors[i % 2]} position={'end'}/>
-                    }
-                }
+        const heavenPosition = findHeavenIndex(indexI, indexJ);
+        if (heavenPosition != null){
+            let pathColor = heavenPosition[0] % 2 == 0 ? brown : tan;
+            let heaven = data.heavens[heavenPosition[0]];
+            let peg = heaven[heavenPosition[1]].peg
+            if (peg!= null){
+                return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+            } else {
+                return <Place pathColor={pathColor} position={'path'} />;
             }
         }
     
         return <Place />;
+    }
+
+    function findStartIndex(i, j) {
+        for (let row = 0; row < start_locations.length; row++) {
+            for (let col = 0; col < start_locations[row].length; col++) {
+                if (start_locations[row][col][0] === i && start_locations[row][col][1] === j) {
+                    return [row, col]; 
+                }
+            }
+        }
+        return null; 
+    }
+
+    function findHeavenIndex(i, j) {
+        for (let row = 0; row < heaven_locations.length; row++) {
+            for (let col = 0; col < heaven_locations[row].length; col++) {
+                if (heaven_locations[row][col][0] === i && heaven_locations[row][col][1] === j) {
+                    return [row, col]; 
+                }
+            }
+        }
+        return null; 
     }
 
     useEffect(()=>{

@@ -24,10 +24,10 @@ public class Game {
     public void initializePlayers(){
         this.players = new Player[NUM_PLAYERS];
         for (int i = 0; i < NUM_PLAYERS; i++){
-            this.players[i] = new Player(i);
+            String color = getPlayerColor(i);
+            this.players[i] = new Player(i, color);
             ArrayList<Peg> pegs = new ArrayList<>();
             for (int j = 0; j < 5; j++){
-                String color = getPlayerColor(i);
                 Peg p = new Peg(color, j, this.players[i]);
                 pegs.add(p);
             }
