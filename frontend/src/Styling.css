@@ -308,12 +308,15 @@ input[type="text"] {
 }
 
 .user-profile {
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+
   color: white;
 }
 .profile-pic{
-  vertical-align: middle;
-  height: 80px;
-  width: 80px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   border-width: 5px;
   border-color: black;
