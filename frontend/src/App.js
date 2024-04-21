@@ -11,7 +11,7 @@ import Reset from './pages/Reset';
 function App() {
   
   return (
-    <BrowserRouter>
+    <BrowserRouter data-testid="browser-router">
       <Routes>
         <Route index element={<Landing />} />
           <Route path="/home" element={<Home />} />
