@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Game {
 
     private static final int NUM_PLAYERS = 4;
+    private static final int SIZE_OF_HEAVEN = 5;
     private Integer id;
     private Board board;
     private Player[] players;
@@ -86,13 +87,17 @@ public class Game {
         int count = 0;
 
         while (count < spaces) {
+            if (current.equals(peg.getPlayer().getHeavensGate()) && (spaces-count) <= SIZE_OF_HEAVEN) {
+                peg.setHole(current);
+                return processHeaven(peg, spaces-count);
+            }
+
             if (forward) {
                 index = (index + 1) % loop.length;
-                current = loop[index];
             } else {
                 index = (index == 0) ? (loop.length - 1) : (index - 1);
-                current = loop[index];
             }
+            current = loop[index];
             count++;
 
             Peg obstacle = current.getPeg();
@@ -108,6 +113,11 @@ public class Game {
         return null;
     }
 
+    public Hole processHeaven(Peg peg, int spaces){
+        //TODO
+        Hole current = peg.getHole();
+        return null;
+    }
 
     public boolean move(Peg peg, Card card){
         Value value = card.getValue();
