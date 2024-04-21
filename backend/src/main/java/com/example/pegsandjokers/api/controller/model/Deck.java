@@ -7,20 +7,24 @@ import java.util.List;
 public class Deck {
 
     private List<Card> cards;
+    private static final int JOKERS = 2;
+    private static final int CARDS = 4;
 
     public Deck(){
-        this.cards = new ArrayList<>();
         this.initializeDeck();
+        this.shuffle();
     }
 
     public void initializeDeck(){
+        this.cards = new ArrayList<>();
         for (Value v : Value.values()){
             if (v.equals(Value.JOKER)){
-                this.cards.add(new Card(null, Value.JOKER));
-                this.cards.add(new Card(null, Value.JOKER));
+                for (int i = 0; i < JOKERS; i++){
+                    this.cards.add(new Card(Value.JOKER));
+                }
             } else {
-                for (Suit s : Suit.values()){
-                    this.cards.add(new Card(s, v));
+                for (int i = 0; i < CARDS; i++){
+                    this.cards.add(new Card(v));
                 }
             }
         }
@@ -30,4 +34,7 @@ public class Deck {
         Collections.shuffle(this.cards);
     }
 
+    public List<Card> getCards(){
+        return this.cards;
+    }
 }
