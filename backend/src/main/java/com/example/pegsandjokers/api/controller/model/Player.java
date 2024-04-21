@@ -1,12 +1,16 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonSerialize(using = PlayerSerializer.class)
 public class Player{
 
     private Integer id;
     private String name;
+    private String color;
     private List<Card> hand;
     private Player partner;
     private List<Peg> pegs;
@@ -14,26 +18,13 @@ public class Player{
     private Hole heavensGate;
     private Hole homeStep;
 
-    public Player(Integer id){
+    public Player(Integer id, String color){
         this.id = id;
+        this.color = color;
         this.hand = new ArrayList<>();
         this.pegs = new ArrayList<Peg>();
     }
 
-    public Player(Integer id, String name){
-        this.id = id;
-        this.name = name;
-        this.hand = new ArrayList<>();
-        this.pegs = new ArrayList<Peg>();
-    }
-
-    public Player(Integer id, String name, Player partner){
-        this.id = id;
-        this.name = name;
-        this.hand = new ArrayList<>();
-        this.pegs = new ArrayList<Peg>();
-        this.partner = partner;
-    }
 
     public String getName(){
         return this.name;
@@ -82,6 +73,16 @@ public class Player{
         this.homeStep = h;
     }
 
+    public int getPegsInHome(){
+        int count = 0;
+        for (Peg p : this.pegs){
+            if (p.getInHome()){
+                count++;
+            }
+        }
+        return count;
+    }
+
     @Override
     public boolean equals(Object o){
         if (!(o instanceof Player p)) return false;
@@ -94,5 +95,13 @@ public class Player{
         s += "Heaven's Gate: " + this.heavensGate + "\n";
         s += "Home Step: " + this.homeStep + "\n";
         return s;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

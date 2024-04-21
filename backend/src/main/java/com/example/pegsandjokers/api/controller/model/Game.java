@@ -1,8 +1,11 @@
 package com.example.pegsandjokers.api.controller.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
+@JsonSerialize(using = GameSerializer.class)
 public class Game {
 
     private static final int NUM_PLAYERS = 4;
@@ -14,19 +17,18 @@ public class Game {
     public Game(Integer id){
         this.id = id;
         initializePlayers();
-        this.board = new Board(id, this.players);
+        this.board = new Board(this.players);
         this.deck = new Deck();
     }
 
     public void initializePlayers(){
         this.players = new Player[NUM_PLAYERS];
         for (int i = 0; i < NUM_PLAYERS; i++){
-            this.players[i] = new Player(i);
+            String color = getPlayerColor(i);
+            this.players[i] = new Player(i, color);
             ArrayList<Peg> pegs = new ArrayList<>();
             for (int j = 0; j < 5; j++){
-                String color = getPlayerColor(i);
-                Peg p = new Peg(color, j);
-                p.setPlayer(this.players[i]);
+                Peg p = new Peg(color, j, this.players[i]);
                 pegs.add(p);
             }
             this.players[i].setPegs(pegs);
@@ -374,6 +376,15 @@ public class Game {
         }
         //If unsuccessful, return false.
         return false;
+    }
+
+    public Card getRandomCard(){
+        if (this.deck.getCards().isEmpty()){
+            this.deck.initializeDeck();
+            this.deck.shuffle();
+        }
+
+        return this.deck.getCards().removeFirst();
     }
 
     public Integer getId() {

@@ -4,26 +4,22 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.UUID;
 
+@JsonSerialize(using = HoleSerializer.class)
 public class Hole {
 
     private UUID id;
-    private UUID next;
-    private UUID previous;
     private UUID fork;
-    private int numPlayer;
     private Peg peg;
     private boolean isHeavensGate;
     private boolean isHomeStep;
 
-    public Hole(UUID id, int numPlayer){
+    public Hole(UUID id){
         this.id = id;
-        this.numPlayer = numPlayer;
         this.peg = null;
         this.isHeavensGate = false;
         this.isHomeStep = false;
     }
 
-    @JsonSerialize(using = PegSerializer.class)
     public Peg getPeg() {
         return peg;
     }
@@ -44,9 +40,6 @@ public class Hole {
         this.isHeavensGate = true;
     }
 
-    public int getNumPlayer(){
-        return this.numPlayer;
-    }
 
     public boolean isHomeStep() {
         return isHomeStep;
@@ -64,22 +57,6 @@ public class Hole {
         this.id = id;
     }
 
-    public UUID getNext() {
-        return next;
-    }
-
-    public void setNext(UUID next) {
-        this.next = next;
-    }
-
-    public UUID getPrevious() {
-        return previous;
-    }
-
-    public void setPrevious(UUID previous) {
-        this.previous = previous;
-    }
-
     public UUID getFork() {
         return fork;
     }
@@ -90,10 +67,6 @@ public class Hole {
 
     @Override
     public String toString(){
-        String s = "id: " + this.id;
-        s = (next == null) ? s : s + " next: " + this.next;
-        s = (previous == null) ? s : s + " previous: " + this.previous;
-        s = (fork == null) ? s : s + " fork: " + this.fork;
-        return s;
+        return "Hole id: " + this.id;
     }
 }
