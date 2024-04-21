@@ -384,7 +384,7 @@ public class Game {
             this.deck.shuffle();
         }
 
-        return this.deck.getCards().removeFirst();
+        return this.deck.getCards().remove(0);
     }
 
     public Integer getId() {
