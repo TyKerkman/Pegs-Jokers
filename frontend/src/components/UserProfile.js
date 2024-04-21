@@ -75,7 +75,7 @@ const UserProfile = () => {
             </button>
             <p>Display Name: {userData.name}</p>
             <p>Email: {userData.email}</p>
-            <p>Last Login: {new Date(userData.last_login).toLocaleString()}</p>
+            <p>Account Created: {new Date(userData.creation).toLocaleString()}</p>
           </div>
         </div>
       ) : (
