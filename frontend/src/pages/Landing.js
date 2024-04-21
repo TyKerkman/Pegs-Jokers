@@ -2,7 +2,6 @@ import React from 'react'
 import {Outlet, Link, useNavigate} from 'react-router-dom'
 import "../Styling.css"
 import { auth } from '../firebase';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import title1 from "../assets/title_1T.png"
 
 function Landing() {
