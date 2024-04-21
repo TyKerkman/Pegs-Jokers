@@ -25,7 +25,8 @@ const Signup = () => {
         const user_data = {
           email : email,
           name : displayName,
-          last_login : Date.now()
+          last_login : Date.now(),
+          creation : Date.now()
         }
 
         set(userRef, user_data)

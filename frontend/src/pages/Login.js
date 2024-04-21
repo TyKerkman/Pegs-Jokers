@@ -91,7 +91,7 @@ const Login = () => {
               </div>
             </form>
             <div className='reset-password'>
-              <p className="reset-password-text" onClick={()=> {resetPassword()}}>Reset Password</p>
+              <a href="/Reset" className="reset-password-text" onClick={resetPassword}>Reset Password</a>
             </div>
             <div className="no-account">
               <p className="no-account-text">No account yet?</p>

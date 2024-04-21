@@ -62,20 +62,21 @@ const UserProfile = () => {
   }
 
   return (
-    <div className="user-profile">
+    <div>
       {userData ? (
-        <div>
-          <h2>User Profile</h2>
+        <div className="user-profile">
           <div className="image-field">
+            <img src={photoURL} alt="Profile Picture" className="profile-pic" />
+          </div>
+            <div className="player-stats">
             <input type="file" onChange={handleImage} />
             <button disabled={loading || !photo} onClick={handleUpload}>
               Upload
             </button>
-            <img src={photoURL} alt="Profile Picture" className="profile-pic" />
+            <p>Display Name: {userData.name}</p>
+            <p>Email: {userData.email}</p>
+            <p>Account Created: {new Date(userData.creation).toLocaleString()}</p>
           </div>
-          <p>Email: {userData.email}</p>
-          <p>Display Name: {userData.name}</p>
-          <p>Last Login: {new Date(userData.last_login).toLocaleString()}</p>
         </div>
       ) : (
         <p>Loading...</p>

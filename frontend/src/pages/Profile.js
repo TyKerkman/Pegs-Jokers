@@ -2,6 +2,7 @@ import React from 'react'
 import {Outlet, Link, useNavigate} from 'react-router-dom'
 import '../Styling.css'
 import { useEffect } from 'react'
+import NavBar from '../components/NavBar'
 import { auth } from '../firebase';
 import { onAuthStateChanged, signOut} from "firebase/auth";
 import UserProfile from '../components/UserProfile';
@@ -33,9 +34,10 @@ function Profile() {
 
     return (
         <div className="profile-page">
-            <h1 className='text-white'>Profile</h1>
-            <Link className="button-2" to='/home'>Home</Link>
+            {/* <NavBar title = "Pegs & Jokers"/> */}
+            <h1 className='text-white'>User Profile</h1>
             <UserProfile />
+            <Link className="button-2" to='/home'>Home</Link>
         </div>
     )
 }
