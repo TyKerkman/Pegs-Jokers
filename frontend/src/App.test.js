@@ -1,8 +1,10 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import '@testing-library/jest-dom'
+import Game from './pages/Game';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+it('renders app', () => {
+  render(<Game />);
+  const linkElement = screen.getByText('Hypothetical Players Turn or Other Info Btw the button don\'t work');
   expect(linkElement).toBeInTheDocument();
 });
