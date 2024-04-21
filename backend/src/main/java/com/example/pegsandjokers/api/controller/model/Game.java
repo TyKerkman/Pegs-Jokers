@@ -333,8 +333,8 @@ public class Game {
         Hole hole = b.getHole();
         //If the pegs are two partner pieces.
         if (a.getPlayer().getPartner().equals(b.getPlayer())){
-            //Call sendToHeavensGate on b first, if that is successful, call addPegToHole on peg a and the hole.
-            return testSendToHeavensGate(b) && testAddPegToHole(a, hole);
+            //Call sendToHeavensGate on b first, if that is successful, the peg can be added;
+            return testSendToHeavensGate(b);
         } else {
             //Sending an opponent to their home will always succeed.
             return true;
@@ -387,6 +387,10 @@ public class Game {
         return this.deck.getCards().remove(0);
     }
 
+    public Deck getDeck(){
+        return this.deck;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -401,6 +405,12 @@ public class Game {
 
     public Player[] getPlayers() {
         return this.players;
+    }
+
+    //For testing
+    public void setPegOnHole(Peg p, Hole h){
+        p.setHole(h);
+        h.setPeg(p);
     }
 
     @Override
