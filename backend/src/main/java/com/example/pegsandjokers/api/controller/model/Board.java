@@ -51,9 +51,18 @@ public class Board {
         this.heavens[num] = heaven;
     }
 
-    public int getHoleIndex(UUID id) {
+    public int getHoleIndex(Hole h) {
         for (int i = 0; i < loop.length; i++){
-            if (this.loop[i].getId().equals(id)){
+            if (this.loop[i].equals(h)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int getHeavenIndex(Integer playerID, UUID id) {
+        for (int i = 0; i < this.heavens[playerID].length; i++){
+            if (this.heavens[playerID][i].getId().equals(id)){
                 return i;
             }
         }

@@ -82,13 +82,12 @@ public class Game {
     public Hole processMove(Peg peg, int spaces, boolean forward) {
         Hole[] loop = this.board.getLoop();
         Hole current = peg.getHole();
-        int index = this.board.getHoleIndex(current.getId());
+        int index = this.board.getHoleIndex(current);
         Player p = peg.getPlayer();
         int count = 0;
 
         while (count < spaces) {
-            if (current.equals(peg.getPlayer().getHeavensGate()) && (spaces-count) <= SIZE_OF_HEAVEN) {
-                peg.setHole(current);
+            if (current.equals(peg.getPlayer().getHeavensGate()) && (spaces-count) <= SIZE_OF_HEAVEN && forward) {
                 return processHeaven(peg, spaces-count);
             }
 
@@ -114,8 +113,26 @@ public class Game {
     }
 
     public Hole processHeaven(Peg peg, int spaces){
-        //TODO
-        Hole current = peg.getHole();
+        Integer playerID = peg.getPlayer().getId();
+        Hole current = peg.getPlayer().getHeavensGate();
+        Hole[] heaven = this.board.getHeavens()[playerID];
+        current = heaven[this.board.getHeavenIndex(playerID, current.getFork())];
+        int count = 1;
+        while (count < spaces){
+            current = heaven[count];
+
+            Peg obstacle = current.getPeg();
+            if (obstacle != null) {
+                return null;
+            }
+
+            count++;
+        }
+
+        Hole h = current;
+        if (this.testAddPegToHole(peg, h)){
+            return h;
+        }
         return null;
     }
 
