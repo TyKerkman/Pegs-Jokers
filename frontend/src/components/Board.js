@@ -178,7 +178,7 @@ function Board({numPlayers=4}) {
     }, [board])
 
     return (
-        <div className="grid-container">
+        <div className="grid-container" data-testid='board-grid'>
             {grid}
         </div>
     )
