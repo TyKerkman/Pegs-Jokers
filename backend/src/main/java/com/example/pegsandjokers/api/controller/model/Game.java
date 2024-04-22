@@ -80,6 +80,10 @@ public class Game {
      * @return - The hole the peg is wanting to move to if valid, otherwise null.
      */
     public Hole processMove(Peg peg, int spaces, boolean forward) {
+        if (peg.getInHeaven()){
+            //TODO ADD index out of bounds catch of some kind
+            return moveInHeaven(peg, spaces);
+        }
         Hole[] loop = this.board.getLoop();
         Hole current = peg.getHole();
         int index = this.board.getHoleIndex(current);
@@ -131,6 +135,32 @@ public class Game {
 
         Hole h = current;
         if (this.testAddPegToHole(peg, h)){
+            peg.setInHeaven(true);
+            return h;
+        }
+        return null;
+    }
+
+    public Hole moveInHeaven(Peg peg, int spaces){
+        Integer playerID = peg.getPlayer().getId();
+        Hole[] heaven = this.board.getHeavens()[playerID];
+        int index = this.board.getHeavenIndex(playerID, peg.getHole().getId());
+        Hole current = heaven[index];
+        int count = index;
+
+        while (count < index + spaces){
+            count++;
+            current = heaven[count];
+
+            Peg obstacle = current.getPeg();
+            if (obstacle != null) {
+                return null;
+            }
+        }
+
+        Hole h = current;
+        if (this.testAddPegToHole(peg, h)){
+            peg.setInHeaven(true);
             return h;
         }
         return null;
