@@ -29,10 +29,6 @@ function Board() {
         }
     }
 
-    useEffect(() => {
-        getBoard();
-    }, []);
-
     let initialPiece = {
         color: 'red'
     };
@@ -58,7 +54,7 @@ function Board() {
 
     const [board, setBoard] = useState(initialBoard)
     const [grid, setGrid] = useState()
-    const [moved, setMoved] = useState(false)
+    // const [moved, setMoved] = useState(false)
 
     const start_locations = [
         // TOP
@@ -98,21 +94,21 @@ function Board() {
         ]
     ]
 
-    const updateBoard = () => {
-        if (!moved) {
-            let newBoard = [...initialBoard]
-            newBoard[0][8] = initialPiece
+    // const updateBoard = () => {
+    //     if (!moved) {
+    //         let newBoard = [...initialBoard]
+    //         newBoard[0][8] = initialPiece
 
-            setMoved(true)
-            setBoard(newBoard);
-        } else {
-            let newBoard = [...initialBoard]
-            newBoard[1][8] = initialPiece
+    //         setMoved(true)
+    //         setBoard(newBoard);
+    //     } else {
+    //         let newBoard = [...initialBoard]
+    //         newBoard[1][8] = initialPiece
 
-            setMoved(false)
-            setBoard(newBoard);
-        }
-    }
+    //         setMoved(false)
+    //         setBoard(newBoard);
+    //     }
+    // }
 
     function checkSection(indexI, indexJ) {
         const startPosition = findStartIndex(indexI, indexJ);
@@ -165,6 +161,7 @@ function Board() {
     }
 
     useEffect(() => {
+        getBoard();
         if (data.length === 0) return;
         let newGrid = <div style={gridContainer}>
             {
