@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Place from './Place'
 import Hole from './Hole'
 import '../Styling.css'
+import LoadingPage from '../pages/Loading'
 import KnownCard from './KnownCard';
 import { initializeAnalytics } from 'firebase/analytics'
 
@@ -29,10 +30,6 @@ function Board() {
         }
     }
 
-    let initialPiece = {
-        color: 'red'
-    };
-
     let num = 19;
     const gridContainer = {
         display: 'grid',
@@ -52,9 +49,8 @@ function Board() {
     const brown = '#61483e';
     const tan = '#dfb289';
 
-    const [board, setBoard] = useState(initialBoard)
+    const [board] = useState(initialBoard)
     const [grid, setGrid] = useState()
-    // const [moved, setMoved] = useState(false)
 
     const start_locations = [
         // TOP
@@ -93,22 +89,6 @@ function Board() {
             [15, 1], [15, 2], [15, 3], [14, 3], [13, 3]
         ]
     ]
-
-    // const updateBoard = () => {
-    //     if (!moved) {
-    //         let newBoard = [...initialBoard]
-    //         newBoard[0][8] = initialPiece
-
-    //         setMoved(true)
-    //         setBoard(newBoard);
-    //     } else {
-    //         let newBoard = [...initialBoard]
-    //         newBoard[1][8] = initialPiece
-
-    //         setMoved(false)
-    //         setBoard(newBoard);
-    //     }
-    // }
 
     function checkSection(indexI, indexJ) {
         const startPosition = findStartIndex(indexI, indexJ);

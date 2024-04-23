@@ -13,7 +13,7 @@ function Game() {
         <div className='game-page'>
         <NavBar title = "Pegs & Jokers"/>
             <div className='board-container'>
-                <div className='leftBar'>
+                {/* <div className='leftBar'>
                     <div className='card-container'>
                         <KnownCard card={'2C'} />
                         <KnownCard card={'7H'}/>  
@@ -25,16 +25,15 @@ function Game() {
                         <button className="button-2">Move</button>
                         Hypothetical Players Turn or Other Info Btw the button don't work
                     </div>
-                </div>
+                </div> */}
                 <div className='game-body'>
-                    {/* <Board /> */}
                     <Board />
                 </div>
-                <div className='rightBar'>
+                {/* <div className='rightBar'>
                     <div className='rightPlaceholder'>
                         Please keep these placeholders here
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )
