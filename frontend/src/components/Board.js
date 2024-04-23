@@ -5,7 +5,7 @@ import '../Styling.css'
 import KnownCard from './KnownCard';
 import { initializeAnalytics } from 'firebase/analytics'
 
-function Board({ numPlayers }) {
+function Board() {
 
     const [data, setData] = useState([]);
 
