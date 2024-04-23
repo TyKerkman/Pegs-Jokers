@@ -16,33 +16,7 @@ function Place({ position = null, piece = null, pathColor=null}) {
                 display: 'inline-block'
             });
         } 
-        else if ((position == 'start' || position == 'end') && piece != null) { // If there is a piece, set the color to the piece's color
-            setHole({
-                background: piece.color,
-                height: '15px',
-                width: '15px',
-                borderRadius: '50%',
-                display: 'inline-block'
-            });
-        }else if (position == 'start'){
-            setHole({
-                background: 'black',
-                height: '10px',
-                width: '10px',
-                borderRadius: '50%',
-                display: 'inline-block'
-            }); 
-        }
-        else if (position == 'end') { // If there is a piece, set the color to the piece's color
-            setHole({
-                background: 'black',
-                height: '10px',
-                width: '10px',
-                borderRadius: '50%',
-                display: 'inline-block'
-            });
-        }
-        else if (piece !== null) { // If there is a piece, set the color to the piece's color
+        else if (piece != null) {
             setHole({
                 background: piece.color,
                 height: '15px',
