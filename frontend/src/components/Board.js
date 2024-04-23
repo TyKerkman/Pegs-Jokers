@@ -3,35 +3,35 @@ import Place from './Place'
 import Hole from './Hole'
 import '../Styling.css'
 import KnownCard from './KnownCard';
-// import data from '../exampleBoard.json'
 import { initializeAnalytics } from 'firebase/analytics'
 
-function Board({ numPlayers = 4 }) {
+function Board({ numPlayers }) {
 
-    async function postJSON(data) {
+    const [data, setData] = useState([]);
+
+    async function getBoard() {
         try {
             const response = await fetch("http://localhost:8080/board?id=1", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
             });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
 
             const result = await response.json();
             setData(result);
-            console.log('HERE', result);
-            console.log("Success:", result);
         } catch (error) {
             console.error("Error:", error);
         }
     }
 
     useEffect(() => {
-        postJSON();
-    }, [])
-
-    const [data, setData] = useState([]);
+        getBoard();
+    }, []);
 
     let initialPiece = {
         color: 'red'
@@ -165,6 +165,7 @@ function Board({ numPlayers = 4 }) {
     }
 
     useEffect(() => {
+        if (data.length === 0) return;
         let newGrid = <div style={gridContainer}>
             {
                 board.map((row, indexI) => {
@@ -200,7 +201,7 @@ function Board({ numPlayers = 4 }) {
                 })}
         </div>
         setGrid(newGrid)
-    }, [board])
+    }, [board, data])
 
     return (
         <div className="grid-container">
