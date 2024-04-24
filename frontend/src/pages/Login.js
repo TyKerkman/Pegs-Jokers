@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import {
   signInWithEmailAndPassword,
   browserLocalPersistence,
+  getAuth,
+  sendPasswordResetEmail
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, database } from "../firebase";
+import {push, child, ref, set} from "firebase/database"
+
 
 import { NavLink, Link, useNavigate } from "react-router-dom";
 
@@ -19,6 +23,11 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         auth.setPersistence(browserLocalPersistence);
+
+        const userRef = ref(database, `users/${user.uid}/last_login`);
+
+        set(userRef, Date.now())
+
         navigate("/home");
         console.log(user);
       })
@@ -28,6 +37,22 @@ const Login = () => {
         console.log(errorCode, errorMessage);
       });
   };
+
+  const resetPassword = () => {
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, email)
+    .then(() => {
+      // Password reset email sent!
+      // ..
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+  }
+
+
 
   return (
     <>
@@ -65,8 +90,9 @@ const Login = () => {
                 </button>
               </div>
             </form>
-
-            
+            <div className='reset-password'>
+              <a href="/Reset" className="reset-password-text" onClick={resetPassword}>Reset Password</a>
+            </div>
             <div className="no-account">
               <p className="no-account-text">No account yet?</p>
               <Link className="button-3" to="/signup">Sign up</Link>

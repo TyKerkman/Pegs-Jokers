@@ -6,11 +6,12 @@ import Game from './pages/Game';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Landing from './pages/Landing';
+import Reset from './pages/Reset';
 
 function App() {
   
   return (
-    <BrowserRouter>
+    <BrowserRouter data-testid="browser-router">
       <Routes>
         <Route index element={<Landing />} />
           <Route path="/home" element={<Home />} />
@@ -18,6 +19,7 @@ function App() {
           <Route path="/game" element={<Game />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/reset" element={<Reset />} />
       </Routes>
     </BrowserRouter>
   );

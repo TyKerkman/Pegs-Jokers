@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, database } from "../firebase";
+import {push, child, ref, set} from "firebase/database"
 import "../Styling.css"
 
 const Signup = () => {
@@ -9,6 +10,7 @@ const Signup = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [displayName, setDisplayName] = useState("")
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +19,18 @@ const Signup = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+
+        const userRef = ref(database, `users/${user.uid}`);
+
+        const user_data = {
+          email : email,
+          name : displayName,
+          last_login : Date.now(),
+          creation : Date.now()
+        }
+
+        set(userRef, user_data)
+
         console.log(user);
         navigate("/login");
         // ...
@@ -36,6 +50,17 @@ const Signup = () => {
         <div className="login-container">
           <h1 className="title">Sign Up</h1>
           <form className="login-form">
+          <div className="form-group">
+              <label htmlFor="display-name">Display Name</label>
+              <input
+                id="display-name"
+                name="display-name"
+                type="text"
+                required
+                placeholder="Display Name"
+                onChange={(e) => setDisplayName(e.target.value)}
+              />
+            </div>
             <div className="form-group">
               <label htmlFor="email-address">Email address</label>
               <input
