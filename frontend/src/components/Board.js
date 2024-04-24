@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Place from './Place'
-import Hole from './Hole'
 import '../Styling.css'
 import LoadingPage from '../pages/Loading'
 import KnownCard from './KnownCard';
