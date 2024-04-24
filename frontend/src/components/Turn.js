@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const [response, setResponse] = useState(null);
+const [response, setResponse] = useState([]);
 
 const postTurn = async (turn) => {
   try {
@@ -21,3 +21,15 @@ const postTurn = async (turn) => {
     console.error('Error:', error);
   }
 };
+
+const handleTurn = () => {
+  const turn = {
+    
+  };
+  postTurn(turn);
+};
+
+
+useEffect(() => {
+
+}, [response])
