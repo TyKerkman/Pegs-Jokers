@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../Styling.css'
 
 function Place({ position = null, piece = null, pathColor=null}) {
 
@@ -37,8 +38,8 @@ function Place({ position = null, piece = null, pathColor=null}) {
 
     return (
         <div className="grid-item">
-            <div style={{background: background}} className='place-outline'>
-                <div style={hole}></div>
+            <div className='place-outline' style={{ background: background }}>
+                <div style={hole} className={piece ? 'zoom-on-hover' : ''}></div>
             </div>
         </div>
     );

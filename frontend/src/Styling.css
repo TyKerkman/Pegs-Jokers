@@ -22,6 +22,18 @@
   align-items: center;
 }
 
+.place-outline {
+  position: relative;
+}
+
+.zoom-on-hover {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.zoom-on-hover:hover {
+  transform: scale(1.3); 
+  box-shadow: 0 0 10px 0 rgb(255, 238, 152);
+}
 
 .grid-container {
   display: flex;
