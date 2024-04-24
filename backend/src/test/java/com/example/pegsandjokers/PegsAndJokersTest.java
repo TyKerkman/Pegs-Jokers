@@ -50,7 +50,7 @@ public class PegsAndJokersTest {
 		Hole h = b.getLoop()[expected];
 
 		//Execute
-		int actual = b.getHoleIndex(h.getId());
+		int actual = b.getHoleIndex(h);
 
 		//Test
 		assertEquals(expected, actual);
@@ -64,7 +64,7 @@ public class PegsAndJokersTest {
 		Hole h = b.getLoop()[expected];
 
 		//Execute
-		int actual = b.getHoleIndex(h.getId());
+		int actual = b.getHoleIndex(h);
 
 		//Test
 		assertEquals(expected, actual);
@@ -78,7 +78,7 @@ public class PegsAndJokersTest {
 		Hole h = b.getLoop()[expected];
 
 		//Execute
-		int actual = b.getHoleIndex(h.getId());
+		int actual = b.getHoleIndex(h);
 
 		//Test
 		assertEquals(expected, actual);

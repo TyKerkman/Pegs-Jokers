@@ -1,28 +1,45 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Place from './Place'
-import Hole from './Hole'
 import '../Styling.css'
+import LoadingPage from '../pages/Loading'
 import KnownCard from './KnownCard';
-import data from '../exampleBoard.json'
 import { initializeAnalytics } from 'firebase/analytics'
 
-function Board({numPlayers=4}) {
+function Board() {
 
-    let initialPiece = {
-        color: 'red'
-    };
+    const [data, setData] = useState([]);
+
+    async function getBoard() {
+        try {
+            const response = await fetch("http://localhost:8080/board?id=1", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+
+            const result = await response.json();
+            setData(result);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
 
     let num = 19;
-    const gridContainer =  {
+    const gridContainer = {
         display: 'grid',
         gridTemplateColumns: `repeat(${num}, auto)`,
 
     }
-    
+
     let initialBoard = []
-    for(let i = 0; i < num; i++){
+    for (let i = 0; i < num; i++) {
         let temp = []
-        for(let j = 0; j < num; j++){
+        for (let j = 0; j < num; j++) {
             temp.push(null)
         }
         initialBoard.push(temp)
@@ -31,23 +48,22 @@ function Board({numPlayers=4}) {
     const brown = '#61483e';
     const tan = '#dfb289';
 
-    const [board, setBoard] = useState(initialBoard)
+    const [board] = useState(initialBoard)
     const [grid, setGrid] = useState()
-    const [moved, setMoved] = useState(false)
 
     const start_locations = [
         // TOP
         [
             [3, 8], [2, 7], [2, 8], [2, 9], [1, 8]
-        ], 
+        ],
         // RIGHT
         [
             [8, 15], [7, 16], [8, 16], [9, 16], [8, 17]
-        ], 
+        ],
         // BOTTOM
         [
             [15, 10], [16, 9], [16, 10], [16, 11], [17, 10]
-        ], 
+        ],
         // LEFT
         [
             [10, 3], [9, 2], [10, 2], [11, 2], [10, 1]
@@ -58,44 +74,28 @@ function Board({numPlayers=4}) {
         // TOP
         [
             [1, 3], [2, 3], [3, 3], [3, 4], [3, 5]
-        ], 
+        ],
         // RIGHT
         [
             [3, 17], [3, 16], [3, 15], [4, 15], [5, 15]
-        ], 
+        ],
         // BOTTOM
         [
             [17, 15], [16, 15], [15, 15], [15, 14], [15, 13]
-        ], 
+        ],
         // LEFT
         [
             [15, 1], [15, 2], [15, 3], [14, 3], [13, 3]
         ]
     ]
 
-    const updateBoard = () => {
-        if (!moved){
-            let newBoard = [...initialBoard]
-            newBoard[0][8] = initialPiece
-    
-            setMoved(true)
-            setBoard(newBoard);
-        } else {
-            let newBoard = [...initialBoard]
-            newBoard[1][8] = initialPiece
-    
-            setMoved(false)
-            setBoard(newBoard);
-        }
-    }
-
     function checkSection(indexI, indexJ) {
         const startPosition = findStartIndex(indexI, indexJ);
-        if (startPosition != null){
+        if (startPosition != null) {
             let player = data.players[startPosition[0]]
             let pathColor = startPosition[0] % 2 == 0 ? brown : tan;
-            if (startPosition[1] < player.homePegs){
-                let peg = {"color": player.color};
+            if (startPosition[1] < player.homePegs) {
+                let peg = { "color": player.color };
                 return <Place piece={peg} pathColor={pathColor} position={'path'} />;
             } else {
                 return <Place pathColor={pathColor} position={'path'} />;
@@ -103,17 +103,17 @@ function Board({numPlayers=4}) {
         }
 
         const heavenPosition = findHeavenIndex(indexI, indexJ);
-        if (heavenPosition != null){
+        if (heavenPosition != null) {
             let pathColor = heavenPosition[0] % 2 == 0 ? brown : tan;
             let heaven = data.heavens[heavenPosition[0]];
             let peg = heaven[heavenPosition[1]].peg
-            if (peg!= null){
+            if (peg != null) {
                 return <Place piece={peg} pathColor={pathColor} position={'path'} />;
             } else {
                 return <Place pathColor={pathColor} position={'path'} />;
             }
         }
-    
+
         return <Place />;
     }
 
@@ -121,61 +121,63 @@ function Board({numPlayers=4}) {
         for (let row = 0; row < start_locations.length; row++) {
             for (let col = 0; col < start_locations[row].length; col++) {
                 if (start_locations[row][col][0] === i && start_locations[row][col][1] === j) {
-                    return [row, col]; 
+                    return [row, col];
                 }
             }
         }
-        return null; 
+        return null;
     }
 
     function findHeavenIndex(i, j) {
         for (let row = 0; row < heaven_locations.length; row++) {
             for (let col = 0; col < heaven_locations[row].length; col++) {
                 if (heaven_locations[row][col][0] === i && heaven_locations[row][col][1] === j) {
-                    return [row, col]; 
+                    return [row, col];
                 }
             }
         }
-        return null; 
+        return null;
     }
 
-    useEffect(()=>{
-        let newGrid =<div style={gridContainer}>
+    useEffect(() => {
+        getBoard();
+        if (data.length === 0) return;
+        let newGrid = <div style={gridContainer}>
             {
-                board.map((row, indexI)=>{
+                board.map((row, indexI) => {
                     //Top Row Holes
-                    return row.map((item, indexJ)=>{
+                    return row.map((item, indexJ) => {
                         //Num Player 0's
-                        if (indexI == 0 && indexJ > 0){
+                        if (indexI == 0 && indexJ > 0) {
                             const pathColor = brown;
                             const peg = data.loop[indexJ - 1].peg
                             return <Place piece={peg} pathColor={pathColor} position={'path'} />;
                         }
 
-                        else if (indexI > 0 && indexJ == row.length - 1){
+                        else if (indexI > 0 && indexJ == row.length - 1) {
                             const pathColor = tan;
                             const peg = data.loop[18 + indexI - 1].peg
                             return <Place piece={peg} pathColor={pathColor} position={'path'} />;
                         }
 
-                        else if (indexI == initialBoard.length - 1 && indexJ < row.length - 1){
+                        else if (indexI == initialBoard.length - 1 && indexJ < row.length - 1) {
                             const pathColor = brown;
                             const peg = data.loop[36 + (row.length - 2 - indexJ)].peg
                             return <Place piece={peg} pathColor={pathColor} position={'path'} />;
                         }
 
-                        else if (indexI < initialBoard.length - 1 && indexJ == 0){
+                        else if (indexI < initialBoard.length - 1 && indexJ == 0) {
                             const pathColor = tan;
                             const peg = data.loop[54 + (initialBoard.length - 2 - indexI)].peg
                             return <Place piece={peg} pathColor={pathColor} position={'path'} />;
-                        }else{
+                        } else {
                             return checkSection(indexI, indexJ)
                         }
                     })
                 })}
-            </div>
+        </div>
         setGrid(newGrid)
-    }, [board])
+    }, [board, data])
 
     return (
         <div className="grid-container" data-testid='board-grid'>

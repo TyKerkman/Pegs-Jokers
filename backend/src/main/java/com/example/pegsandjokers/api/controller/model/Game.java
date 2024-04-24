@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Game {
 
     private static final int NUM_PLAYERS = 4;
+    private static final int SIZE_OF_HEAVEN = 5;
     private Integer id;
     private Board board;
     private Player[] players;
@@ -79,20 +80,27 @@ public class Game {
      * @return - The hole the peg is wanting to move to if valid, otherwise null.
      */
     public Hole processMove(Peg peg, int spaces, boolean forward) {
+        if (peg.getInHeaven()){
+            //TODO ADD index out of bounds catch of some kind
+            return moveInHeaven(peg, spaces);
+        }
         Hole[] loop = this.board.getLoop();
         Hole current = peg.getHole();
-        int index = this.board.getHoleIndex(current.getId());
+        int index = this.board.getHoleIndex(current);
         Player p = peg.getPlayer();
         int count = 0;
 
         while (count < spaces) {
+            if (current.equals(peg.getPlayer().getHeavensGate()) && (spaces-count) <= SIZE_OF_HEAVEN && forward) {
+                return processHeaven(peg, spaces-count);
+            }
+
             if (forward) {
                 index = (index + 1) % loop.length;
-                current = loop[index];
             } else {
                 index = (index == 0) ? (loop.length - 1) : (index - 1);
-                current = loop[index];
             }
+            current = loop[index];
             count++;
 
             Peg obstacle = current.getPeg();
@@ -108,6 +116,55 @@ public class Game {
         return null;
     }
 
+    public Hole processHeaven(Peg peg, int spaces){
+        Integer playerID = peg.getPlayer().getId();
+        Hole current = peg.getPlayer().getHeavensGate();
+        Hole[] heaven = this.board.getHeavens()[playerID];
+        current = heaven[this.board.getHeavenIndex(playerID, current.getFork())];
+        int count = 1;
+        while (count < spaces){
+            current = heaven[count];
+
+            Peg obstacle = current.getPeg();
+            if (obstacle != null) {
+                return null;
+            }
+
+            count++;
+        }
+
+        Hole h = current;
+        if (this.testAddPegToHole(peg, h)){
+            peg.setInHeaven(true);
+            return h;
+        }
+        return null;
+    }
+
+    public Hole moveInHeaven(Peg peg, int spaces){
+        Integer playerID = peg.getPlayer().getId();
+        Hole[] heaven = this.board.getHeavens()[playerID];
+        int index = this.board.getHeavenIndex(playerID, peg.getHole().getId());
+        Hole current = heaven[index];
+        int count = index;
+
+        while (count < index + spaces){
+            count++;
+            current = heaven[count];
+
+            Peg obstacle = current.getPeg();
+            if (obstacle != null) {
+                return null;
+            }
+        }
+
+        Hole h = current;
+        if (this.testAddPegToHole(peg, h)){
+            peg.setInHeaven(true);
+            return h;
+        }
+        return null;
+    }
 
     public boolean move(Peg peg, Card card){
         Value value = card.getValue();

@@ -1,3 +1,4 @@
+
     import React, {useState, useEffect} from 'react'
     import {Outlet, Link} from 'react-router-dom'
     import Board from '../components/Board'
@@ -87,7 +88,7 @@
                             <p data-testid="response">{response}</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         )
     }

@@ -1,5 +1,8 @@
 package com.example.pegsandjokers.api.controller.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import com.example.pegsandjokers.api.controller.model.Board;
 import com.example.pegsandjokers.api.controller.model.Card;
 import com.example.pegsandjokers.api.controller.model.Game;
@@ -13,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class GameController {
 
     private GameService gameService;
