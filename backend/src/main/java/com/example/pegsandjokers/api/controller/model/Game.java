@@ -297,6 +297,7 @@ public class Game {
             hole.removePeg();
             //Send the peg to its home.
             b.sendHome();
+            this.addPegToHole(b, this.board.getHomes()[b.getPlayer().getId()][b.getNum()]);
             //call addPegToHole on peg a and the hole.
             return this.addPegToHole(a, hole);
         }
