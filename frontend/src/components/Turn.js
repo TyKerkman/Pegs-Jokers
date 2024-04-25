@@ -24,7 +24,6 @@ export function Turn(piece) {
   };
 
   const turn = {
-    "playerID": 0,
     "card": {
       "value": "ACE"
     },

@@ -14,12 +14,14 @@ public class Game {
     private Board board;
     private Player[] players;
     private Deck deck;
+    private int playerTurn;
 
     public Game(Integer id){
         this.id = id;
         initializePlayers();
         this.board = new Board(this.players);
         this.deck = new Deck();
+        this.playerTurn = 0;
     }
 
     public void initializePlayers() {
@@ -474,5 +476,14 @@ public class Game {
     public boolean equals(Object o){
         if (!(o instanceof Game g)) return false;
         return this.id.equals(g.getId());
+    }
+
+    public int getPlayerTurn() {
+        return playerTurn;
+    }
+
+    public void updatePlayerTurn() {
+        this.playerTurn++;
+        this.playerTurn %= NUM_PLAYERS;
     }
 }

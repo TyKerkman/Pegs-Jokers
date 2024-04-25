@@ -38,13 +38,16 @@ public class GameService {
 
     public boolean takeTurn(Turn turn) {
         Game g = getGameByID(turn.getGameID());
-        Player player = g.getPlayers()[turn.getPlayerID()];
+        Player player = g.getPlayers()[g.getPlayerTurn()];
         Peg p = getPeg(turn.getP(), player);
         Peg p2 = turn.getP2();
         Card c = turn.getCard();
         int spaces = turn.getSpaces();
 
-        if (p2 != null){
+        if (p == null){
+            return false;
+        }
+        else if (p2 != null){
             Player player2 = g.getPlayers()[getNumPlayerFromColor(p2.getColor())];
             p2 = getPeg(turn.getP2(), player2);
             if (c.getValue().equals(Value.TWO)) {
@@ -71,13 +74,12 @@ public class GameService {
     }
 
     public Turn getTurn(){
-        Integer playerID = 0;
         Card c = new Card(Value.NINE);
         Peg p = new Peg();
         Peg p2 = null;
         Integer gameId = 1;
         int spaces = 0;
-        return new Turn(playerID, c, p, p2, gameId, spaces);
+        return new Turn(c, p, p2, gameId, spaces);
     }
 
     public Game getGameByID(Integer id){
@@ -121,5 +123,10 @@ public class GameService {
     public Card newCard(Integer gameID){
         Game g = getGameByID(gameID);
         return g.getRandomCard();
+    }
+
+    public void incrementPlayerTurn(Integer gameID){
+        Game g = getGameByID(gameID);
+        g.updatePlayerTurn();
     }
 }
