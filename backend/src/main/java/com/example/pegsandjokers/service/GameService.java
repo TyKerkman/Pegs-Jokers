@@ -57,6 +57,9 @@ public class GameService {
                 return g.splitMove(p, p2, c, spaces);
             }
         } else if (p.getInHome()) {
+            if (!(c.getValue().equals(Value.ACE) || c.getValue().equals(Value.JACK) || c.getValue().equals(Value.KING) || c.getValue().equals(Value.QUEEN))){
+                return false;
+            }
             return g.getOut(p);
         }
         else {
