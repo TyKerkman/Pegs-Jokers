@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../Styling.css'
 import { Turn } from './Turn'
 
-export function SideBar({pegs, card, is_split_move}) {
+export function SideBar({pegs, card, is_split_move, setPegs, setCard}) {
 
     return (
         <div className='turn-bar'>
@@ -12,7 +12,7 @@ export function SideBar({pegs, card, is_split_move}) {
                     Peg {index+1}: {peg.color} {peg.num}
                 </div>
             ))}
-            <p className='card'>ace</p>
+            <p className='card'>VALUE</p>
             <div onClick={handleConfirmTurn} className='confirm-turn'>Confirm Turn</div>
         </div>
     )
@@ -59,5 +59,8 @@ export function SideBar({pegs, card, is_split_move}) {
           };
         
         Turn(turn);
+        
+        setCard();
+        setPegs([]);
     };
 }

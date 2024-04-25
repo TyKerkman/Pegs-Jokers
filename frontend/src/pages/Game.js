@@ -77,7 +77,7 @@ function Game() {
             </div>
 
             <div className='side-bar'>
-                <SideBar pegs={pegs} card={card}/>
+                <SideBar pegs={pegs} card={card} setCard={setCard} setPegs={setPegs}/>
             </div>
         </div>
     </div>

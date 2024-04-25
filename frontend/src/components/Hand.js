@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from 'react'
 
-export function Hand(setCard){
+export function Hand({setCard}){
+    const [inputValue, setInputValue] = useState('');
+
+    function handleInputChange(event) {
+        setInputValue(event.target.value);
+    }
+
+    function handleConfirm() {
+        setCard({ "value": inputValue });
+        setInputValue('');
+    }
 
     return (
         <div className="hand">
-
-            <div onClick={handleCard("ACE")} className="ACE">ACE</div>
+            <input 
+                type="text" 
+                value={inputValue} 
+                onChange={handleInputChange} 
+                placeholder="Type something..."
+            />
+            <button onClick={handleConfirm}>Confirm</button>
         </div>
-    )
-
-    function handleCard(value){
-        setCard({"value": value})
-    }
+    );
 }
