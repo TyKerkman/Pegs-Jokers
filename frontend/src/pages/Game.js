@@ -63,22 +63,20 @@ function Game() {
 
 
     return (
-        <div className='game-page' data-testid="game-page">
+    <div className='game-page' data-testid="game-page">
         <NavBar title = "Pegs & Jokers"/>
-            <div className='board-container'>      
+        <div className='game'>      
+        
+            <div className='game-body'>
+                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} /> 
+            </div>
 
-                <div className='game-body'>
-                    <Board setCard={setCard} setPegs={setPegs} pegs={pegs} /> 
-                </div>
-
-                <div className='side-bar'>
-                    <SideBar pegs={pegs} card={card}/>
-                </div>
-
-
+            <div className='side-bar'>
+                <SideBar pegs={pegs} card={card}/>
             </div>
         </div>
-    )
+    </div>
+)
 }
 
 export default Game

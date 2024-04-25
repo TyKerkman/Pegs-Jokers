@@ -36,9 +36,5 @@ export function Turn(piece) {
 
   postTurn(turn);
 
-  // useEffect(() => {
-    
-  // },[peg, peg2, card, is_split_move]);
-
   return null; 
 }
