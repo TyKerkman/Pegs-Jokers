@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Styling.css'
+import { selectPeg } from './Turn'
 
 function Place({ position = null, piece = null, pathColor=null}) {
 
@@ -39,7 +40,7 @@ function Place({ position = null, piece = null, pathColor=null}) {
     return (
         <div className="grid-item">
             <div className='place-outline' style={{ background: background }}>
-                <div style={hole} className={piece ? 'zoom-on-hover' : ''}></div>
+                <div onClick={selectPeg} style={hole} className={piece ? 'zoom-on-hover' : ''}></div>
             </div>
         </div>
     );

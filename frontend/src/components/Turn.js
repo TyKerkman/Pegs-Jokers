@@ -24,11 +24,13 @@ const postTurn = async (turn) => {
 
 const handleTurn = () => {
   const turn = {
-    
   };
   postTurn(turn);
 };
 
+function selectPeg(){
+
+}
 
 useEffect(() => {
 
