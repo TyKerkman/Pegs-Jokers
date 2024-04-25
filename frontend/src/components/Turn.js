@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export function Turn(piece) {
-
-  console.log(piece);
+export function Turn(turn) {
 
   const postTurn = async (turn) => {
     try {
@@ -21,17 +19,6 @@ export function Turn(piece) {
     } catch (error) {
       console.error('Error:', error);
     }
-  };
-
-  const turn = {
-    "card": {
-      "value": "ACE"
-    },
-    "p": {
-      "color": piece.color,
-      "num": piece.num
-    },
-    "gameID": 1
   };
 
   postTurn(turn);

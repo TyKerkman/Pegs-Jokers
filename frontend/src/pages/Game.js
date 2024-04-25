@@ -7,6 +7,7 @@ import holesData from '../exampleBoard.json';
 import '../Styling.css'
 import KnownCard from '../components/KnownCard';
 import { SideBar } from '../components/SideBar';
+import { Hand } from '../components/Hand';
 // import io from 'socket.io-client';
 
 
@@ -65,7 +66,11 @@ function Game() {
     return (
     <div className='game-page' data-testid="game-page">
         <NavBar title = "Pegs & Jokers"/>
-        <div className='game'>      
+        <div className='game'>
+
+            <div className='hand-section'>
+                <Hand setCard={setCard}/>
+            </div>
         
             <div className='game-body'>
                 <Board setCard={setCard} setPegs={setPegs} pegs={pegs} /> 

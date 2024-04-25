@@ -39,6 +39,7 @@ public class GameService {
     public boolean takeTurn(Turn turn) {
         Game g = getGameByID(turn.getGameID());
         Player player = g.getPlayers()[g.getPlayerTurn()];
+        System.out.println(turn);
         Peg p = getPeg(turn.getP(), player);
         Peg p2 = turn.getP2();
         Card c = turn.getCard();

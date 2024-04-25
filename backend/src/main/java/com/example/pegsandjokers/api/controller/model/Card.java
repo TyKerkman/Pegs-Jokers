@@ -15,4 +15,9 @@ public class Card {
         return this.value;
     }
 
+    @Override
+    public String toString(){
+        return "Value " + this.value.toString();
+    }
+
 }

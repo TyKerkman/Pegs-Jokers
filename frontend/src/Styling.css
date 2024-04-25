@@ -21,8 +21,6 @@
 }
 
 
-
-
 .turn-bar{
   background-color: white;
   align-items: center;
@@ -31,6 +29,22 @@
 
 .turn-header{
   background-color: #717171;
+}
+
+.confirm-turn {
+  text-align: center;
+  font-weight: bold;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  background-color: inherit;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-turn:hover {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
 }
 
 .place-outline {

@@ -59,4 +59,9 @@ public class Turn {
         this.spaces = spaces;
     }
 
+    @Override
+    public String toString(){
+        return "Card: " + this.card + ", Peg: " + this.p;
+    }
+
 }
