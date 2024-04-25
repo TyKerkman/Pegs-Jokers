@@ -46,8 +46,7 @@ public class GameService {
 
         if (p == null){
             return false;
-        }
-        else if (p2 != null){
+        } else if (p2 != null){
             Player player2 = g.getPlayers()[getNumPlayerFromColor(p2.getColor())];
             p2 = getPeg(turn.getP2(), player2);
             if (c.getValue().equals(Value.TWO)) {
