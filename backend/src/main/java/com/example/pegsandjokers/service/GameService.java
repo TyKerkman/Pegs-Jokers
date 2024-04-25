@@ -39,6 +39,7 @@ public class GameService {
     public boolean takeTurn(Turn turn) {
         Game g = getGameByID(turn.getGameID());
         Player player = g.getPlayers()[g.getPlayerTurn()];
+        System.out.println(turn);
         Peg p = getPeg(turn.getP(), player);
         Peg p2 = turn.getP2();
         Card c = turn.getCard();
@@ -57,6 +58,9 @@ public class GameService {
                 return g.splitMove(p, p2, c, spaces);
             }
         } else if (p.getInHome()) {
+            if (!(c.getValue().equals(Value.ACE) || c.getValue().equals(Value.JACK) || c.getValue().equals(Value.KING) || c.getValue().equals(Value.QUEEN))){
+                return false;
+            }
             return g.getOut(p);
         }
         else {

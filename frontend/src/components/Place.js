@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../Styling.css'
 import { Turn } from './Turn'
 
-function Place({ position = null, piece = null, pathColor=null}) {
+function Place({ position = null, piece = null, pathColor=null, setPegs, pegs}) {
 
     const [hole, setHole] = useState(); // Initialize color state with an empty string
     const [background, setBackground] = useState(pathColor == null ? '#444444' : pathColor)
@@ -42,8 +42,20 @@ function Place({ position = null, piece = null, pathColor=null}) {
 
     const handlePegClick = () => {
         if (piece) {
-          Turn(piece);
+            setPegs(pegs => pegs ? [...pegs, piece] : [piece]);
+            const turn = {
+                "card": {
+                  "value": "ACE"
+                },
+                "p": {
+                  "color": piece.color,
+                  "num": piece.num
+                },
+                "gameID": 1
+              };
+          Turn(turn);
         }
+  
       };
 
     return (

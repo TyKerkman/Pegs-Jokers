@@ -5,7 +5,7 @@ import LoadingPage from '../pages/Loading'
 import KnownCard from './KnownCard';
 import { initializeAnalytics } from 'firebase/analytics'
 
-function Board() {
+function Board({setPegs, setCard, setIsSplitMove, pegs}) {
 
     const [data, setData] = useState([]);
 
@@ -96,7 +96,7 @@ function Board() {
             let start = data.starts[startPosition[0]];
             let peg = start[startPosition[1]].peg
             if (peg != null) {
-                return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
             } else {
                 return <Place pathColor={pathColor} position={'path'} />;
             }
@@ -108,7 +108,7 @@ function Board() {
             let heaven = data.heavens[heavenPosition[0]];
             let peg = heaven[heavenPosition[1]].peg
             if (peg != null) {
-                return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
             } else {
                 return <Place pathColor={pathColor} position={'path'} />;
             }
@@ -151,25 +151,25 @@ function Board() {
                         if (indexI == 0 && indexJ > 0) {
                             const pathColor = brown;
                             const peg = data.loop[indexJ - 1].peg
-                            return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
                         }
 
                         else if (indexI > 0 && indexJ == row.length - 1) {
                             const pathColor = tan;
                             const peg = data.loop[18 + indexI - 1].peg
-                            return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
                         }
 
                         else if (indexI == initialBoard.length - 1 && indexJ < row.length - 1) {
                             const pathColor = brown;
                             const peg = data.loop[36 + (row.length - 2 - indexJ)].peg
-                            return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
                         }
 
                         else if (indexI < initialBoard.length - 1 && indexJ == 0) {
                             const pathColor = tan;
                             const peg = data.loop[54 + (initialBoard.length - 2 - indexI)].peg
-                            return <Place piece={peg} pathColor={pathColor} position={'path'} />;
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
                         } else {
                             return checkSection(indexI, indexJ)
                         }
