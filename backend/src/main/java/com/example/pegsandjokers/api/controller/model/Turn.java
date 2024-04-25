@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Turn {
-
-    private Integer playerID;
     private Card card;
     private Peg p;
     private Peg p2;
@@ -13,8 +11,7 @@ public class Turn {
     private int spaces;
 
     @JsonCreator
-    public Turn(@JsonProperty("playerID") Integer playerID, @JsonProperty("card")Card card, @JsonProperty("p")Peg p, @JsonProperty("p2")Peg p2, @JsonProperty("gameID")Integer gameID, @JsonProperty("spaces")int spaces){
-        this.playerID = playerID;
+    public Turn(@JsonProperty("card")Card card, @JsonProperty("p")Peg p, @JsonProperty("p2")Peg p2, @JsonProperty("gameID")Integer gameID, @JsonProperty("spaces")int spaces){
         this.card = card;
         this.p = p;
         this.p2 = p2;
@@ -62,11 +59,4 @@ public class Turn {
         this.spaces = spaces;
     }
 
-    public Integer getPlayerID() {
-        return playerID;
-    }
-
-    public void setPlayerID(Integer playerID) {
-        this.playerID = playerID;
-    }
 }

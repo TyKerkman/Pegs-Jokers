@@ -92,10 +92,10 @@ function Board() {
     function checkSection(indexI, indexJ) {
         const startPosition = findStartIndex(indexI, indexJ);
         if (startPosition != null) {
-            let player = data.players[startPosition[0]]
             let pathColor = startPosition[0] % 2 == 0 ? brown : tan;
-            if (startPosition[1] < player.homePegs) {
-                let peg = { "color": player.color };
+            let start = data.starts[startPosition[0]];
+            let peg = start[startPosition[1]].peg
+            if (peg != null) {
                 return <Place piece={peg} pathColor={pathColor} position={'path'} />;
             } else {
                 return <Place pathColor={pathColor} position={'path'} />;
