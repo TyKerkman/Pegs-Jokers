@@ -7,6 +7,9 @@ function Place({ position = null, piece = null, pathColor=null}) {
     const [hole, setHole] = useState(); // Initialize color state with an empty string
     const [background, setBackground] = useState(pathColor == null ? '#444444' : pathColor)
 
+    const brown = '#61483e';
+    const tan = '#dfb289';
+
     useEffect(() => {
         // Check if the position is 'path' and the piece is null to set the color to black
         if (position === 'path' && piece === null) {
@@ -46,7 +49,7 @@ function Place({ position = null, piece = null, pathColor=null}) {
     return (
         <div className="grid-item">
             <div className='place-outline' style={{ background: background }}>
-                <div onClick={handlePegClick} style={hole} className={piece ? 'zoom-on-hover' : ''}></div>
+                <div onClick={handlePegClick} style={hole} className={piece ? (background === tan ? 'zoom-on-hover-dark' : 'zoom-on-hover-light') : ''}></div>
             </div>
         </div>
     );
