@@ -17,7 +17,7 @@ public class GameSerializer extends JsonSerializer<Game>{
             gen.writeStringField("id", game.getId().toString());
             gen.writeObjectField("loop", game.getBoard().getLoop());
             gen.writeObjectField("heavens", game.getBoard().getHeavens());
-            gen.writeObjectField("players", game.getPlayers());
+            gen.writeObjectField("starts", game.getBoard().getHomes());
             gen.writeEndObject();
         }
     }

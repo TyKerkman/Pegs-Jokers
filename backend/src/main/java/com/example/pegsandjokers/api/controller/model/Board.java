@@ -14,10 +14,12 @@ public class Board {
     private Player[] players;
     private Hole[] loop;
     private Hole[][] heavens;
+    private Hole[][] homes;
 
     public Board(Player[] players){
         this.players = players;
         this.initializeBoard();
+        this.initializePegs();
     }
 
     public void initializeBoard(){
@@ -75,5 +77,25 @@ public class Board {
 
     public Hole[][] getHeavens() {
         return this.heavens;
+    }
+
+    public void initializePegs(){
+        this.homes = new Hole[this.players.length][this.players[0].getPegs().size()];
+        for (int i = 0; i < this.homes.length; i++){
+            Hole[] home = this.homes[i];
+            Player player = this.players[i];
+            List<Peg> pegs = player.getPegs();
+            for (int j = 0; j < this.homes[i].length; j++){
+                Peg p = pegs.get(j);
+                Hole h = new Hole(UUID.randomUUID());
+                home[j] = h;
+                h.setPeg(p);
+                p.setHole(h);
+            }
+        }
+    }
+
+    public Hole[][] getHomes() {
+        return this.homes;
     }
 }

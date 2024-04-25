@@ -22,21 +22,21 @@ public class Game {
         this.deck = new Deck();
     }
 
-    public void initializePlayers(){
+    public void initializePlayers() {
         this.players = new Player[NUM_PLAYERS];
-        for (int i = 0; i < NUM_PLAYERS; i++){
+        for (int i = 0; i < NUM_PLAYERS; i++) {
             String color = getPlayerColor(i);
             this.players[i] = new Player(i, color);
             ArrayList<Peg> pegs = new ArrayList<>();
-            for (int j = 0; j < 5; j++){
+            for (int j = 0; j < 5; j++) {
                 Peg p = new Peg(color, j, this.players[i]);
                 pegs.add(p);
             }
             this.players[i].setPegs(pegs);
         }
 
-        for (int i = 0; i < NUM_PLAYERS; i++){
-            if (i < NUM_PLAYERS / 2){
+        for (int i = 0; i < NUM_PLAYERS; i++) {
+            if (i < NUM_PLAYERS / 2) {
                 this.players[i].setPartner(this.players[i + NUM_PLAYERS / 2]);
             } else {
                 this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);

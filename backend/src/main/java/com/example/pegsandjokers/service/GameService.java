@@ -54,7 +54,7 @@ public class GameService {
             } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
                 return g.splitMove(p, p2, c, spaces);
             }
-        } else if (p.getHole() == null) {
+        } else if (p.getInHome()) {
             return g.getOut(p);
         }
         else {
