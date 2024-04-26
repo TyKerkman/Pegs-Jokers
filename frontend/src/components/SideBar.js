@@ -18,7 +18,7 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard}) {
     )
 
     function handleConfirmTurn(){
-        const turn = pegs[1] ? {
+        const turn = !pegs[1] ? {
             "card": {
               "value": card.value
             },
@@ -27,7 +27,7 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard}) {
               "num": pegs[0].num
             },
             "gameID": 1
-          } : is_split_move ?
+          } : !is_split_move ?
           {
             "card": {
                 "value": card.value
@@ -38,7 +38,7 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard}) {
             },
             "p2": {
                 "color": pegs[1].color,
-                "num": pegs[2].color
+                "num": pegs[1].num
               },
             "gameID": 1
           } :
@@ -52,12 +52,13 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard}) {
             },
             "p2": {
                 "color": pegs[1].color,
-                "num": pegs[2].color
+                "num": pegs[1].num
               },
             "gameID": 1,
             "spaces": 5
           };
         
+        console.log(turn);
         Turn(turn);
         
         setCard();
