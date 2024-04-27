@@ -33,9 +33,5 @@ export function Hand({setCard, hand}){
         }
     }
 
-    useEffect(() => {
-        console.log(hand);
-    }, [hand]);
-
     return displayHand();
 }

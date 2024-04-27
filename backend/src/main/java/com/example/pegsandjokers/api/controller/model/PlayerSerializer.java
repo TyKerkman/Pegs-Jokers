@@ -13,9 +13,7 @@ public class PlayerSerializer extends JsonSerializer<Player> {
             gen.writeNull();
         } else {
             gen.writeStartObject();
-            gen.writeNumberField("id", player.getId());
-            gen.writeStringField("color", player.getColor());
-            gen.writeNumberField("homePegs", player.getPegsInHome());
+            gen.writeObjectField("hand", player.getHand());
             gen.writeEndObject();
         }
     }

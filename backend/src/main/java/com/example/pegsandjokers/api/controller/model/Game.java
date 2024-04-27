@@ -13,6 +13,7 @@ public class Game {
     private Integer id;
     private Board board;
     private Player[] players;
+    private Hand[] hands;
     private Deck deck;
     private int playerTurn;
 
@@ -21,6 +22,7 @@ public class Game {
         this.deck = new Deck();
         initializePlayers();
         this.board = new Board(this.players);
+        initializeHands();
         this.playerTurn = 0;
     }
 
@@ -43,6 +45,13 @@ public class Game {
             } else {
                 this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);
             }
+        }
+    }
+
+    public void initializeHands(){
+        this.hands = new Hand[this.players.length];
+        for (int i = 0; i < this.hands.length; i++){
+            this.hands[i] = this.players[i].getHand();
         }
     }
 
@@ -486,5 +495,9 @@ public class Game {
     public void updatePlayerTurn() {
         this.playerTurn++;
         this.playerTurn %= NUM_PLAYERS;
+    }
+
+    public Hand[] getHands(){
+        return this.hands;
     }
 }

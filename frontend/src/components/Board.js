@@ -4,7 +4,7 @@ import '../Styling.css'
 import LoadingPage from '../pages/Loading'
 import { initializeAnalytics } from 'firebase/analytics'
 
-function Board({setPegs, setCard, setIsSplitMove, pegs}) {
+function Board({setPegs, pegs, newBoard, setBoard, setCards}) {
 
     const [data, setData] = useState([]);
 
@@ -139,7 +139,6 @@ function Board({setPegs, setCard, setIsSplitMove, pegs}) {
     }
 
     useEffect(() => {
-        getBoard();
         if (data.length === 0) return;
         let newGrid = <div style={gridContainer}>
             {
@@ -177,6 +176,23 @@ function Board({setPegs, setCard, setIsSplitMove, pegs}) {
         </div>
         setGrid(newGrid)
     }, [board, data])
+
+    useEffect(() => {
+        if (data.hands){
+            const player = data.playerTurn;
+            const hand = data.hands[player].cards;
+            let cards = [];
+            for (let i = 0; i < 5; i++){
+                cards.push(hand[i].value)
+            }
+            setCards(cards);
+        }
+    }, [data])
+
+    useEffect(() => {
+        getBoard();
+        setBoard(false);
+    }, [newBoard])
 
     return (
         <div className="grid-container" data-testid='board-grid'>

@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../Styling.css'
 
-export function SideBar({pegs, card, hand, setHand, is_split_move, setPegs, setCard}) {
-  const [data, setData] = useState([])
+export function SideBar({pegs, card, is_split_move, setPegs, setCard, setBoard}) {
 
   const value = card ? card.value : 'No Card Selected';
-
-  useEffect(() => {
-    if (data.value){
-      console.log(data);
-      setHand(hand => hand ? [...hand, data.value] : [data.value]);
-    }
-  }, [data]);
 
   return (
       <div className='turn-bar'>
@@ -38,9 +30,7 @@ export function SideBar({pegs, card, hand, setHand, is_split_move, setPegs, setC
         body: JSON.stringify(turn)
       };
 
-      const res = await fetch(url, request);
-      const json = await res.json();
-      setData(json);
+      await fetch(url, request);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -91,5 +81,6 @@ export function SideBar({pegs, card, hand, setHand, is_split_move, setPegs, setC
   
       setCard();
       setPegs([]);
+      setBoard(true);
   };
 }

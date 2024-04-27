@@ -1,12 +1,6 @@
 package com.example.pegsandjokers.service;
 
-import com.example.pegsandjokers.api.controller.model.Board;
-import com.example.pegsandjokers.api.controller.model.Card;
-import com.example.pegsandjokers.api.controller.model.Game;
-import com.example.pegsandjokers.api.controller.model.Peg;
-import com.example.pegsandjokers.api.controller.model.Player;
-import com.example.pegsandjokers.api.controller.model.Turn;
-import com.example.pegsandjokers.api.controller.model.Value;
+import com.example.pegsandjokers.api.controller.model.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -91,6 +85,12 @@ public class GameService {
             }
         }
         return null;
+    }
+
+    public Hand getPlayerHand(Integer gameID, Integer playerID){
+        Game g = getGameByID(gameID);
+        Player p = g.getPlayers()[playerID];
+        return p.getHand();
     }
 
     public Peg getPeg(Peg p, Player player){

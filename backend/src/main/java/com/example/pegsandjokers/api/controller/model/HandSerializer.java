@@ -13,7 +13,7 @@ public class HandSerializer extends JsonSerializer<Hand> {
             gen.writeNull();
         } else {
             gen.writeStartObject();
-            gen.writeObjectField("hand", hand.getHand());
+            gen.writeObjectField("cards", hand.getCards());
             gen.writeEndObject();
         }
     }

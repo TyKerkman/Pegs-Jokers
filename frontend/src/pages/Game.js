@@ -13,7 +13,9 @@ import { Hand } from '../components/Hand';
 function Game() {
     const [pegs, setPegs] = useState([])
     const [card, setCard] = useState()
+    const [newBoard, setBoard] = useState()
     const [hand, setHand] = useState(["ACE"])
+    const [cards, setCards] = useState([])
     // const [socket, setSocket] = useState(null);
     // const [moveInput, setMoveInput] = useState('');
     // const [response, setResponse] = useState('Connected to server')
@@ -68,15 +70,15 @@ function Game() {
         <div className='game'>
 
             <div className='hand-section'>
-                <Hand setCard={setCard} hand={hand}/>
+                <Hand setCard={setCard} hand={cards}/>
             </div>
         
             <div className='game-body'>
-                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} /> 
+                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} newBoard={newBoard} setBoard={setBoard} setCards={setCards} /> 
             </div>
 
             <div className='side-bar'>
-                <SideBar pegs={pegs} card={card} hand={setHand} setHand={setHand} setCard={setCard} setPegs={setPegs}/>
+                <SideBar pegs={pegs} card={card} hand={setHand} setHand={setHand} setCard={setCard} setPegs={setPegs} setBoard={setBoard}/>
             </div>
         </div>
     </div>
