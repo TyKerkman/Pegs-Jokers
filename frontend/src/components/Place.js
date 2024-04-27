@@ -43,17 +43,6 @@ function Place({ position = null, piece = null, pathColor=null, setPegs, pegs}) 
     const handlePegClick = () => {
         if (piece) {
             setPegs(pegs => pegs ? [...pegs, piece] : [piece]);
-        //     const turn = {
-        //         "card": {
-        //           "value": "ACE"
-        //         },
-        //         "p": {
-        //           "color": piece.color,
-        //           "num": piece.num
-        //         },
-        //         "gameID": 1
-        //       };
-        //   Turn(turn);
         }
   
       };

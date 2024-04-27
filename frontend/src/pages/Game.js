@@ -5,7 +5,6 @@ import Board from '../components/Board'
 import NavBar from '../components/NavBar'
 import holesData from '../exampleBoard.json';
 import '../Styling.css'
-import KnownCard from '../components/KnownCard';
 import { SideBar } from '../components/SideBar';
 import { Hand } from '../components/Hand';
 // import io from 'socket.io-client';
@@ -14,6 +13,7 @@ import { Hand } from '../components/Hand';
 function Game() {
     const [pegs, setPegs] = useState([])
     const [card, setCard] = useState()
+    const [hand, setHand] = useState(["ACE"])
     // const [socket, setSocket] = useState(null);
     // const [moveInput, setMoveInput] = useState('');
     // const [response, setResponse] = useState('Connected to server')
@@ -62,14 +62,13 @@ function Game() {
     //     setMoveInput(''); // Clear the input after sending
     // };
 
-
     return (
     <div className='game-page' data-testid="game-page">
         <NavBar title = "Pegs & Jokers"/>
         <div className='game'>
 
             <div className='hand-section'>
-                <Hand setCard={setCard}/>
+                <Hand setCard={setCard} hand={hand}/>
             </div>
         
             <div className='game-body'>
@@ -77,7 +76,7 @@ function Game() {
             </div>
 
             <div className='side-bar'>
-                <SideBar pegs={pegs} card={card} setCard={setCard} setPegs={setPegs}/>
+                <SideBar pegs={pegs} card={card} hand={setHand} setHand={setHand} setCard={setCard} setPegs={setPegs}/>
             </div>
         </div>
     </div>

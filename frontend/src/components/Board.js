@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import Place from './Place'
 import '../Styling.css'
 import LoadingPage from '../pages/Loading'
-import KnownCard from './KnownCard';
 import { initializeAnalytics } from 'firebase/analytics'
 
 function Board({setPegs, setCard, setIsSplitMove, pegs}) {

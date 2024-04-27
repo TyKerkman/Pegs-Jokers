@@ -1,26 +1,41 @@
 import React, { useState, useEffect } from 'react'
 
-export function Hand({setCard}){
-    const [inputValue, setInputValue] = useState('');
+export function Hand({setCard, hand}){
 
-    function handleInputChange(event) {
-        setInputValue(event.target.value);
+    
+    function handleConfirm(card) {
+        setCard({ "value": card });
     }
 
-    function handleConfirm() {
-        setCard({ "value": inputValue });
-        setInputValue('');
+    function displayCard(card) {
+        const image = require(`../assets/cards/${card}.png`);
+
+        return (
+            <div onClick={() => handleConfirm(card)} className='card'>
+                <img src={image}/>
+            </div>
+        )
     }
 
-    return (
-        <div className="hand">
-            <input 
-                type="text" 
-                value={inputValue} 
-                onChange={handleInputChange} 
-                placeholder="Type something..."
-            />
-            <button onClick={handleConfirm}>Confirm</button>
-        </div>
-    );
+    function displayHand(){
+        if (hand) {
+            return (
+                <div className="hand">
+                    {hand.map((card, index) => (
+                        <div key={index}>
+                            {displayCard(card)}
+                        </div>
+                    ))}
+                </div>
+            );
+        } else {
+            return null; 
+        }
+    }
+
+    useEffect(() => {
+        console.log(hand);
+    }, [hand]);
+
+    return displayHand();
 }
