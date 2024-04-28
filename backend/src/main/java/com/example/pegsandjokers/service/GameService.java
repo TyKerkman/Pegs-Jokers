@@ -87,10 +87,17 @@ public class GameService {
         return null;
     }
 
-    public Hand getPlayerHand(Integer gameID, Integer playerID){
-        Game g = getGameByID(gameID);
-        Player p = g.getPlayers()[playerID];
-        return p.getHand();
+    public boolean updateCard(Turn turn){
+        Game g = getGameByID(turn.getGameID());
+        Hand hand = g.getHands()[g.getPlayerTurn()];
+        Card[] cards = hand.getCards();
+        for (int i = 0; i < cards.length; i++){
+            if (cards[i].equals(turn.getCard())){
+                cards[i] = g.getRandomCard();
+                return true;
+            }
+        }
+        return false;
     }
 
     public Peg getPeg(Peg p, Player player){
@@ -120,11 +127,6 @@ public class GameService {
     public boolean isWinner(Integer gameID){
         Game g = getGameByID(gameID);
         return g != null && g.isWinner();
-    }
-
-    public Card newCard(Integer gameID){
-        Game g = getGameByID(gameID);
-        return g.getRandomCard();
     }
 
     public void incrementPlayerTurn(Integer gameID){

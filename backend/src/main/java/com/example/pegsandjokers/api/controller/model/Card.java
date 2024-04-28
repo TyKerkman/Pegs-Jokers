@@ -20,4 +20,10 @@ public class Card {
         return "Value " + this.value.toString();
     }
 
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Card c)) return false;
+        return this.value.equals(c.value);
+    }
+
 }

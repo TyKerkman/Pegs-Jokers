@@ -51,8 +51,11 @@ public class GameController {
                 return ResponseEntity.ok().body("Game Over!");
             }
             gameService.incrementPlayerTurn(turn.getGameID());
-            Card c = gameService.newCard(turn.getGameID());
-            return ResponseEntity.ok().body(c);
+            boolean cardUpdated = gameService.updateCard(turn);
+            if (cardUpdated){
+                return ResponseEntity.ok().body("Successful Move!");
+            }
+            return ResponseEntity.ok().body("Failed to Update Hand!");
         } else {
             return ResponseEntity.badRequest().body("Invalid move!");
         }
