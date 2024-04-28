@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import '../Styling.css'
 
 export function Hand({setCard, hand}){
 

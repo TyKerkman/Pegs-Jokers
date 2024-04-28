@@ -20,6 +20,22 @@
   align-items: center;
 }
 
+.hand {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 300px;
+}
+
+.card {
+  padding: 5px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
 .turn-bar{
   background-color: white;
@@ -31,10 +47,15 @@
   background-color: #717171;
 }
 
+.side-bar{
+  width: 260px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .confirm-turn {
   text-align: center;
   font-weight: bold;
-  width: 200px;
   height: 50px;
   line-height: 50px;
   background-color: inherit;
@@ -58,6 +79,7 @@
 .zoom-on-hover-light:hover {
   transform: scale(1.3); 
   box-shadow: 0 0 10px 0 rgb(255, 238, 152);
+  cursor: pointer;
 }
 
 .zoom-on-hover-dark {
@@ -67,6 +89,7 @@
 .zoom-on-hover-dark:hover {
   transform: scale(1.3); 
   box-shadow: 0 0 5px 3px rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .grid-container {
@@ -263,6 +286,12 @@ input[type="text"] {
   padding: 10;
   cursor: pointer;
   flex: 0;
+  transition: transform 0.3s;
+}
+
+.navButton:hover{
+  cursor: pointer;
+  transform: scale(1.15);
 }
 
 .navTitle{
@@ -309,40 +338,6 @@ input[type="text"] {
   display: flex;
   flex-direction: column-reverse;
   max-width: 400px;
-}
-
-.card-container {
-  flex: 1; /* Let the container grow to fill the available space */
-  border: 2px solid black;
-  margin-top: 50px;
-  /* background-color: green; */
-  /* margin-top: 400px; */
-  height: 400px;
-  /* width: 500px; */
-  display: flex;
-  flex-wrap:wrap-reverse;
-  flex-direction:row-reverse; /* Stack cards vertically */
-  align-content:center;
-  justify-content: center;
-  /* Add scrollbar if content overflows vertically */
-  overflow-y: auto; 
-  padding: 2px
-}
-
-.known-card {
-  border: 2px solid transparent;
-  padding: 3px;
-}
-
-.known-card:hover {
-  border: 2px solid #ed545c;
-  border-radius: 5%;
-}
-
-.rightBar {
-  position: relative;
-  display: flex;
-  max-width: 250px;
 }
 
 .playerContainer {

@@ -9,11 +9,11 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard, setBoard})
       <div className='turn-bar'>
           <h1 className='turn-header'>Play a Turn!</h1>
           {pegs.map((peg, index) => (
-              <div key={index} className='peg'>
+              <div key={index} className='selected-peg'>
                   Peg {index+1}: {peg.color} {peg.num}
               </div>
           ))}
-          <p className='card'>{value}</p>
+          <p className='selected-card'>{value}</p>
           <div onClick={handleConfirmTurn} className='confirm-turn'>Confirm Turn</div>
       </div>
   )
