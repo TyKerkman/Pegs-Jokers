@@ -30,7 +30,8 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard, setBoard})
         body: JSON.stringify(turn)
       };
 
-      await fetch(url, request);
+      const response = await fetch(url, request);
+      console.log(response);
     } catch (error) {
       console.error('Error:', error);
     }
