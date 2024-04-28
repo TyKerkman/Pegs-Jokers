@@ -139,7 +139,7 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards}) {
     }
 
     useEffect(() => {
-        if (data.length === 0) return;
+        if (!data.loop) return;
 
         const player = data.playerTurn;
         const hand = data.hands[player].cards;
