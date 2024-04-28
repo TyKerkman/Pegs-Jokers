@@ -140,6 +140,15 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards}) {
 
     useEffect(() => {
         if (data.length === 0) return;
+
+        const player = data.playerTurn;
+        const hand = data.hands[player].cards;
+        let cards = [];
+        for (let i = 0; i < 5; i++){
+            cards.push(hand[i].value)
+        }
+        setCards(cards);
+
         let newGrid = <div style={gridContainer}>
             {
                 board.map((row, indexI) => {
@@ -175,18 +184,6 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards}) {
                 })}
         </div>
         setGrid(newGrid)
-    }, [board, data])
-
-    useEffect(() => {
-        if (data.hands){
-            const player = data.playerTurn;
-            const hand = data.hands[player].cards;
-            let cards = [];
-            for (let i = 0; i < 5; i++){
-                cards.push(hand[i].value)
-            }
-            setCards(cards);
-        }
     }, [data])
 
     useEffect(() => {
