@@ -37,7 +37,7 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard, setBoard})
     }
   };
 
-  function handleConfirmTurn(){
+  async function handleConfirmTurn(){
       const turn = !pegs[1] ? {
           "card": {
             "value": card.value
@@ -78,7 +78,7 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard, setBoard})
           "spaces": 5
         };
       
-      postTurn(turn);
+      await postTurn(turn);
   
       setCard();
       setPegs([]);
