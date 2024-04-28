@@ -2,10 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import Place from './Place'
 import '../Styling.css'
 import LoadingPage from '../pages/Loading'
-import KnownCard from './KnownCard';
 import { initializeAnalytics } from 'firebase/analytics'
 
-function Board({setPegs, setCard, setIsSplitMove, pegs}) {
+function Board({setPegs, pegs, newBoard, setBoard, setCards}) {
 
     const [data, setData] = useState([]);
 
@@ -140,8 +139,16 @@ function Board({setPegs, setCard, setIsSplitMove, pegs}) {
     }
 
     useEffect(() => {
-        getBoard();
         if (data.length === 0) return;
+
+        const player = data.playerTurn;
+        const hand = data.hands[player].cards;
+        let cards = [];
+        for (let i = 0; i < 5; i++){
+            cards.push(hand[i].value)
+        }
+        setCards(cards);
+
         let newGrid = <div style={gridContainer}>
             {
                 board.map((row, indexI) => {
@@ -177,7 +184,12 @@ function Board({setPegs, setCard, setIsSplitMove, pegs}) {
                 })}
         </div>
         setGrid(newGrid)
-    }, [board, data])
+    }, [data])
+
+    useEffect(() => {
+        getBoard();
+        setBoard(false);
+    }, [newBoard])
 
     return (
         <div className="grid-container" data-testid='board-grid'>

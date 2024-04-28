@@ -13,14 +13,16 @@ public class Game {
     private Integer id;
     private Board board;
     private Player[] players;
+    private Hand[] hands;
     private Deck deck;
     private int playerTurn;
 
     public Game(Integer id){
         this.id = id;
+        this.deck = new Deck();
         initializePlayers();
         this.board = new Board(this.players);
-        this.deck = new Deck();
+        initializeHands();
         this.playerTurn = 0;
     }
 
@@ -28,7 +30,7 @@ public class Game {
         this.players = new Player[NUM_PLAYERS];
         for (int i = 0; i < NUM_PLAYERS; i++) {
             String color = getPlayerColor(i);
-            this.players[i] = new Player(i, color);
+            this.players[i] = new Player(i, color, this.deck);
             ArrayList<Peg> pegs = new ArrayList<>();
             for (int j = 0; j < 5; j++) {
                 Peg p = new Peg(color, j, this.players[i]);
@@ -43,6 +45,13 @@ public class Game {
             } else {
                 this.players[i].setPartner(this.players[i - NUM_PLAYERS / 2]);
             }
+        }
+    }
+
+    public void initializeHands(){
+        this.hands = new Hand[this.players.length];
+        for (int i = 0; i < this.hands.length; i++){
+            this.hands[i] = this.players[i].getHand();
         }
     }
 
@@ -486,5 +495,9 @@ public class Game {
     public void updatePlayerTurn() {
         this.playerTurn++;
         this.playerTurn %= NUM_PLAYERS;
+    }
+
+    public Hand[] getHands(){
+        return this.hands;
     }
 }

@@ -1,12 +1,6 @@
 package com.example.pegsandjokers.service;
 
-import com.example.pegsandjokers.api.controller.model.Board;
-import com.example.pegsandjokers.api.controller.model.Card;
-import com.example.pegsandjokers.api.controller.model.Game;
-import com.example.pegsandjokers.api.controller.model.Peg;
-import com.example.pegsandjokers.api.controller.model.Player;
-import com.example.pegsandjokers.api.controller.model.Turn;
-import com.example.pegsandjokers.api.controller.model.Value;
+import com.example.pegsandjokers.api.controller.model.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -39,7 +33,6 @@ public class GameService {
     public boolean takeTurn(Turn turn) {
         Game g = getGameByID(turn.getGameID());
         Player player = g.getPlayers()[g.getPlayerTurn()];
-        System.out.println(turn);
         Peg p = getPeg(turn.getP(), player);
         Peg p2 = turn.getP2();
         Card c = turn.getCard();
@@ -94,6 +87,19 @@ public class GameService {
         return null;
     }
 
+    public boolean updateCard(Turn turn){
+        Game g = getGameByID(turn.getGameID());
+        Hand hand = g.getHands()[g.getPlayerTurn()];
+        Card[] cards = hand.getCards();
+        for (int i = 0; i < cards.length; i++){
+            if (cards[i].equals(turn.getCard())){
+                cards[i] = g.getRandomCard();
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Peg getPeg(Peg p, Player player){
         for (Peg peg : player.getPegs()){
             if (p.equals(peg)){
@@ -121,11 +127,6 @@ public class GameService {
     public boolean isWinner(Integer gameID){
         Game g = getGameByID(gameID);
         return g != null && g.isWinner();
-    }
-
-    public Card newCard(Integer gameID){
-        Game g = getGameByID(gameID);
-        return g.getRandomCard();
     }
 
     public void incrementPlayerTurn(Integer gameID){
