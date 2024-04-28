@@ -13,8 +13,7 @@ import { Hand } from '../components/Hand';
 function Game() {
     const [pegs, setPegs] = useState([])
     const [card, setCard] = useState()
-    const [newBoard, setBoard] = useState()
-    const [hand, setHand] = useState(["ACE"])
+    const [newBoard, setBoard] = useState(true)
     const [cards, setCards] = useState([])
     // const [socket, setSocket] = useState(null);
     // const [moveInput, setMoveInput] = useState('');
@@ -78,7 +77,7 @@ function Game() {
             </div>
 
             <div className='side-bar'>
-                <SideBar pegs={pegs} card={card} hand={setHand} setHand={setHand} setCard={setCard} setPegs={setPegs} setBoard={setBoard}/>
+                <SideBar pegs={pegs} card={card} setCard={setCard} setPegs={setPegs} setBoard={setBoard}/>
             </div>
         </div>
     </div>
