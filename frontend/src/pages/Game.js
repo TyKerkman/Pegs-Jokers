@@ -15,6 +15,7 @@ function Game() {
     const [card, setCard] = useState()
     const [newBoard, setBoard] = useState(true)
     const [cards, setCards] = useState([])
+    const [player, setPlayer] = useState()
     // const [socket, setSocket] = useState(null);
     // const [moveInput, setMoveInput] = useState('');
     // const [response, setResponse] = useState('Connected to server')
@@ -73,11 +74,11 @@ function Game() {
             </div>
         
             <div className='game-body'>
-                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} newBoard={newBoard} setBoard={setBoard} setCards={setCards} /> 
+                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} newBoard={newBoard} setBoard={setBoard} setCards={setCards} setPlayer={setPlayer}/> 
             </div>
 
             <div className='side-bar'>
-                <SideBar pegs={pegs} card={card} setCard={setCard} setPegs={setPegs} setBoard={setBoard}/>
+                <SideBar pegs={pegs} card={card} setCard={setCard} setPegs={setPegs} setBoard={setBoard} player={player}/>
             </div>
         </div>
     </div>

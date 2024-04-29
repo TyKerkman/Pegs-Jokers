@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import '../Styling.css'
 
-export function SideBar({pegs, card, is_split_move, setPegs, setCard, setBoard}) {
+export function SideBar({pegs, card, is_split_move, setPegs, setCard, setBoard, player}) {
 
   const value = card ? card.value : 'No Card Selected';
 
   return (
       <div className='turn-bar'>
-          <h1 className='turn-header'>Play a Turn!</h1>
+          <h1 className='turn-header'>Play a Turn! {player}</h1>
           {pegs.map((peg, index) => (
               <div key={index} className='selected-peg'>
                   Peg {index+1}: {peg.color} {peg.num}
@@ -31,7 +31,7 @@ export function SideBar({pegs, card, is_split_move, setPegs, setCard, setBoard})
       };
 
       const response = await fetch(url, request);
-      console.log(response);
+      console.log(response.text());
     } catch (error) {
       console.error('Error:', error);
     }

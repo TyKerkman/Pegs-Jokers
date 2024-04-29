@@ -46,12 +46,15 @@ public class GameService {
             if (c.getValue().equals(Value.TWO)) {
                 return g.swap(p, p2);
             } else if (c.getValue().equals(Value.JOKER)) {
+                if (p2.getInHome()){
+                    return false;
+                }
                 return g.kill(p, p2);
             } else if (c.getValue().equals(Value.SEVEN) || c.getValue().equals(Value.NINE)) {
                 return g.splitMove(p, p2, c, spaces);
             }
         } else if (p.getInHome()) {
-            if (!(c.getValue().equals(Value.ACE) || c.getValue().equals(Value.JACK) || c.getValue().equals(Value.KING) || c.getValue().equals(Value.QUEEN))){
+            if (!(c.getValue().equals(Value.JOKER) || c.getValue().equals(Value.ACE) || c.getValue().equals(Value.JACK) || c.getValue().equals(Value.KING) || c.getValue().equals(Value.QUEEN))){
                 return false;
             }
             return g.getOut(p);
