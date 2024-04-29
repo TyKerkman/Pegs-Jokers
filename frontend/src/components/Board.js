@@ -4,7 +4,7 @@ import '../Styling.css'
 import LoadingPage from '../pages/Loading'
 import { initializeAnalytics } from 'firebase/analytics'
 
-function Board({setPegs, pegs, newBoard, setBoard, setCards}) {
+function Board({setPegs, pegs, newBoard, setBoard, setCards, setPlayer}) {
 
     const [data, setData] = useState([]);
 
@@ -148,6 +148,8 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards}) {
             cards.push(hand[i].value)
         }
         setCards(cards);
+
+        setPlayer(data.playerTurn);
 
         let newGrid = <div style={gridContainer}>
             {
