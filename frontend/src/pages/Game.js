@@ -17,6 +17,7 @@ function Game({user}) {
     const [cards, setCards] = useState([])
     const [player, setPlayer] = useState()
     const [newBoard, setBoard] = useState(true)
+    const [otherBoard, setOtherBoard] = useState(true)
     const [turn, setTurn] = useState(false);
     const [socket, setSocket] = useState(null);
     const [moveInput, setMoveInput] = useState('');
@@ -42,7 +43,7 @@ function Game({user}) {
 
         newSocket.on('moveResponse', (response) => {
             console.log('Received move response:', response);
-            // Handle the response here, such as updating the UI
+            setOtherBoard(true);
             setResponse('Recieved response: ' + response)
         });
     
@@ -58,6 +59,7 @@ function Game({user}) {
         }
     }, [newBoard]);
 
+
     useEffect(() => {
         setTurn(instance === player)
     }, [instance, player])
@@ -72,7 +74,7 @@ function Game({user}) {
             </div>
         
             <div className='game-body'>
-                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} newBoard={newBoard} setBoard={setBoard} setCards={setCards} setPlayer={setPlayer} user={instance} turn={turn}/> 
+                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} newBoard={newBoard} setBoard={setBoard} setCards={setCards} setPlayer={setPlayer} user={instance} turn={turn} otherBoard={otherBoard} setOtherBoard={setOtherBoard}/> 
             </div>
             {turn && (
                 <div className='side-bar'>
