@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../Styling.css'
-import { Turn } from './Turn'
 
-function Place({ position = null, piece = null, pathColor=null, setPegs, pegs}) {
+function Place({ position = null, piece = null, pathColor=null, setPegs, turn}) {
 
     const [hole, setHole] = useState(); // Initialize color state with an empty string
     const [background, setBackground] = useState(pathColor == null ? '#444444' : pathColor)
@@ -41,16 +40,15 @@ function Place({ position = null, piece = null, pathColor=null, setPegs, pegs}) 
     }, [piece]); // Watch for changes in position and piece props
 
     const handlePegClick = () => {
-        if (piece) {
+        if (turn && piece) {
             setPegs(pegs => pegs ? [...pegs, piece] : [piece]);
         }
-  
-      };
+    };
 
     return (
         <div className="grid-item">
             <div className='place-outline' style={{ background: background }}>
-                <div onClick={handlePegClick} style={hole} className={piece ? (background === tan ? 'zoom-on-hover-dark' : 'zoom-on-hover-light') : ''}></div>
+                <div onClick={handlePegClick} style={hole} className={turn ? (piece ? (background === tan ? 'zoom-on-hover-dark' : 'zoom-on-hover-light') : '') : ''}></div>
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ import '../Styling.css'
 import LoadingPage from '../pages/Loading'
 import { initializeAnalytics } from 'firebase/analytics'
 
-function Board({setPegs, pegs, newBoard, setBoard, setCards, setPlayer}) {
+function Board({setPegs, pegs, newBoard, setBoard, setCards, setPlayer, user, turn}) {
 
     const [data, setData] = useState([]);
 
@@ -95,7 +95,7 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards, setPlayer}) {
             let start = data.starts[startPosition[0]];
             let peg = start[startPosition[1]].peg
             if (peg != null) {
-                return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
+                return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs} turn={turn}/>;
             } else {
                 return <Place pathColor={pathColor} position={'path'} />;
             }
@@ -107,7 +107,7 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards, setPlayer}) {
             let heaven = data.heavens[heavenPosition[0]];
             let peg = heaven[heavenPosition[1]].peg
             if (peg != null) {
-                return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
+                return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs} turn={turn}/>;
             } else {
                 return <Place pathColor={pathColor} position={'path'} />;
             }
@@ -141,14 +141,13 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards, setPlayer}) {
     useEffect(() => {
         if (!data.loop) return;
 
-        const player = data.playerTurn;
-        const hand = data.hands[player].cards;
+        // const player = data.playerTurn;
+        const hand = data.hands[user].cards;
         let cards = [];
         for (let i = 0; i < 5; i++){
             cards.push(hand[i].value)
         }
         setCards(cards);
-
         setPlayer(data.playerTurn);
 
         let newGrid = <div style={gridContainer}>
@@ -160,25 +159,25 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards, setPlayer}) {
                         if (indexI == 0 && indexJ > 0) {
                             const pathColor = brown;
                             const peg = data.loop[indexJ - 1].peg
-                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs} turn={turn}/>;
                         }
 
                         else if (indexI > 0 && indexJ == row.length - 1) {
                             const pathColor = tan;
                             const peg = data.loop[18 + indexI - 1].peg
-                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs} turn={turn}/>;
                         }
 
                         else if (indexI == initialBoard.length - 1 && indexJ < row.length - 1) {
                             const pathColor = brown;
                             const peg = data.loop[36 + (row.length - 2 - indexJ)].peg
-                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs} turn={turn}/>;
                         }
 
                         else if (indexI < initialBoard.length - 1 && indexJ == 0) {
                             const pathColor = tan;
                             const peg = data.loop[54 + (initialBoard.length - 2 - indexI)].peg
-                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs}/>;
+                            return <Place piece={peg} pathColor={pathColor} position={'path'} setPegs={setPegs} pegs={pegs} turn={turn}/>;
                         } else {
                             return checkSection(indexI, indexJ)
                         }
@@ -186,7 +185,7 @@ function Board({setPegs, pegs, newBoard, setBoard, setCards, setPlayer}) {
                 })}
         </div>
         setGrid(newGrid)
-    }, [data])
+    }, [data, turn])
 
     useEffect(() => {
         getBoard();

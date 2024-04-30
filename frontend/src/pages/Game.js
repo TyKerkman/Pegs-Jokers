@@ -7,62 +7,71 @@ import holesData from '../exampleBoard.json';
 import '../Styling.css'
 import { SideBar } from '../components/SideBar';
 import { Hand } from '../components/Hand';
-// import io from 'socket.io-client';
+import io from 'socket.io-client';
 
 
-function Game() {
+function Game({user, newBoard, setBoard}) {
+    const instance = {user}.user;
     const [pegs, setPegs] = useState([])
     const [card, setCard] = useState()
-    const [newBoard, setBoard] = useState(true)
     const [cards, setCards] = useState([])
     const [player, setPlayer] = useState()
-    // const [socket, setSocket] = useState(null);
-    // const [moveInput, setMoveInput] = useState('');
-    // const [response, setResponse] = useState('Connected to server')
+    const [turn, setTurn] = useState(false);
+    const [socket, setSocket] = useState(null);
+    const [moveInput, setMoveInput] = useState('');
+    const [response, setResponse] = useState('Connected to server')
 
-    // useEffect(() => {
-    //     // Connect to the server
-    //     const newSocket = io('http://localhost:3306', { path: '/game/socket.io' });
-    //     setSocket(newSocket);
+    useEffect(() => {
+        // Connect to the server
+        const newSocket = io('http://localhost:3306', { path: '/game/socket.io' });
+        setSocket(newSocket);
     
-    //     // Listen for connection event
-    //     newSocket.on('connect', () => {
-    //         console.log('Connected to server');
-    //         setResponse('Connected to server');
-    //     });
+        // Listen for connection event
+        newSocket.on('connect', () => {
+            console.log('Connected to server');
+            setResponse('Connected to server');
+        });
     
-    //     // Listen for disconnect event
-    //     newSocket.on('disconnect', () => {
-    //         console.log('Disconnected from server');
-    //         setResponse('Disconnected from server');
-    //     });
+        // Listen for disconnect event
+        newSocket.on('disconnect', () => {
+            console.log('Disconnected from server');
+            setResponse('Disconnected from server');
+        });
 
-    //     newSocket.on('moveResponse', (response) => {
-    //         console.log('Received move response:', response);
-    //         // Handle the response here, such as updating the UI
-    //         setResponse('Recieved response: ' + response)
-    //     });
+        newSocket.on('moveResponse', (response) => {
+            console.log('Received move response:', response);
+            // Handle the response here, such as updating the UI
+            setResponse('Recieved response: ' + response)
+        });
     
-    //     // Clean up on unmount
-    //     return () => {
-    //         newSocket.disconnect();
-    //     };
-    // }, []);
+        // Clean up on unmount
+        return () => {
+            newSocket.disconnect();
+        };
+    }, []);
     
-    // const sendMove = (moveData) => {
-    //     if (socket) {
-    //         socket.emit('move', moveData);
-    //     }
-    // };
+    const sendMove = (moveData) => {
+        if (socket) {
+            socket.emit('move', moveData);
+        }
+    };
 
-    // const handleInputChange = (event) => {
-    //     setMoveInput(event.target.value);
-    // };
+    const handleInputChange = (event) => {
+        setMoveInput(event.target.value);
+    };
 
-    // const handleSendMove = () => {
-    //     sendMove(moveInput);
-    //     setMoveInput(''); // Clear the input after sending
-    // };
+    const handleSendMove = () => {
+        sendMove(moveInput);
+        setMoveInput(''); // Clear the input after sending
+    };
+
+    useEffect(() => {
+        setTurn(instance === player)
+    }, [instance, player])
+
+    useEffect(() => {
+        console.log(newBoard);
+    }, [newBoard])
 
     return (
     <div className='game-page' data-testid="game-page">
@@ -74,15 +83,16 @@ function Game() {
             </div>
         
             <div className='game-body'>
-                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} newBoard={newBoard} setBoard={setBoard} setCards={setCards} setPlayer={setPlayer}/> 
+                <Board setCard={setCard} setPegs={setPegs} pegs={pegs} newBoard={newBoard} setBoard={setBoard} setCards={setCards} setPlayer={setPlayer} user={instance} turn={turn}/> 
             </div>
-
-            <div className='side-bar'>
-                <SideBar pegs={pegs} card={card} setCard={setCard} setPegs={setPegs} setBoard={setBoard} player={player}/>
-            </div>
+            {turn && (
+                <div className='side-bar'>
+                    <SideBar pegs={pegs} card={card} setCard={setCard} setPegs={setPegs} setBoard={setBoard} player={player}/>
+                </div>
+            )}
         </div>
     </div>
-)
+    )
 }
 
 export default Game
