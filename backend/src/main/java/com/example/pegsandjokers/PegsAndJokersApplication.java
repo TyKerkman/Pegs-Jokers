@@ -33,7 +33,7 @@ public class PegsAndJokersApplication {
             }
         });
 
-        server.addEventListener("move", String.class, new DataListener<String>() {
+        server.addEventListener("updateBoard", String.class, new DataListener<String>() {
             public void onData(SocketIOClient client, String data, AckRequest ackRequest) throws Exception {
                 System.out.println("Received move: " + data);
                 // Handle the move here

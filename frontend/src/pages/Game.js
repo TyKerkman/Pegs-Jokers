@@ -10,16 +10,18 @@ import { Hand } from '../components/Hand';
 import io from 'socket.io-client';
 
 
-function Game({user, newBoard, setBoard}) {
+function Game({user}) {
     const instance = {user}.user;
     const [pegs, setPegs] = useState([])
     const [card, setCard] = useState()
     const [cards, setCards] = useState([])
     const [player, setPlayer] = useState()
+    const [newBoard, setBoard] = useState(true)
     const [turn, setTurn] = useState(false);
     const [socket, setSocket] = useState(null);
     const [moveInput, setMoveInput] = useState('');
     const [response, setResponse] = useState('Connected to server')
+
 
     useEffect(() => {
         // Connect to the server
@@ -49,29 +51,16 @@ function Game({user, newBoard, setBoard}) {
             newSocket.disconnect();
         };
     }, []);
-    
-    const sendMove = (moveData) => {
+
+    useEffect(() => {
         if (socket) {
-            socket.emit('move', moveData);
+            socket.emit('updateBoard', "UPDATE BOARD");
         }
-    };
-
-    const handleInputChange = (event) => {
-        setMoveInput(event.target.value);
-    };
-
-    const handleSendMove = () => {
-        sendMove(moveInput);
-        setMoveInput(''); // Clear the input after sending
-    };
+    }, [newBoard]);
 
     useEffect(() => {
         setTurn(instance === player)
     }, [instance, player])
-
-    useEffect(() => {
-        console.log(newBoard);
-    }, [newBoard])
 
     return (
     <div className='game-page' data-testid="game-page">
